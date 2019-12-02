@@ -1,0 +1,101 @@
+body,
+input,
+textarea,
+select,
+button {
+  font-family: 'PT Sans Narrow', sans-serif;
+  color: #333;
+  font-size: 16px;
+  letter-spacing: 1.2px;
+}
+
+.table-image {
+  line-height: 1.4;
+  /* background-image: url('../images/mesa.jpg'); */
+  background-size: cover;
+}
+
+
+input,
+textarea {
+  border: 1px solid #dadada;
+  border-radius: 0;
+  height: 2.5rem;
+  padding: 0 10px;
+}
+
+a {
+  text-decoration: none !important;
+  color: #333;
+  &:active {
+      color: rgba(#fff, 0.8);
+  }
+}
+
+// contenedores
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.half-page {
+  min-height: calc(50vh - 35px);
+}
+
+.main {
+  &-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: calc(100vh - 200px);
+  }
+  &__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  }
+  &__dark {
+    background-color: $dark-pink;
+    box-shadow: inset 0 0 50px rgba(51, 2, 38, 0.9);
+    
+  }
+  &__separator-m {
+    margin-bottom: 30px;
+  }
+  &__separator-l {
+    margin-bottom: 50px;
+  }
+  &__rows {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-height: calc(50vh - 35px);
+  }
+}
+
+//footer
+footer {
+  min-height: 60px; 
+  background: linear-gradient(transparent 0%, rgba(212, 34, 212, 0.15) 100%);
+}
+.footer {
+  &-flexbox {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 10px;
+  }
+  &-text {
+    color: #fff;
+    font-size: 0.8rem;
+  }
+}
+
+footer>div>p {
+  color: #fff;
+  font-size: 0.8rem;
+}
+
