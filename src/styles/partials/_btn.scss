@@ -1,0 +1,102 @@
+.btn {
+   background-color: $dark-pink;
+   color: #fff;
+   text-transform: uppercase;
+   border: none;
+   border-radius: 5px;
+   min-height: 40px;
+   outline: 0;
+   box-shadow: 0 0 3px #333;
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   padding: 0 10px;
+   &:hover  {
+      cursor: pointer;
+      box-shadow: 0 0 10px $dark-pink;
+      transform: scale(1.02);
+   }
+   &--empty {
+       background-color: transparent;
+       color: $dark-pink;
+       font-weight: 700;
+       border: $pink-border;
+       box-shadow: 0 0 3px $dark-pink;
+       &:hover  {
+         box-shadow: 0 0 6px $dark-pink;
+      }
+   }
+   /* &--white {
+      background-color: #fff;
+      color: $pink;
+   }
+   &--lg {
+      font-size: 1.5rem;
+      height: 50px;
+      width: 200px;
+   }
+   &--xl {
+      font-size: 1.5rem;
+      height: 60px;
+      width: 500px;
+      cursor: pointer;
+      &:hover  {
+         box-shadow: 0 0 20px #fff;
+         font-weight: 700;
+      }
+   }
+   &--whatsapp {
+      background-color: #25D366;
+      color: #fff;
+      min-width: 390px;
+      min-height: 25px;
+      font-size: 12px;
+   }
+   &--services {
+      background-color: #fff;
+      font-size: 1.5rem;
+      color: #333;
+      min-width: 200px;
+      min-height: 75px;
+      &:hover {
+         box-shadow: 0 0 20px $pink;
+         transform: scale(1.02);
+      }
+      &:active {
+         color:#333;
+      }
+   } */
+} // --fin btn--
+
+
+/* hover rosa*/
+.moved-hvr {
+   display: block;
+   overflow: hidden;
+   position: relative;
+   color: $pink;
+   background-color: #fff;
+   transition: color 1s;
+   & span {
+      position: relative;
+      z-index: 1; 
+   }
+   &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 700px;
+      width: 700px;
+      background: $pink;
+      transition: all .5s ease-in-out;
+      transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    }
+   &:hover {
+      color: #fff;
+      &:after {
+         transform: translateX(-9%) translateY(-25%) rotate(45deg);
+       }
+    }
+ } // -- fin moved hvr --
+ 
