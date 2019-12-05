@@ -4,13 +4,19 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
-import { SliderComponent } from './components/slider/slider.component';
+import { LandingComponent } from './components/landing/landing.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterWeddingComponent } from './components/register-wedding/register-wedding.component';
+import { WeddingComponent } from './components/wedding/wedding.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    SliderComponent
+    LandingComponent,
+    LoginComponent,
+    RegisterWeddingComponent,
+    WeddingComponent
   ],
   imports: [
     BrowserModule,
