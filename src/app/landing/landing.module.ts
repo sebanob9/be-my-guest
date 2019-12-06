@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
+import { SharedModule } from '../shared/shared.module';
+import { LandingComponent } from './components/landing/landing.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [LandingComponent],
   imports: [
-    CommonModule
+    SharedModule
   ]
 })
 export class LandingModule { }
