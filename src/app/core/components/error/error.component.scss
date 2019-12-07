@@ -1,27 +1,29 @@
-:host {
+/* :host {
   display: flex;
   flex-grow: 1;
   justify-content: center;
   align-items: center;
-}
+} */
+@import "../../../../styles/partials/variables";
 
 .error {
-  font-style: italic;
   text-align: center;
-  color: blue;
+
+  &__title {
+    font-size: 6rem;
+    font-weight: 700;
+    margin: 25px 0 25px 0;
+  }
+  &__num {
+    color: $dark-pink;
+  }
 
   &__text {
-    font-size: 5rem;
-    font-weight: 700;
-    font-family: 'Ubuntu', sans-serif;
-  }
-
-  &__code {
-    color: orange;
-  }
-
-  &__description {
     margin-top: 1rem;
-    font-size: 3rem;
+    font-size: 2.5rem;
+    margin-top: 25px;
+  }
+  &__img {
+    margin: 0 15px;
   }
 }

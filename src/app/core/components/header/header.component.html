@@ -1,32 +1,13 @@
-<div class="container header__flexbox">
-  <img class="logo" src="../../../../assets/img/logo.png" height='80' alt="mesa de bodas">
+<div class="maincontainer header__flexbox">
+  <img routerLink='/wedding' class="logo" src="../../../../assets/img/logo.png" height='80' alt="mesa de bodas">
   <nav class="navbar">
+      <a routerLink='/wedding' class="navbar__item">Home</a>
       <a href="#" class="navbar__item">Blog</a>
       <a href="#" class="navbar__item">¿Te casas?</a>
       <a href="#" class="navbar__item">Contacto</a>
-      <a href="#sent-password" role="button" class="button">Nuevo ususario</a>
-      <a href="#sent-password" role="button" class="button button--empty">Acceder</a>
+      <a routerLink='/register' href="#sent-password" role="button" class="button button--empty">Nuevo ususario</a>
+      <a routerLink='/login' href="#sent-password" role="button" class="button ">Acceder</a>
+      
 
   </nav>  
 </div>
-
-<!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
-      <img src="../../../../assets/img/logoWhite.png" width=150>
-     
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink='home'>Home</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink='search'>Search</a>
-        </li>
-      </ul> 
-    </div>
-  </nav> -->

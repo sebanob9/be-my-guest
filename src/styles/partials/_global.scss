@@ -6,7 +6,7 @@ button {
   font-family: 'Solway', serif;
   color: #333;
   font-size: 16px;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.3px;
 }
 
 .table-image {
@@ -33,22 +33,19 @@ a {
 }
 
 // contenedores
-.container {
-  max-width: 1200px;
+.maincontainer {
+  max-width: 1250px;
   margin: 0 auto;
   width: 100%;
 }
 
-.half-page {
-  min-height: calc(50vh - 35px);
-}
-
 .main {
+  height: calc(100vh - 120px);
   &-left {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  height: calc(100vh - 200px);
+  
   }
   &__center {
   display: flex;
@@ -99,3 +96,8 @@ footer>div>p {
   font-size: 0.8rem;
 }
 
+
+
+/* .half-page {
+  min-height: calc(50vh - 35px);
+} */

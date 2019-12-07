@@ -1,1 +1,55 @@
-<p>login works!</p>
+<div class="table-image">
+  <main class="main-left">
+    <div class="maincontainer">
+      <form action="..." method="get" class="form">
+        <div class="form__group--center">
+          <h1 class="form__title">Iniciar sesión</h1>
+        </div>
+        <div class="form__group">
+          <label for="user" class="form-group__label">Usuario</label>
+          <input type="text" size=auto id="user" required class="form__group-control">
+        </div>
+        <div class="form__group">
+          <label for="password" class="form-group__label">Contraseña</label>
+          <input type="password" id="password" required class="form__group-control">
+        </div>
+        <div class="form__group form__group--right">
+          <a href="#remember-password" role="button">Recordar contraseña</a>
+        </div>
+        <div class="form__group--center">
+            <a href="#sent-password" role="button" class="button">Acceder</a>
+        </div>
+      </form>
+
+      <!-- modal-->
+      <div id="remember-password" class="password-modal">
+        <div class="password-modal__body">
+          <form action="..." method="get" class="form">
+            <div class="form-group--center">
+              <h2 class="form__title--sm">Recordar contraseña</h2>
+            </div>
+            <div class="form-group">
+              <label for="remember-email" class="form-group__label">Email</label>
+              <input type="email" size=auto id="remember-email" placeholer="" required class="form-group__control">
+            </div>
+            <div class="form-group--center">
+              <a href="#sent-password" role="button" class="btn btn--lg">Enviar</a>
+              </div>
+          </form>
+          <a href="#" class="password-modal__close">&times;</a>
+        </div>
+      </div>
+      <!-- fin modal-->
+
+      <!-- modal2-->
+     <!--  <div id="sent-password" class="password-modal">
+        <div class="password-modal__body form form--login form-group--center">
+          <p>En un momento recibirá un enlace en su correo para restablecer su contraseña</p>
+          <a href="#" class="password-modal__close">&times;</a>
+        </div>
+      </div> -->
+      <!-- fin modal-->
+      <div class="form__group--center form__empty ">
+            <button routerLink='/register' type="button" class="button button--xl moved-hvr"><span>Darse de alta</span></button>
+    </div>
+    </div>
