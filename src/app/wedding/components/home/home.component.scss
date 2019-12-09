@@ -1,0 +1,23 @@
+ @import "../../../../styles/partials/variables";
+ .banner--img {
+       
+        background-image: url('../../../../assets/img/back3.jpg');
+        background-size: cover;
+
+    }
+
+.home-menu {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    &__item {
+        color: $dark-pink;
+        &.active {
+            background-color: $dark-pink;
+            color: #fff;
+        }
+    }
+}
