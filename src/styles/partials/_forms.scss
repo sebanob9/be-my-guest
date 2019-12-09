@@ -1,13 +1,9 @@
 .form {
-   background-color: rgba(255, 255, 255, 0.8);
+   background-color: rgba(255, 255, 255, 0.9);
    max-width: 500px;
    padding: 25px;
    border-radius: $main-border-radius;
-    &:hover, &:active,
-    {
-        background-color: rgba(255, 255, 255, 0.95  );
-    }
-   &__empty {
+      &__empty {
       max-width: 500px;
       padding-bottom: 25px;
       border-radius: $main-border-radius;

@@ -1,1 +1,183 @@
-<p>guest-confirmation works!</p>
+<body class="table-image">
+  <!--   <header class="header--sm">
+        <div class="container main--center">
+            <img class="logo" src="assets/images/33.png" height="60">
+        </div>
+    </header> -->
+  <main>
+    <div class="banner">
+      <h1 class="banner__title">Enrique & Apolonia</h1>
+      <p class="banner__data">25 Noviembre 2020<p>
+          <p class="banner__data">Finca Prados Moros<p>
+    </div>
+    <div class="main__center">
+      <form action="..." method="get" class="form form--register">
+        <div class="form__group--center">
+          <h1 class="form__title">Confirmar asistencia</h1>
+        </div>
+
+        <label for="friend-of" class="form__group__label">Amigo de...</label>
+        <div class="radio__form radio__form--centred">
+          <label class="radio radio--btn">
+            <input type="radio" name="couple" id="bride-friend" class="radio__control">
+            <span class="radio__custom">
+              Novia
+            </span>
+          </label>
+          <label class="radio radio--btn">
+            <input type="radio" name="couple" id="groom-friend" class="radio__control">
+            <span class="radio__custom">
+              Novio
+            </span>
+          </label>
+        </div>
+        <div class="form-group form-group--access">
+          <label for="guest_name" class="form-group__label">Nombre</label>
+          <input type="text" id="guest_name" required class="form__group-control form__group-control--access">
+        </div>
+
+        <label for="has-couple" class="form-group__label">¿Vienes acompañado?</label>
+
+        <div class="radio__form radio__form--centred">
+          <label class="radio radio--btn" for="no-couple">
+            <input (click)="showcompanion = false" type="radio" name="has-couple" id="no-couple" class="radio__control">
+            <span class="radio__custom">
+              No
+            </span>
+          </label>
+          <label  class="radio radio--btn" for="yes-couple">
+            <input (click)="showcompanion = !showcompanion  " type="radio" onClick="show()" name="has-couple" id="yes-couple" class="radio__control">
+            <span  class="radio__custom">
+              Si
+            </span>
+          </label>
+        </div>
+
+
+        <div *ngIf="showcompanion" class="form-group form-group--access">
+          <label for="couple-name" class="form-group__label">Nombre pareja</label>
+          <input type="text" id="couple-name" class="form__group-control form__group-control--access">
+        </div>
+
+        <label for="friend-of" class="form-group__label">Conozco a los novios de...</label>
+
+        <div class="radio__form--expanded">
+          <label class="radio radio--btn">
+            <input type="checkbox" class="radio__control">
+            <span class="radio__custom">
+              Colegio
+            </span>
+          </label>
+          <label class="radio radio--btn">
+            <input type="checkbox" class="radio__control">
+            <span class="radio__custom">
+              Uni
+            </span>
+          </label>
+          <label class="radio radio--btn">
+            <input type="checkbox" class="radio__control">
+            <span class="radio__custom">
+              Futbol
+            </span>
+          </label>
+          <label class="radio radio--btn">
+            <input type="checkbox" class="radio__control">
+            <span class="radio__custom">
+              Pueblo
+            </span>
+          </label>
+          <label class="radio radio--btn">
+            <input type="checkbox" class="radio__control">
+            <span class="radio__custom">
+              Boream
+            </span>
+          </label>
+          <label class="radio radio--btn">
+            <input type="checkbox" class="radio__control">
+            <span class="radio__custom">
+              Baile
+            </span>
+          </label>
+          <label class="radio radio--btn">
+            <input type="checkbox" class="radio__control">
+            <span class="radio__custom">
+              Master
+            </span>
+          </label>
+          <label class="radio radio--btn">
+            <input type="checkbox" class="radio__control">
+            <span class="radio__custom">
+              Musica
+            </span>
+          </label>
+        </div>
+
+        <div class="form-group form-group--access">
+          <label for="phone" class="form-group__label">Teléfono</label>
+          <input type="tel" id="phone" class="form__group-control form__group-control--access">
+        </div>
+
+        <!-- <div class="form-group form-group--access content-select">
+                    <label for="allergies" class="form-group__label">¿Tienes alguna incompatibilidad alimenticia?</label>
+                    <select id="allergies" class="form__group-control">
+                        <option selected>Ninguna</option>
+                        <option value="lactosa">Lactosa</option>
+                        <option value="gluten">Gluten</option>
+                        <option value="pescado">Pescado</option>
+                        <option value="queso">Queso</option>
+                        <option value="cebolla">Cebolla</option>
+                        <option value="marisco">Marisco</option>
+                        <option value="chocolate">Chocolate</option>
+
+                    </select>
+                </div>  -->
+
+
+        <div class="form-group form-group--access dropdown">
+          <label for="allergies" class="form-group__label">¿Tienes alergia a algún alimento?</label>
+          <a class="dropdown__btn" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+            <input type="tel" id="allergies" readonly
+              class="dropdown form__group-control form__group-control--access"></a>
+          <div class="dropdown__menu" aria-labelledby="dropdownMenuButton">
+            <label class="radio--block">
+              <input type="checkbox" class="radio__control">
+              <span class="radio__checkbox radio__checkbox--success">
+                No tengo alergias
+              </span>
+            </label>
+            <div aria-hidden="true" class="dropdown__menu--divider"></div>
+            <label class="radio--block">
+              <input type="checkbox" class="radio__control">
+              <span class="radio__checkbox">
+                Quesos
+              </span>
+            </label>
+            <label class="radio--block">
+              <input type="checkbox" class="radio__control">
+              <span class="radio__checkbox">
+                Marisco
+              </span>
+            </label>
+            <label class="radio--block">
+              <input type="checkbox" class="radio__control">
+              <span class="radio__checkbox">
+                Pescado
+              </span>
+            </label>
+            <label class="radio--block">
+              <input type="checkbox" class="radio__control">
+              <span class="radio__checkbox">
+                Gluten
+              </span>
+            </label>
+
+          </div>
+        </div>
+
+
+        <div class="form__group--center">
+          <button type="submit" class="button button--lg">Voy a la boda!</button>
+        </div>
+      </form>
+    </div>
+  </main>

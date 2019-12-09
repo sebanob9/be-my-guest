@@ -7,12 +7,14 @@ import { GuestPresentsComponent } from './components/guest-presents/guest-presen
 
 import { GuestRoutingModule } from './guest-routing.module';
 
+import { CommonModule } from '@angular/common';  
 
 @NgModule({
   declarations: [GuestLandingComponent, GuestConfirmationComponent, GuestPresentsComponent],
   imports: [
     SharedModule,
-    GuestRoutingModule
+    GuestRoutingModule,
+    CommonModule
   ]
 })
 export class GuestModule { }
