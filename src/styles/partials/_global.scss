@@ -52,19 +52,18 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
   }
   &__dark {
     background-color: $dark-pink;
     box-shadow: inset 0 0 50px rgba(51, 2, 38, 0.9);
     
   }
-  &__separator-m {
+/*   &__separator-m {
     margin-bottom: 30px;
   }
   &__separator-l {
     margin-bottom: 50px;
-  }
+  } */
   &__rows {
     display: flex;
     align-items: center;

@@ -1,7 +1,9 @@
 @import "../../../../styles/partials/variables";
 .table-image {
 line-height: 1.4;
-background-image: url('../../../../assets/img/sitting.jpg');
+background: url('../../../../assets/img/sitting.jpg') fixed;
+width: 100%;
+height: auto;
 background-size: cover;
 }
 

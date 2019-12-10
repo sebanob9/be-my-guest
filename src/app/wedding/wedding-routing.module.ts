@@ -8,11 +8,16 @@ import { GuestSortComponent } from './components/guest-sort/guest-sort.component
 import { PresentListComponent } from './components/present-list/present-list.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'gallery', component: GalleryComponent },
-  { path: 'guest-list', component: GuestListComponent },
-  { path: 'guest-sort', component: GuestSortComponent },
-  { path: 'present-list', component: PresentListComponent },
+  {
+    path: '', 
+    component: HomeComponent, 
+    children: [
+      { path: 'gallery', component: GalleryComponent },
+      { path: 'guest-list', component: GuestListComponent },
+      { path: 'guest-sort', component: GuestSortComponent },
+      { path: 'present-list', component: PresentListComponent }
+    ]
+  },
 ];
 
 @NgModule({

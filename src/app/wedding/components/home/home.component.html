@@ -1,5 +1,3 @@
-<router-outlet></router-outlet>
-
 <div class="banner banner--img">
   <h1 class="banner__title">Enrique & Apolonia</h1>
   <p class="banner__data">25 Noviembre 2020<p>
@@ -26,21 +24,24 @@
   <div class="maincontainer">
     <ul class="home-menu nav">
         <li class="nav-item">
-            <a class="home-menu__item" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+            <a routerLink='/wedding'
+            class="home-menu__item" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
               aria-controls="pills-home" aria-selected="true">Home</a>
           </li>
           <li class="nav-item">
-              <a class="home-menu__item" id="pills-tables-tab" data-toggle="pill" href="#pills-tables" role="tab"
+              <a routerLink='/wedding/guest-sort' class="home-menu__item" id="pills-tables-tab" data-toggle="pill" href="#pills-tables" role="tab"
                 aria-controls="pills-tables" aria-selected="true">Ordenar mesa</a>
             </li>
             <li class="nav-item">
-                <a class="home-menu__item" id="pills-gallery-tab" data-toggle="pill" href="#pills-gallery" role="tab"
+                <a routerLink='/wedding/gallery' class="home-menu__item" id="pills-gallery-tab" data-toggle="pill" href="#pills-gallery" role="tab"
                   aria-controls="pills-gallery" aria-selected="true">Galeria de fotos</a>
             </li>
             <li class="nav-item">
-                <a class="home-menu__item" id="pills-guests-tab" data-toggle="pill" href="#pills-guests" role="tab"
+                <a routerLink='/wedding/guest-list' class="home-menu__item" id="pills-guests-tab" data-toggle="pill" href="#pills-guests" role="tab"
                   aria-controls="pills-guests" aria-selected="true">Invitados confirmados</a>
               </li>
     </ul>
+
+    <router-outlet></router-outlet>
 
   </div>
