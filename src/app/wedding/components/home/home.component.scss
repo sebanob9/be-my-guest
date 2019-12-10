@@ -13,11 +13,15 @@
     padding-left: 0;
     margin-bottom: 0;
     list-style: none;
+    margin:15px 0;
+   
     &__item {
-        color: $dark-pink;
+        padding: 15px 50px;
         &.active {
-            background-color: $dark-pink;
-            color: #fff;
+            border-bottom: 2px solid $dark-pink;
+            font-weight: 700;
+            font-size: 1.1rem;
         }
     }
 }
+ 

@@ -1,5 +1,5 @@
 <div class="banner banner--img">
-  <h1 class="banner__title">Enrique & Apolonia</h1>
+  <h1 class="banner__title">Cupido & Apolonia</h1>
   <p class="banner__data">25 Noviembre 2020<p>
       <p class="banner__data">Finca Prados Moros<p>
 </div>
@@ -24,7 +24,7 @@
   <div class="maincontainer">
     <ul class="home-menu nav">
         <li class="nav-item">
-            <a routerLink='/wedding'
+            <a routerLink='/wedding' roterLinkActive="active"
             class="home-menu__item" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
               aria-controls="pills-home" aria-selected="true">Home</a>
           </li>
@@ -33,12 +33,17 @@
                 aria-controls="pills-tables" aria-selected="true">Ordenar mesa</a>
             </li>
             <li class="nav-item">
-                <a routerLink='/wedding/gallery' class="home-menu__item" id="pills-gallery-tab" data-toggle="pill" href="#pills-gallery" role="tab"
+                <a routerLink='/wedding/gallery' roterLinkActive="active"
+                class="home-menu__item" id="pills-gallery-tab" data-toggle="pill" href="#pills-gallery" role="tab"
                   aria-controls="pills-gallery" aria-selected="true">Galeria de fotos</a>
             </li>
             <li class="nav-item">
                 <a routerLink='/wedding/guest-list' class="home-menu__item" id="pills-guests-tab" data-toggle="pill" href="#pills-guests" role="tab"
                   aria-controls="pills-guests" aria-selected="true">Invitados confirmados</a>
+              </li>
+              <li class="nav-item">
+                <a routerLink='/wedding/present-list' class="home-menu__item" id="pills-guests-tab" data-toggle="pill" href="#pills-guests" role="tab"
+                  aria-controls="pills-guests" aria-selected="true">Gestionar regalos</a>
               </li>
     </ul>
 
