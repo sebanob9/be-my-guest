@@ -8,6 +8,7 @@ import { GuestListComponent } from './components/guest-list/guest-list.component
 import { GuestSortComponent } from './components/guest-sort/guest-sort.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { PresentListComponent } from './components/present-list/present-list.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -16,6 +17,7 @@ import { PresentListComponent } from './components/present-list/present-list.com
   declarations: [HomeComponent, GuestListComponent, GuestSortComponent, GalleryComponent, PresentListComponent],
   imports: [
     SharedModule,
+    CommonModule,
     WeddingRoutingModule
   ]
 })

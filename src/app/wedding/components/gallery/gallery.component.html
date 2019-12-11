@@ -1,1 +1,7 @@
-<p>gallery works!</p>
+<div>
+    <ul *ngIf="imageList">
+        <li *ngFor="let image of imageList">
+            <img [src]="image.imageUrl" (click)="editImage($event)" value="holamundo">
+        </li>
+    </ul>
+</div>

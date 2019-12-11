@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'guest', loadChildren: () => import('./guest/guest.module').then(mod => mod.GuestModule)},
   {path: 'landing', component: LandingComponent},
   {path: 'login', component: LoginComponent},  
-  {path: 'register', component: RegisterComponent},  
+  {path: 'register', component: RegisterComponent},
   {path: '**', component: ErrorComponent}
 ];
 
