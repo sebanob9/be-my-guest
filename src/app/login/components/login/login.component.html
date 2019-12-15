@@ -17,73 +17,44 @@
           <a data-toggle="modal" data-target="#rememberPassword" role="button">Recordar contraseña</a>
         </div>
         <div class="form__group--center">
-            <a href="#sent-password" role="button" class="button">Acceder</a>
+          <a href="#sent-password" role="button" class="button">Acceder</a>
         </div>
       </form>
 
-<!------------------ MODAL --------------------------->
+      <!------------------ MODAL --------------------------->
 
-<div class="modal fade" id="rememberPassword" tabindex="-1" role="dialog" aria-labelledby="rememberPasswordLabel" aria-hidden="true">
-  
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <!-- <div class="modal-header">
-        <h5 class="form__title--sm">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div> -->
-      <div class="modal-body">
-        <form action="..." method="get" class="form">
-          <div class="form__group--center">
-            <h2 class="form__title--sm">Recordar contraseña</h2>
+      <div class="modal fade" id="rememberPassword" tabindex="-1" role="dialog" aria-labelledby="rememberPasswordLabel"
+        aria-hidden="true">
+
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <form action="..." method="get" class="form">
+                <div class="form__group--center">
+                  <h2 class="form__title--sm">Recordar contraseña</h2>
+                </div>
+                <div class="form-group">
+                  <label for="remember-email" class="form-group__label">Email</label>
+                  <input type="email" size=auto id="remember-email" placeholer="" required class="form__group-control">
+                </div>
+                <div class="form__group--center">
+                  <a data-dismiss="modal" data-toggle="modal" data-target="#sentPassword" role="button"
+                    class="button button--lg">Enviar</a>
+                </div>
+              </form>
+            </div>
+            <a data-dismiss="modal" class="password-modal__close">&times;</a>
           </div>
-          <div class="form-group">
-            <label for="remember-email" class="form-group__label">Email</label>
-            <input type="email" size=auto id="remember-email" placeholer="" required class="form__group-control">
-          </div>
-          <div class="form__group--center">
-            <a data-dismiss="modal" role="button" class="button button--lg">Enviar</a>
-            </div>
-        </form>
-      </div>
-        <a data-dismiss="modal" class="password-modal__close">&times;</a>
-        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button> -->
-    </div>
-  </div>
-</div>
-
-
-      <!-- modal-->
-      <div id="remember-password" class="password-modal">
-        <div class="password-modal__body">
-          <form action="..." method="get" class="form">
-            <div class="form-group--center">
-              <h2 class="form__title--sm">Recordar contraseña</h2>
-            </div>
-            <div class="form-group">
-              <label for="remember-email" class="form-group__label">Email</label>
-              <input type="email" size=auto id="remember-email" placeholer="" required class="form-group__control">
-            </div>
-            <div class="form-group--center">
-              <a href="#sent-password" role="button" class="btn btn--lg">Enviar</a>
-              </div>
-          </form>
-          <a href="#" class="password-modal__close">&times;</a>
         </div>
       </div>
-      <!-- fin modal-->
 
       <!-- modal2-->
-     <!--  <div id="sent-password" class="password-modal">
-        <div class="password-modal__body form form--login form-group--center">
-          <p>En un momento recibirá un enlace en su correo para restablecer su contraseña</p>
-          <a href="#" class="password-modal__close">&times;</a>
+      <div class="modal fade" id="sentPassword" tabindex="-1" role="dialog" aria-labelledby="sentPasswordLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="password-modal__body form form--login form-group--center">
+            <p>En un momento recibirá un enlace en su correo para restablecer su contraseña</p>
+            <a data-dismiss="modal" class="password-modal__close">&times;</a>
+          </div>
         </div>
-      </div> -->
-      <!-- fin modal-->
-      <div class="form__group--center form__empty ">
-            <button routerLink='/register' type="button" class="button button--xl moved-hvr"><span>Darse de alta</span></button>
-    </div>
-    </div>
+      </div>

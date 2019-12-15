@@ -1,10 +1,104 @@
+@import "../../../../styles/partials/variables";
+
 .table-image {
 line-height: 1.4;
 background-image: url('../../../../assets/img/sunset.jpg');
 background-size: cover;
-
 }
-
-body {
+/* body {
     overflow: hidden;
+}
+ */
+ .radio {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+   /*  min-height: 60px;
+    min-width: 60px; */
+    cursor: pointer;
+
+    &__control {
+        position: absolute;
+        display: none;
+        
+        &:checked~.radio__custom {
+            background-color: transparent;
+            border: 3px solid $dark-pink;
+            box-shadow: 0 0 5px $dark-pink;
+        }
+    }
+/*         &:checked~.radio__checkbox {
+            background-color: $dark-pink;
+            color: #fff;
+        } */
+
+        /* &:checked~.radio__checkbox--success {
+            background-color: yellow;
+            color: #fff;  
+        } */
+
+   // -- final radio control --
+    
+    &__custom {
+        position: static;
+        width: 150px;
+        min-height: 35px;
+        padding: 3px 16px;
+        border: $pink-border;
+        background-color: transparent;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: $main-border-radius;
+        &--none {
+            display: inline-block;
+        }
+        &::before {
+            content: "";
+            height: 6px;
+            width: 6px;
+            background-color: #333;
+            border-radius: 1px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+    }
+    &__checkbox {
+        position: static;
+        width: auto;
+        min-height: 35px;
+        padding: 3px 16px;
+        background-color: transparent;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: $main-border-radius;
+    }
+
+    &__btn {
+        flex: 0 1 calc(25% - 5px);
+        margin-top: 5px;
+        margin-bottom: 5px;
+        & .radio__custom::before {
+            display: none;
+        }
+    }
+} // ---final radio btn ---
+
+
+.radio__form {
+    margin-top:10px;
+    margin-bottom: 10px;
+    &--centred {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center; 
+        margin-bottom: 15px;
+        label + label {
+            margin-left: 30px;
+        }
+    }
 }

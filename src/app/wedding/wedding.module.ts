@@ -8,12 +8,13 @@ import { GuestListComponent } from './components/guest-list/guest-list.component
 import { GuestSortComponent } from './components/guest-sort/guest-sort.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { PresentListComponent } from './components/present-list/present-list.component';
+import { MyEventComponent } from './components/my-event/my-event.component';
 
 
 
 
 @NgModule({
-  declarations: [HomeComponent, GuestListComponent, GuestSortComponent, GalleryComponent, PresentListComponent],
+  declarations: [HomeComponent, GuestListComponent, GuestSortComponent, GalleryComponent, PresentListComponent, MyEventComponent],
   imports: [
     SharedModule,
     WeddingRoutingModule

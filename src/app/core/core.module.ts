@@ -10,6 +10,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { ErrorComponent } from './components/error/error.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LandingComponent } from '../landing/components/landing/landing.component';
+import { BlogComponent } from './components/header/components/blog/blog.component';
+import { ContactComponent } from './components/header/components/contact/contact.component';
+import { AboutComponent } from './components/header/components/about/about.component';
 
 const COMPONENTS = [
   ErrorComponent,
@@ -26,7 +29,7 @@ const MODULES = [
 
 
 @NgModule({
-  declarations: [...COMPONENTS],
+  declarations: [...COMPONENTS, BlogComponent, ContactComponent, AboutComponent],
   imports: [
     RouterModule,
     BrowserModule

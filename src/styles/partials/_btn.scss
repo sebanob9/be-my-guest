@@ -86,6 +86,118 @@
   } // -- fin moved hvr --
 
 
+ // ------ RADIO BUTTON ------------ //
+.radio {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    min-height: 18px;
+    min-width: 60px;
+    cursor: pointer;
+    &--block {
+        display: block;
+        border: none;
+    }
+    &__control {
+        position: absolute;
+        display: none;
+        &:checked~.radio__custom {
+            background-color: $dark-pink;
+            color: #fff;
+        }
+    }
+/*         &:checked~.radio__checkbox {
+            background-color: $dark-pink;
+            color: #fff;
+        } */
+
+        /* &:checked~.radio__checkbox--success {
+            background-color: yellow;
+            color: #fff;  
+        } */
+
+   // -- final radio control --
+    
+    &__custom {
+        position: static;
+        width: auto;
+        min-height: 35px;
+        padding: 3px 16px;
+        border: $pink-border;
+        background-color: transparent;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: $main-border-radius;
+        &--none {
+            display: inline-block;
+        }
+        &::before {
+            content: "";
+            height: 6px;
+            width: 6px;
+            background-color: #333;
+            border-radius: 1px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+    }
+    &__checkbox {
+        position: static;
+        width: auto;
+        min-height: 35px;
+        padding: 3px 16px;
+        background-color: transparent;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: $main-border-radius;
+    }
+
+    &__btn {
+        flex: 0 1 calc(25% - 5px);
+        margin-top: 5px;
+        margin-bottom: 5px;
+        & .radio__custom::before {
+            display: none;
+        }
+    }
+} // ---final radio button ---
+
+.radio__form {
+    margin-top:15px;
+    margin-bottom: 15px;
+    &--expanded {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+    &--centred {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center; 
+        margin-bottom: 15px;
+        label + label {
+            margin-left: 30px;
+        }
+    }
+}
+
+.checkbox--btn {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    min-height: 20px;
+    cursor: pointer;
+}
+
+
+
 //====================================
 
     /* &--white {
