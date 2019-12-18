@@ -36,7 +36,20 @@ export class MyEventComponent {
     if (input) {
       input.value = '';
     }
+    
   }
+
+  /* add(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+    let list = [];
+    if (localStorage.getItem("chips")) {
+      let list = JSON.parse(localStorage.getItem("chips"));
+    }
+   
+    list.push(event.value);
+    localStorage.setItem("chips", JSON.stringify(list));
+  } */
 
   remove(fruit: Fruit): void {
     const index = this.fruits.indexOf(fruit);
