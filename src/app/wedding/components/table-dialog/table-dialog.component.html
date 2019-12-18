@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>{{data.table.name}}</h1>
+<div mat-dialog-content>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th></th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Intolerancias</th>
+        <th scope="col">Pareja</th>
+        <th scope="col">Mesa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let guest of data.guestList">
+        <!-- <th scope="row">1</th> -->
+        <td>
+          <mat-checkbox (change)="setTable(guest)" 
+                      [checked]="checkUserTableById(guest.id) || guest.table !== null" 
+                      [disabled]="guest.table !== null && !checkUserTableById(guest.id)">
+          </mat-checkbox>
+        </td>
+        <td>
+          <span>{{guest.name}}</span>
+        </td>
+        <td>{{guest.category}}</td>
+        <td>{{guest.allergies}}</td>
+        <td>{{guest.couple}}</td>
+        <td>{{guest.table}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cerrar</button>
+  <button mat-button [mat-dialog-close]="data.guestList" cdkFocusInitial>Guardar</button>
+</div>

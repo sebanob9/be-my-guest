@@ -10,18 +10,28 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { PresentListComponent } from './components/present-list/present-list.component';
 import { MyEventComponent } from './components/my-event/my-event.component';
 import { MatChipsModule } from '@angular/material/chips';
-import {MatIconModule} from '@angular/material/icon';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 import { CommonModule } from '@angular/common';
-
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { TableDialogComponent } from './components/table-dialog/table-dialog.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
-  declarations: [HomeComponent, GuestListComponent, GuestSortComponent, GalleryComponent, PresentListComponent, MyEventComponent],
+  declarations: [
+    HomeComponent,
+    GuestListComponent,
+    GuestSortComponent,
+    GalleryComponent,
+    PresentListComponent,
+    MyEventComponent,
+    TableDialogComponent,
+  ],
+
   imports: [
     SharedModule,
     WeddingRoutingModule,
@@ -29,7 +39,12 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     MatIconModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule,
+    MatCheckboxModule
+  ],
+  entryComponents: [
+    TableDialogComponent
   ]
 })
 export class WeddingModule { }

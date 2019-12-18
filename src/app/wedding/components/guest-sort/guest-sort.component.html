@@ -23,55 +23,15 @@
   <div style="width: 100%">
     <ul>
       <li class="table" *ngFor="let table of tableList">
+        <button (click)="deleteTable(table.id)">Delete Table</button>
         <span>{{table.name}}</span><br>
-        <button (click)="editTable(table.id)" data-toggle="modal" data-target="#editTable">Editar</button>
+        <button (click)="openDialog(table)">Editar</button>
         <span>Listado de invitados:</span>
         <ul>
           <li *ngFor="let guest of table.guestList">
-            <span>{{guest.name}}</span>
+            <span>{{getGuestNameById(guest)}}</span>
           </li>
         </ul>
       </li>
     </ul>
   </div>
-
-
-  <div *ngIf="modalLoaded" class="modal fade" id="editTable" tabindex="-1" role="dialog"
-        aria-hidden="true">
-
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-body">
-                <table class="table table-striped">
-                    <thead class="thead-dark">
-                      <tr>
-                        <th></th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Intolerancias</th>
-                        <th scope="col">Pareja</th>
-                        <th scope="col">Mesa</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let guest of guestList">
-                        <!-- <th scope="row">1</th> -->
-                        <td>
-                            <input *ngIf="guest.table === null" type="checkbox" [checked]="guest.table === actualTable">
-                        </td>
-                        <td>
-                          <span>{{guest.name}}</span>
-                        </td>
-                        <td>{{guest.category}}</td>
-                        <td>{{guest.allergies}}</td>
-                        <td>{{guest.couple}}</td>
-                        <td>{{guest.table}}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
-            <a data-dismiss="modal" class="password-modal__close">&times;</a>
-          </div>
-        </div>
-      </div>
-</div>
