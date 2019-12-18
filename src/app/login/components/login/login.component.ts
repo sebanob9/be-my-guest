@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  login(element) {
+    if (element.value === "sebas"){
+      localStorage.setItem("user", element.value);
+      this.router.navigate(["/wedding/my-wedding"]);
+    } else {
+      alert("Usuario incorrecto");
+    }
+  }
 }

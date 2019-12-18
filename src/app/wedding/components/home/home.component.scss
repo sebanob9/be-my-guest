@@ -11,14 +11,14 @@
     padding-left: 0;
     list-style: none;
     margin-top:15px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
    
     &__item {
         padding: 15px 50px;
         &.active {
             border-bottom: 2px solid $dark-pink;
-            font-weight: 700;
-            font-size: 1.2rem;
+           /*  font-weight: 700;
+            font-size: 1.2rem; */
         }
     }
 }

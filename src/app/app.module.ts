@@ -8,7 +8,10 @@ import { CoreModule } from './core/core.module';
 //deberian tener que borrarse
 import { RegisterComponent } from './register/components/register/register.component';
 import { LoginComponent } from './login/components/login/login.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatChipsModule } from '@angular/material/chips';
+import {MatIconModule} from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -18,8 +21,12 @@ import { LoginComponent } from './login/components/login/login.component';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
-    CoreModule 
+    CoreModule,
+    BrowserAnimationsModule,
+    MatChipsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

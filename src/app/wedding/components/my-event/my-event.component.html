@@ -1,7 +1,72 @@
-<div class="flex-column">
-<button>Editar datos personales</button>
-<button>Enviar por whatsapp</button>
-<button>Copiar enlace</button>
-<button>Editar datos personales</button>
-<button>Crear/editar categorias</button>
+<div>
+  <div class="myevent-nav">
+    <div class="myevent-nav__title">Invitación por Whatsapp</div>
+    <div class="myevent-nav__content">
+
+      <a href="https://wa.me/?text=wedding.sit/b&r" class="button" target="_blank">Enviar
+        <svg class="right" width="25" height="25">
+          <use xlink:href="../assets/svg/sprite.svg#whatsapp"></use>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <hr>
+  <div class="myevent-nav">
+    <div class="myevent-nav__title">Enlace Invitación</div>
+    <div class="myevent-nav__content">
+        <a (click)="copyLink(eventLink)" value="click to copy" class="button button--empty" target="_blank">Copiar</a>
+        <input type="text" class="myevent-nav__content__input" value="bemyguest.com/c&a" #eventLink>
+        
+    </div>
+  </div>
+  <hr>
+  <div class="myevent-nav">
+    <div class="myevent-nav__title">Compartir galeria fotos</div>
+    <div class="myevent-nav__content">
+      <a (click)="copyLink(eventLink)" value="click to copy" class="button" target="_blank">Copiar</a>
+      <input type="text" class="myevent-nav__content__input" value="/c&a/gallery" #eventLink>
+      
+  </div>
+  </div>
+  <hr>
+  <div class="myevent-nav">
+    <div class="myevent-nav__title">Crear/editar categorias</div>
+    <div class="myevent-nav__content">
+      <mat-form-field class="example-chip-list">
+        <mat-chip-list #chipList aria-label="Fruit selection">
+          <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable" [removable]="removable"
+            (removed)="remove(fruit)">
+            {{fruit.name}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input placeholder="Categorías" [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+      </mat-form-field>
+    </div>
+  </div>
+  <hr>
+  <div class="myevent-nav">
+    <div class="myevent-nav__title">Datos personales</div>
+    <div class="myevent-nav__content">Editar datos personales...</div>
+  </div>
+
+
+
+
+  <!--  <div>
+    <mat-form-field class="example-chip-list">
+      <mat-chip-list #chipList aria-label="Fruit selection">
+        <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable" [removable]="removable"
+          (removed)="remove(fruit)">
+          {{fruit.name}}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="New fruit..." [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+          (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+    </mat-form-field>
+  </div> -->
 </div>

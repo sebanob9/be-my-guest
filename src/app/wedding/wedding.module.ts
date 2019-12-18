@@ -9,6 +9,13 @@ import { GuestSortComponent } from './components/guest-sort/guest-sort.component
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { PresentListComponent } from './components/present-list/present-list.component';
 import { MyEventComponent } from './components/my-event/my-event.component';
+import { MatChipsModule } from '@angular/material/chips';
+import {MatIconModule} from '@angular/material/icon';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+
+
+import { CommonModule } from '@angular/common';
 
 
 
@@ -17,7 +24,12 @@ import { MyEventComponent } from './components/my-event/my-event.component';
   declarations: [HomeComponent, GuestListComponent, GuestSortComponent, GalleryComponent, PresentListComponent, MyEventComponent],
   imports: [
     SharedModule,
-    WeddingRoutingModule
+    WeddingRoutingModule,
+    MatChipsModule,
+    CommonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class WeddingModule { }

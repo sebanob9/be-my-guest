@@ -1,13 +1,11 @@
 <div class="maincontainer header__flexbox" id="navbar">
   <img routerLink='/wedding/my-wedding' class="logo" src="../../../../assets/img/logo1a.png" height='80' alt="mesa de bodas" id="logo">
   <nav class="navbar">
-      <a routerLink='/wedding/my-wedding' class="navbar__item">Home</a>
+      <a routerLink='/wedding/my-wedding' class="navbar__item" *ngIf="isLogged">Home</a>
       <a routerLink='/blog' class="navbar__item">Blog</a>
       <a routerLink='/about' class="navbar__item">¿Te casas?</a>
       <a routerLink='/contact' class="navbar__item">Contacto</a>
-      <a routerLink='/register' href="#sent-password" role="button" class="button button--empty">Nuevo ususario</a>
-      <a routerLink='/login' href="#sent-password" role="button" class="button">Acceder</a>
-      
-
+      <a routerLink='/register' href="#sent-password" role="button" class="button button--empty" *ngIf="!isLogged">Nuevo ususario</a>
+      <a routerLink='/login' href="#sent-password" role="button" class="button" *ngIf="!isLogged">Acceder</a>
   </nav>  
 </div>

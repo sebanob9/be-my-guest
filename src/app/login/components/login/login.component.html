@@ -1,13 +1,14 @@
 <div class="table-image">
   <main class="main main-left">
     <div class="maincontainer">
-      <form action="..." method="get" class="form">
+      <!-- <form (submit)="login()" class="form"> -->
+        <div class="form">
         <div class="form__group--center">
           <h1 class="form__title">Iniciar sesión</h1>
         </div>
         <div class="form__group">
           <label for="user" class="form-group__label">Usuario</label>
-          <input type="text" size=auto id="user" required class="form__group-control">
+          <input #user type="text" size=auto id="user" required class="form__group-control">
         </div>
         <div class="form__group">
           <label for="password" class="form-group__label">Contraseña</label>
@@ -17,10 +18,11 @@
           <a data-toggle="modal" data-target="#rememberPassword" role="button">Recordar contraseña</a>
         </div>
         <div class="form__group--center">
-          <a href="#sent-password" role="button" class="button">Acceder</a>
+          <button role="button" class="button" (click)="login(user)">Acceder</button>
         </div>
-      </form>
-
+      </div>
+<!--       </form>
+ -->
       <!------------------ MODAL --------------------------->
 
       <div class="modal fade" id="rememberPassword" tabindex="-1" role="dialog" aria-labelledby="rememberPasswordLabel"

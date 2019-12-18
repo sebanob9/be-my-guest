@@ -1,4 +1,57 @@
-.flex-column {
+@import "../../../../styles/partials/variables";
+
+.myevent-nav {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+    &__title {
+        display: flex;
+        align-items: center;
+        width: 30%; 
+    }
+    &__content {
+        &__input {
+            outline:none;
+            text-decoration: none;
+            border-radius: $main-border-radius;
+            margin-left:5px;
+            &:focus {
+                text-decoration: none; 
+            }
+        }
+    }
+}
+
+.right {
+    margin-left: 20px;
+}
+
+/* .flex-column {
     display: flex;
     flex-direction: column;
+}
+ */
+.example-chip-list {
+    width: 100%;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid $dark-pink;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.mat-form-field {
+    min-width: 600px;
+}
+
+.mat-chip.mat-standard-chip {
+    background-color: rgba(#701658,0.2);
+    &::after {
+        background: $dark-pink;
+    }
 }

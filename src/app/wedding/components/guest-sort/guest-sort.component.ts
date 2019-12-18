@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GuestsService } from 'src/app/core/services/guests.service';
 
 @Component({
   selector: 'app-guest-sort',
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./guest-sort.component.scss']
 })
 export class GuestSortComponent implements OnInit {
-
-  constructor() { }
+  private tableList: object[] = [];
+  private guestList: object[] = [];
+  private modalLoaded: boolean = false;
+  private actualTable: number;
+  constructor(private guestsService: GuestsService) { }
 
   ngOnInit() {
+    this.guestList = this.guestsService.getGuestList();
+  }
+
+  createTable() {
+    this.tableList.push({name: "Mesa" + (this.tableList.length + 1), guestList: [], maxGuestCount: 20})
+  }
+
+  editTable(tableId) {    
+    this.actualTable = tableId;
+    this.modalLoaded = true;
   }
 
 }

@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  private isLogged: boolean = false;
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.isLogged = localStorage.getItem("user") !== null;
+  }
 }
 /*   window.onscroll = function() {scrollFunction()};
 

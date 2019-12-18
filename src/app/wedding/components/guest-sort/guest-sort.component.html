@@ -1,16 +1,77 @@
-  <form action="..." method="get" class="form form--table">
-    <div class="form--table__item-l">
-      <input type="text" placeholder="Nombre de la mesa" id="table-name" required class="form__group-control">
-    </div>
+<div>
+  <div>
+    <form action="..." method="get" class="form--table">
+      <!-- <mat-form-field class="example-full-width">
+        <input matInput placeholder="Favorite food" value="Sushi">
+      </mat-form-field> -->
+      <div class="form--table__item-l">
+        <input type="text" placeholder="Nombre de la mesa" id="table-name" required class="form--table-control">
+      </div>
 
-    <div class="form--table__item-sm">
-      <input type="number" min="4" max="20" placeholder="nº invitados" id="guest-number" required class="form__group-control">
-    </div>
+      <div class="form--table__item-sm">
+        <input type="number" min="4" max="20" placeholder="Nº invitados" id="guest-number" required
+          class="form--table-control">
+      </div>
 
-    <div class="form--table__item-sm">
-      <a href="#sent-password" role="button" class="button">Crear mesa</a>
-    </div>
+      <div class="form--table__item-sm">
+        <div href="#sent-password" class="button" (click)="createTable()">Crear mesa</div>
+      </div>
+    </form>
+  </div>
 
 
-  </form>
- 
+  <div style="width: 100%">
+    <ul>
+      <li class="table" *ngFor="let table of tableList">
+        <span>{{table.name}}</span><br>
+        <button (click)="editTable(table.id)" data-toggle="modal" data-target="#editTable">Editar</button>
+        <span>Listado de invitados:</span>
+        <ul>
+          <li *ngFor="let guest of table.guestList">
+            <span>{{guest.name}}</span>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+
+  <div *ngIf="modalLoaded" class="modal fade" id="editTable" tabindex="-1" role="dialog"
+        aria-hidden="true">
+
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th></th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Intolerancias</th>
+                        <th scope="col">Pareja</th>
+                        <th scope="col">Mesa</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let guest of guestList">
+                        <!-- <th scope="row">1</th> -->
+                        <td>
+                            <input *ngIf="guest.table === null" type="checkbox" [checked]="guest.table === actualTable">
+                        </td>
+                        <td>
+                          <span>{{guest.name}}</span>
+                        </td>
+                        <td>{{guest.category}}</td>
+                        <td>{{guest.allergies}}</td>
+                        <td>{{guest.couple}}</td>
+                        <td>{{guest.table}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+            <a data-dismiss="modal" class="password-modal__close">&times;</a>
+          </div>
+        </div>
+      </div>
+</div>
