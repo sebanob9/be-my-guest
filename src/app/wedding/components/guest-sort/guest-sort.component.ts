@@ -38,8 +38,8 @@ export class GuestSortComponent implements OnInit {
   createTable() {
     this.tableList.push({name: "Mesa" + (this.tableList.length + 1), guestList: [], maxGuestCount: 20})
   }
-
-  deleteTable(id){
+}
+ /*  deleteTable(id){
     const index = this.tableList.map((table) => {return table.id}).indexOf(id);
     if (index > -1) {
       const deletedTable = this.tableList.splice(index, 1);
@@ -59,3 +59,4 @@ export class GuestSortComponent implements OnInit {
   }
 
 }
+ */
