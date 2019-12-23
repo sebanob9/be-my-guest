@@ -25,7 +25,10 @@
     font-weight: 700;
     border: $pink-border;
     box-shadow: 0 0 3px $dark-pink;
-
+    &:active {
+      background-color: $dark-pink;
+      color: #fff;
+    }
     &:hover {
       box-shadow: 0 0 6px $dark-pink;
     }

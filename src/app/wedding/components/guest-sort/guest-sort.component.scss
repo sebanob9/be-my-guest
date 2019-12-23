@@ -1,50 +1,79 @@
 @import "../../../../styles/partials/variables";
-.form--table {
-    display: flex;
-    width:600px;
-    margin: 0 auto; 
-    justify-content: center;
-    align-items: center;
-    &__item {
-        
-        &-l {
-          flex: 0 1 calc(50% - 10px);
-          /* width:300px; */
-            }
-        &-sm {
-          flex: 0 1 calc(25% - 10px);
-         /*  width:150px; */
-          margin-left: 10px;           
-        }
-    }
-    &-control {
-      width: 100%;
-      height: 2.5rem;
-      background: none;
-      border: 0px;
-      border: $pink-border;
-      border-radius: $main-border-radius;
-      &--access {
-         height: 2rem;
-      }
-      &:focus {
-         outline: none;
-      }
-    }
 
-}
-
-.flex2 {
- /*  display: flex; */
-  
+.form__table {
+  display: flex;
+  width: 600px;
   margin: 0 auto;
-  border: 1px solid red;
   justify-content: center;
   align-items: center;
+  margin-bottom:20px;
+  &-item {
+    &--xl {
+      flex: 0 1 calc(50% - 10px);
+    }
+    &--l {
+      flex: 0 1 calc(40% - 10px);
+    }
+    &--m {
+      flex: 0 1 calc(30% - 10px);
+      margin-left: 10px;
+    }
+    &--s {
+      flex: 0 1 calc(20% - 10px);
+      
+    }
+    &--xs {
+      flex: 0 1 calc(10% - 10px);
+    }
+  }
+  &-control {
+    width: 100%;
+    height: 2.5rem;
+    background: none;
+    border: 0px;
+    border: $pink-border;
+    border-radius: $main-border-radius;
+    &--access {
+      height: 2rem;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}
+.table {
+  display: flex;
+  align-items: center;
+  /* border: 1px dashed red; */
+  padding: 10px;
+  margin-bottom: 0px;
+  
+  border-bottom: 1px dashed $dark-pink;
+  &:hover {
+    background-color: rgba(#701658,0.1);
+    border-radius: $main-border-radius;
+  }
 }
 
-.table {
-  border: 3px dashed red;
-  width: 33%;
-  padding: 20px;
+.button--edit {
+  background-color: white;
+  color: $dark-pink;
+  font-weight: 700;
+  border: $pink-border;
+  box-shadow: 0 0 3px $dark-pink;
+  z-index: 10;
+  border: none;
+  border-radius: 5px;
+  min-height: 40px;
+  width: 75px;
+  outline: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+    box-shadow: 0 0 6px $dark-pink;
+  }
 }

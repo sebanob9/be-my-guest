@@ -49,7 +49,35 @@
   <hr>
   <div class="myevent-nav">
     <div class="myevent-nav__title">Datos personales</div>
-    <div class="myevent-nav__content">Editar datos personales...</div>
+    <div class="myevent-nav__content">
+      <form>
+      <div class="form-group text-item">
+        <label for="event-place" class="form-group__label">¿Dónde se celebra?</label>
+        <input type="text" id="event-place" required placeholder="El nombre de la finca / salón "
+          class="form__group-control form__group-control--access">
+      </div>
+      <div class="form-group text-item">
+        <label for="date" class="form-group__label">Fecha</label>
+        <input type="date" id="date" required class="form__group-control form__group-control--access">
+      </div>
+      <div class="form-group text-item">
+        <label for="email" class="form-group__label">Email</label>
+        <input type="email" id="email" required class="form__group-control form__group-control--access">
+      </div>
+      <div class="form-group text-item">
+        <label for="phone" class="form-group__label">Teléfono</label>
+        <input type="tel" id="phone" class="form__group-control form__group-control--access">
+      </div>
+      <div class="form-group text-item">
+        <label for="password" class="form-group__label">Contraseña</label>
+        <input type="password" required id="password" class="form__group-control form__group-control--access">
+      </div>
+      <div class="form-group text-item">
+        <label for="password" class="form-group__label">Confirmar contraseña</label>
+        <input type="password" required id="password" class="form__group-control form__group-control--access">
+      </div>
+    </form>
+    </div>
   </div>
 
 

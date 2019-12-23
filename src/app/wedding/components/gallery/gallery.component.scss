@@ -1,3 +1,4 @@
+@import "../../../../styles/partials/variables";
 * {
   box-sizing: border-box;
 }
@@ -66,4 +67,30 @@ img {
 
 .gallery__item--v-3 {
   grid-row-end: span 3;
+}
+
+
+.table {
+  display: flex;
+  align-items: center;
+  /* border: 1px dashed red; */
+  padding: 10px;
+  margin-bottom: 0px;
+  
+  border-bottom: 1px dashed $dark-pink;
+  &:hover {
+    background-color: rgba(#701658,0.1);
+    border-radius: $main-border-radius;
+  }
+}
+
+.categories {
+  display: inline-block;
+  justify-content: space-between;
+}
+
+.space {
+  display:flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
 }

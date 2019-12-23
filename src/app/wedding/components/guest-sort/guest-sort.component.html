@@ -1,32 +1,39 @@
 <div>
   <div>
-    <form action="..." method="get" class="form--table">
+    <form action="..." method="get" class="form__table">
       <!-- <mat-form-field class="example-full-width">
         <input matInput placeholder="Favorite food" value="Sushi">
       </mat-form-field> -->
-      <div class="form--table__item-l">
-        <input type="text" placeholder="Nombre de la mesa" id="table-name" required class="form--table-control">
+      <div class="form__table-item--xl">
+        <input type="text" placeholder="Nombre de la mesa" id="table-name" required class="form__table-control">
       </div>
 
-      <div class="form--table__item-sm">
+      <div class="form__table-item--m">
         <input type="number" min="4" max="20" placeholder="Nº invitados" id="guest-number" required
-          class="form--table-control">
+          class="form__table-control">
       </div>
 
-      <div class="form--table__item-sm">
+      <div class="form__table-item--m">
         <div href="#sent-password" class="button" (click)="createTable()">Crear mesa</div>
       </div>
     </form>
   </div>
 
 
-  <div style="width: 100%">
+  <div>
     <ul>
       <li class="table" *ngFor="let table of tableList">
-        <button (click)="deleteTable(table.id)">Delete Table</button>
-        <span>{{table.name}}</span><br>
-        <button (click)="openDialog(table)">Editar</button>
+        <!-- <button (click)="deleteTable(table.id)">Delete Table</button> -->
+        <div class="form__table-item--s">{{table.name}}</div>
+
+        <div class="form__table-item--s">Nº invitados: 12</div>
+
+        <div class="form__table-item--xs">
+          <button class="button--edit" (click)="openDialog(table)">Editar</button>
+        </div>
+
         <span>Listado de invitados:</span>
+        
         <ul>
           <li *ngFor="let guest of table.guestList">
             <span>{{getGuestNameById(guest)}}</span>

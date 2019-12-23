@@ -1,0 +1,18 @@
+.table-image {
+    line-height: 1.4;
+    background-image: url('../../../../assets/img/gallery (33).jpg');
+    /* opacity:0.3; */
+    background-size: cover;
+    }
+
+    .main {
+        /* width: 100vh; */
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+button {
+    background-color: rgba(#701658,0.9);
+    min-height: 75px;
+}
