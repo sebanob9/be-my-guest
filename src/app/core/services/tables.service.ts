@@ -12,16 +12,24 @@ export class TablesService {
     { id: 1, weddingId: 1, name: "Familia de la novia", guestList: [3], maxGuestCount: 1, type: "square" },
     { id: 2, weddingId: 1, name: "Amigos del Cole", guestList: [], maxGuestCount: 1, type: "square" },
     { id: 3, weddingId: 1, name: "Familia de él", guestList: [], maxGuestCount: 1, type: "round" },
-    { id: 4, weddingId: 1, name: "Familia de ella", guestList: [], maxGuestCount: 1, type: "round" },
     { id: 5, weddingId: 1, name: "Gente que cae regular", guestList: [], maxGuestCount: 1, type: "round" },
     { weddingId: 2, id: 1, name: "Familia de la novia", guestList: [3], maxGuestCount: 1, type: "square" }
   ];
 
-  tables$ = new BehaviorSubject<any[]>(this.tables);
+  tables$: BehaviorSubject<any[]>;
 
   constructor(
     @Inject(LOCAL_STORAGE) private storage: StorageService
-  ) { }
+  ) {
+    debugger
+    const savedTables = this.storage.get('tables');
+    if (!savedTables) {
+      this.storage.set('tables', this.tables);
+    } else {
+      this.tables = savedTables;
+    }
+    this.tables$ = new BehaviorSubject<any[]>(this.tables);
+  }
 
   getAll() {
     return this.tables$;
