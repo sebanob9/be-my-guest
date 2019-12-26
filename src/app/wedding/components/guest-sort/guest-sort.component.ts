@@ -17,16 +17,18 @@ export class GuestSortComponent implements OnInit {
     tableName: '',
     guestNumber: 0
   };
+  guestList$: Observable<any>;
 
-  protected tableList: object[] = [];
-  protected guestList: object[] = [];
-  protected modalLoaded: boolean = false;
-  protected actualTable: number;
-  protected modalIsVisible: boolean = false;
+  public tableList: object[] = [];
+  public guestList: object[] = [];
+  public modalLoaded: boolean = false;
+  public actualTable: number;
+  public modalIsVisible: boolean = false;
   constructor(private guestsService: GuestsService, private tableService: TablesService, private dialog: MatDialog) { }
 
   ngOnInit() {
-    this.guestList = this.guestsService.getGuestList();
+    this.guestList$ = this.guestsService.getAllGuests();
+    
     // this.tableList = this.tableService.getTableList();
     this.tableList$ = this.tableService.getAll();
   }
@@ -35,7 +37,7 @@ export class GuestSortComponent implements OnInit {
     this.actualTable;
     const dialogRef = this.dialog.open(TableDialogComponent, {
       width: '80%',
-      data: { table: table, guestList: this.guestList }
+      data: { table: table, guestList$: this.guestList$ }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -69,7 +71,7 @@ export class GuestSortComponent implements OnInit {
 
   getGuestNameById(id) {
     const guest = this.guestsService.getGuestById(id);
-    return guest.name;
+    /* return guest.name; */
   }
 
 }

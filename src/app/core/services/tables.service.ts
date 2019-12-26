@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
-import { of, BehaviorSubject } from 'rxjs';
-import { SESSION_STORAGE, StorageService, LOCAL_STORAGE } from 'ngx-webstorage-service';
+import { BehaviorSubject } from 'rxjs';
+import { StorageService, LOCAL_STORAGE } from 'ngx-webstorage-service';
 
 
 @Injectable({
