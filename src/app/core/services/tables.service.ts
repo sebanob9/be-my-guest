@@ -1,5 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { of, BehaviorSubject } from 'rxjs';
+import { SESSION_STORAGE, StorageService, LOCAL_STORAGE } from 'ngx-webstorage-service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +19,9 @@ export class TablesService {
 
   tables$ = new BehaviorSubject<any[]>(this.tables);
 
-  constructor() { }
+  constructor(
+    @Inject(LOCAL_STORAGE) private storage: StorageService
+  ) { }
 
   getAll() {
     return this.tables$;
@@ -25,6 +29,7 @@ export class TablesService {
 
   addTable(table) {
     this.tables.push(table);
+    this.storage.set('tables', this.tables);
     this.tables$.next(this.tables);
   }
 
@@ -33,6 +38,7 @@ export class TablesService {
     if (found > -1) {
       this.tables[found] = table;
     }
+    this.storage.set('tables', this.tables);
     this.tables$.next(this.tables);
   }
 
@@ -41,6 +47,7 @@ export class TablesService {
     if (found > -1) {
       this.tables.splice(found, 1);
     }
+    this.storage.set('tables', this.tables);
     this.tables$.next(this.tables);
   }
 
