@@ -1,15 +1,26 @@
 <div>
   <div>
-    <form action="..." method="get" class="form__table">
+    <form class="form__table">
       <!-- <mat-form-field class="example-full-width">
         <input matInput placeholder="Favorite food" value="Sushi">
       </mat-form-field> -->
       <div class="form__table-item--xl">
-        <input type="text" placeholder="Nombre de la mesa" id="table-name" required class="form__table-control">
+        <input type="text" 
+          name="nombre"
+          placeholder="Nombre de la mesa" 
+          [(ngModel)]="model.tableName"
+          id="table-name" 
+          required class="form__table-control">
       </div>
 
       <div class="form__table-item--m">
-        <input type="number" min="4" max="20" placeholder="Nº invitados" id="guest-number" required
+        <input type="number" 
+          name="numero"
+          min="4" max="20" 
+          placeholder="Nº invitados" 
+          id="guest-number" 
+          [(ngModel)]="model.guestNumber"
+          required
           class="form__table-control">
       </div>
 
@@ -22,11 +33,11 @@
 
   <div>
     <ul>
-      <li class="table" *ngFor="let table of tableList">
+      <li class="table" *ngFor="let table of tableList$ | async">
         <!-- <button (click)="deleteTable(table.id)">Delete Table</button> -->
         <div class="form__table-item--s">{{table.name}}</div>
 
-        <div class="form__table-item--s">Nº invitados: 12</div>
+        <div class="form__table-item--s">Nº invitados: {{table.maxGuestCount}}</div>
 
         <div class="form__table-item--xs">
           <button class="button--edit" (click)="openDialog(table)">Editar</button>

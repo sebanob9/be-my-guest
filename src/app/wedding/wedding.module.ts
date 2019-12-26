@@ -19,6 +19,7 @@ import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TableDialogComponent } from './components/table-dialog/table-dialog.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     SharedModule,
     WeddingRoutingModule,
     MatChipsModule,
+    FormsModule,
     CommonModule,
     MatIconModule,
     MatFormFieldModule,
