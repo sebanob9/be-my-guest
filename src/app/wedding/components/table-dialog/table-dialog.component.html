@@ -12,12 +12,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let guest of data.guestList">
+      <tr *ngFor="let guest of guestList">
         <!-- <th scope="row">1</th> -->
         <td>
           <mat-checkbox (change)="setTable(guest)" 
-                      [checked]="checkUserTableById(guest.id) || guest.table !== null" 
-                      [disabled]="guest.table !== null && !checkUserTableById(guest.id)">
+                      [checked]="checkUserInTable(guest)" 
+                      [disabled]="checkUserInOtherTable(guest)">
           </mat-checkbox>
         </td>
         <td>

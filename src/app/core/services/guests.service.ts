@@ -1,5 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { StorageService, LOCAL_STORAGE } from 'ngx-webstorage-service';
 
 @Injectable({
@@ -32,6 +33,13 @@ export class GuestsService {
     @Inject(LOCAL_STORAGE) private storage: StorageService
   ) {
     this.guests$ = new BehaviorSubject<any[]>(this.guests);
+    const savedGuest = this.storage.get('guests');
+    if (!savedGuest) {
+      this.storage.set('guests', this.guests);
+    } else {
+      this.guests = savedGuest;
+    }
+    this.guests$ = new BehaviorSubject<any[]>(this.guests);
   }
 
   getAllGuests() {
@@ -41,6 +49,30 @@ export class GuestsService {
   getGuestById(id) {
     const list = this.getAllGuests();
     return list;
+  }
+
+  getGuestByWedding(weddingId) {
+    return this.guests$.pipe(
+      map(guests => guests.filter(g => g.weddingId === weddingId))
+    );
+  }
+
+  getGuestByTable(table) {
+    return this.getGuestByWedding(table.weddingId).pipe(
+      map(guests => guests.filter(guest => guest.table === table.id))
+    );
+  }
+
+  setTable(table, guest) {
+    const newArray = this.guests.map(g => {
+      if (g.id === guest.id) {
+        return Object.assign({}, guest, { table: table.id });
+      }
+      return g;
+    });
+    this.guests = newArray;
+    this.storage.set('guests', this.guests);
+    this.guests$.next(this.guests);
   }
 }
 

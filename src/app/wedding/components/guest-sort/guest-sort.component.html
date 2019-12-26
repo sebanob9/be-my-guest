@@ -46,8 +46,8 @@
         <span>Listado de invitados:</span>
         
         <ul>
-          <li *ngFor="let guest of guestList$ | async">
-            <!-- <span>{{getGuestNameById(guest)}}</span> -->
+          <li *ngFor="let guest of guestsService.getGuestByTable(table)| async">
+            <span>{{guest.name}}</span>
           </li>
         </ul>
       </li>

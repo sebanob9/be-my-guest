@@ -24,7 +24,7 @@ export class GuestSortComponent implements OnInit {
   public modalLoaded: boolean = false;
   public actualTable: number;
   public modalIsVisible: boolean = false;
-  constructor(private guestsService: GuestsService, private tableService: TablesService, private dialog: MatDialog) { }
+  constructor(public guestsService: GuestsService, private tableService: TablesService, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.guestList$ = this.guestsService.getAllGuests();
@@ -34,19 +34,18 @@ export class GuestSortComponent implements OnInit {
   }
 
   openDialog(table): void {
-    this.actualTable;
     const dialogRef = this.dialog.open(TableDialogComponent, {
       width: '80%',
-      data: { table: table, guestList$: this.guestList$ }
+      data: { table }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log("Guardado de los datos", result);
     });
+
   }
 
   createTable() {
-    debugger
     this.tableService.addTable({
       name: this.model.tableName,
       guestList: [],

@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TablesService } from 'src/app/core/services/tables.service';
+import { GuestsService } from 'src/app/core/services/guests.service';
 
 @Component({
   selector: 'app-table-dialog',
@@ -9,10 +10,17 @@ import { TablesService } from 'src/app/core/services/tables.service';
 })
 export class TableDialogComponent implements OnInit {
 
+  guestList = [];
+
   constructor(
-    public dialogRef: MatDialogRef<TableDialogComponent>, @Inject(MAT_DIALOG_DATA) public data) {}
+    public dialogRef: MatDialogRef<TableDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data,
+    private guestService: GuestsService) { }
 
   ngOnInit() {
+    this.guestService.getGuestByWedding(this.data.table.weddingId).subscribe(guestList => {
+      this.guestList = guestList;
+    });
   }
 
   onNoClick(): void {
@@ -20,7 +28,8 @@ export class TableDialogComponent implements OnInit {
   }
 
   setTable(guest) {
-    if (guest.table) {
+    this.guestService.setTable(this.data.table, guest);
+    /*if (guest.table) {
       guest.table = null;
       const index = this.data.table.guestList.indexOf(guest.id);
       if (index > -1) {
@@ -31,13 +40,21 @@ export class TableDialogComponent implements OnInit {
       this.data.table.guestList.push(guest.id);
       guest.table = this.data.table.id;
     }
-    
-    console.log("Hila premo", this.data.table.guestList);
+
+    console.log("Hila premo", this.data.table.guestList);*/
   }
-  
+
   checkUserTableById(id: number) {
     const response = this.data.table.guestList.find((element) => element === id);
     return response !== undefined;
+  }
+
+  checkUserInTable(guest) {
+    return guest.table && guest.table === this.data.table.id;
+  }
+
+  checkUserInOtherTable(guest) {
+    return guest.table && guest.table !== this.data.table.id;
   }
 
 }
