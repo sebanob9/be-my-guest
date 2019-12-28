@@ -6,9 +6,11 @@ import { GuestPresentsComponent } from './components/guest-presents/guest-presen
 
 
 const routes: Routes = [
-  { path: 'landing', component: GuestLandingComponent },
+  {path: '', component: GuestLandingComponent}, 
   { path: 'confirmation', component: GuestConfirmationComponent },
   { path: 'presents', component: GuestPresentsComponent },
+
+  
 ];
 
 @NgModule({

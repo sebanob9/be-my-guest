@@ -7,7 +7,8 @@ import { GuestPresentsComponent } from './components/guest-presents/guest-presen
 
 import { GuestRoutingModule } from './guest-routing.module';
 
-import { CommonModule } from '@angular/common';  
+import { CommonModule } from '@angular/common';
+
 
 @NgModule({
   declarations: [GuestLandingComponent, GuestConfirmationComponent, GuestPresentsComponent],
