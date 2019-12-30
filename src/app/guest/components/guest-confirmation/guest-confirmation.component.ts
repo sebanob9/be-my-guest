@@ -16,6 +16,14 @@ export class GuestConfirmationComponent implements OnInit {
   showcompanion = false;
   showallergies = false;
 
+  allergies = {
+    none: true,
+    queso: false,
+    marisco: false,
+    pescado: false,
+    gluten: false
+  };
+
   constructor(public guestsService: GuestsService) { 
     
   }
@@ -69,6 +77,25 @@ export class GuestConfirmationComponent implements OnInit {
 
   notAllergic() {
     this.showallergies = !this.showallergies
+  }
+
+  toggleAllergy(allergy) {
+    if (allergy === 'none') {
+      if (!this.allergies.none) {
+        this.allergies = {
+          none: true,
+          queso: false,
+          marisco: false,
+          pescado: false,
+          gluten: false
+        };
+      } else {
+        this.allergies.none = false;
+      }
+    } else {
+      this.allergies.none = false;
+      this.allergies[allergy] = !this.allergies[allergy];
+    }
   }
 }
 

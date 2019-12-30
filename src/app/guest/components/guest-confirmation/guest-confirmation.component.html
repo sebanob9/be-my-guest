@@ -130,41 +130,41 @@
         <div class="form__group form-group--access dropdown">
           <label for="allergies" class="form-group__label">¿Tienes alergia a algún alimento?</label>
           <a class="dropdown__btn" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
-            <input type="tel" id="allergies" readonly
+            <input id="allergies" readonly
               class="dropdown form__group-control form__group-control--access"></a>
           <div class="dropdown__menu" aria-labelledby="dropdownMenuButton">
             <label class="radio--block">
-              <input type="checkbox" class="radio__control" (click)="notAllergic()"
-              name="allergies" #allergies="ngModel" [(ngModel)]="guestsService.selectedGuest.allergies" value="Sin alergias" >
+              <input type="checkbox" class="radio__control" (input)="toggleAllergy('none')"
+              name="none" #none="ngModel" [(ngModel)]="allergies.none" [ngModelOptions]="{standalone: true}">
               <span class="radio__checkbox radio__checkbox--success">
                 No tengo alergias
               </span>
             </label>
             <div aria-hidden="true" class="dropdown__menu--divider"></div>
             <label class="radio--block">
-              <input [disabled]="showallergies" type="checkbox" class="radio__control" id="02"
-              name="allergies" #allergies="ngModel" [(ngModel)]="guestsService.selectedGuest.allergies" value="Queso" >
+              <input [disabled]="showallergies" type="checkbox" class="radio__control" id="02" (click)="toggleAllergy('queso')"
+              name="allergies" #queso="ngModel" [(ngModel)]="allergies.queso" [ngModelOptions]="{standalone: true}">
               <span class="radio__checkbox">
                 Queso
               </span>
             </label>
             <label class="radio--block">
-              <input [disabled]="showallergies" type="checkbox" class="radio__control" id="03"
-              name="allergies" #allergies="ngModel" value="Marisco" [(ngModel)]="guestsService.selectedGuest.allergies">
+              <input [disabled]="showallergies" type="checkbox" class="radio__control" id="03" (click)="toggleAllergy('marisco')"
+              name="allergies" #marisco="ngModel" [(ngModel)]="allergies.marisco" [ngModelOptions]="{standalone: true}">
               <span class="radio__checkbox">
                 Marisco
               </span>
             </label>
             <label class="radio--block">
-              <input [disabled]="showallergies" type="checkbox" class="radio__control" id="04"
-              name="allergies" #allergies="ngModel" [(ngModel)]="guestsService.selectedGuest.allergies" value="Pescado">
+              <input [disabled]="showallergies" type="checkbox" class="radio__control" id="04" (click)="toggleAllergy('pescado')"
+              name="allergies" #pescado="ngModel" [(ngModel)]="allergies.pescado" [ngModelOptions]="{standalone: true}">
               <span class="radio__checkbox">
                 Pescado
               </span>
             </label>
             <label class="radio--block">
-              <input [disabled]="showallergies" type="checkbox" class="radio__control" id="05"
-              name="allergies" #allergies="ngModel" [(ngModel)]="guestsService.selectedGuest.allergies" value="Gluten">
+              <input [disabled]="showallergies" type="checkbox" class="radio__control" id="05" (click)="toggleAllergy('gluten')"
+              name="allergies" #gluten="ngModel" [(ngModel)]="allergies.gluten" [ngModelOptions]="{standalone: true}">
               <span class="radio__checkbox">
                 Gluten
               </span>
