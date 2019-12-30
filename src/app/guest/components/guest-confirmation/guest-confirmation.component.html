@@ -135,7 +135,7 @@
           <div class="dropdown__menu" aria-labelledby="dropdownMenuButton">
             <label class="radio--block">
               <input type="checkbox" class="radio__control" (input)="toggleAllergy('none')"
-              name="none" #none="ngModel" [(ngModel)]="allergies.none" [ngModelOptions]="{standalone: true}">
+              name="none" #none="ngModel" [(ngModel)]="allergies.none">
               <span class="radio__checkbox radio__checkbox--success">
                 No tengo alergias
               </span>
@@ -143,28 +143,28 @@
             <div aria-hidden="true" class="dropdown__menu--divider"></div>
             <label class="radio--block">
               <input [disabled]="showallergies" type="checkbox" class="radio__control" id="02" (click)="toggleAllergy('queso')"
-              name="allergies" #queso="ngModel" [(ngModel)]="allergies.queso" [ngModelOptions]="{standalone: true}">
+              name="queso" #queso="ngModel" [(ngModel)]="allergies.queso">
               <span class="radio__checkbox">
                 Queso
               </span>
             </label>
             <label class="radio--block">
               <input [disabled]="showallergies" type="checkbox" class="radio__control" id="03" (click)="toggleAllergy('marisco')"
-              name="allergies" #marisco="ngModel" [(ngModel)]="allergies.marisco" [ngModelOptions]="{standalone: true}">
+              name="marisco" #marisco="ngModel" [(ngModel)]="allergies.marisco">
               <span class="radio__checkbox">
                 Marisco
               </span>
             </label>
             <label class="radio--block">
               <input [disabled]="showallergies" type="checkbox" class="radio__control" id="04" (click)="toggleAllergy('pescado')"
-              name="allergies" #pescado="ngModel" [(ngModel)]="allergies.pescado" [ngModelOptions]="{standalone: true}">
+              name="pescado" #pescado="ngModel" [(ngModel)]="allergies.pescado">
               <span class="radio__checkbox">
                 Pescado
               </span>
             </label>
             <label class="radio--block">
               <input [disabled]="showallergies" type="checkbox" class="radio__control" id="05" (click)="toggleAllergy('gluten')"
-              name="allergies" #gluten="ngModel" [(ngModel)]="allergies.gluten" [ngModelOptions]="{standalone: true}">
+              name="gluten" #gluten="ngModel" [(ngModel)]="allergies.gluten">
               <span class="radio__checkbox">
                 Gluten
               </span>
