@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgForm } from '@angular/forms';
+import { GuestsService } from 'src/app/core/services/guests.service';
+import { Guest } from 'src/app/core/models/guest';
+
 
 
 @Component({
@@ -10,16 +14,26 @@ import { CommonModule } from '@angular/common';
 export class GuestConfirmationComponent implements OnInit {
 
   showcompanion = false;
+  showallergies = false;
 
-  constructor() { 
+  constructor(public guestsService: GuestsService) { 
     
   }
 
   ngOnInit() {
-    this.init()
+    this.init() 
   }
 
-  init() {
+  addGuest(form: NgForm) {
+    console.log(form.value);
+    this.guestsService.postGuest(form.value)
+      .subscribe( res => {
+        console.log(res); 
+        // this.getGuests();
+      });
+  }
+
+ init() {
 
     // Dropdown
     // --------------------------------------------------------
@@ -33,24 +47,28 @@ export class GuestConfirmationComponent implements OnInit {
         dropdown.setAttribute('aria-expanded', 'false');
       }
     }
+  };
   
     // Search form
     // --------------------------------------------------------
     
-    let input: any = document.querySelector('.search__input');
+    /* let input: any = document.querySelector('.search__input'); */
   
-    input.onfocus = function(e) {
+    /* input.onfocus = function(e) {
       this.setAttribute('aria-expanded', 'true');
-    }
+    } */
   
-    input.onblur = function(e) {
+    /* input.onblur = function(e) {
       this.setAttribute('aria-expanded', 'false');
-    }
+    } */
   
-  };
 
   toggleCompanion(value) {
     this.showcompanion = value;
+  }
+
+  notAllergic() {
+    this.showallergies = !this.showallergies
   }
 }
 

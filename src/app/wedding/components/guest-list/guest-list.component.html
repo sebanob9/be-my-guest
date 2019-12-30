@@ -1,3 +1,21 @@
+<div>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <th scope="col">Nombre</th>
+      <th scope="col">Amigo de</th>
+      <th scope="col">categoria</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let guest of guestsService.guests2">
+        <td>{{guest.name}}</td>
+        <td>{{guest.friendFrom}}</td>
+        <td>{{guest.category}}</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 <table class="table table-striped">
   <thead class="thead-dark">
     <tr>
@@ -113,5 +131,3 @@
             </tr>
   </tbody>
 </table>
-
-<a routerLink='/wedding/guest-list' role="button" class="button">añadir invitado</a>

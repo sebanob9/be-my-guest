@@ -1,137 +1,131 @@
 <body class="table-image">
-  <!--   <header class="header--sm">
-        <div class="container main--center">
-            <img class="logo" src="assets/images/33.png" height="60">
-        </div>
-    </header> -->
   <main>
     <div class="banner">
       <h1 class="banner__title">Cupido & Apolonia</h1>
       <p class="banner__data">25 Noviembre 2020<p>
           <p class="banner__data">Finca Prados Moros<p>
     </div>
+
     <div class="main__center">
-      <form class="form form--register">
+      <form #guestForm="ngForm" (ngSubmit)="addGuest(guestForm)" class="form form--register">
         <div class="form__group--center">
           <h1 class="form__title">Confirmar asistencia</h1>
         </div>
 
         <label for="friend-of" class="form__group__label">Amigo de...</label>
+        
         <div class="radio__form radio__form--centred">
           <label class="radio radio__btn">
-            <input type="radio" name="couple" id="bride-friend" class="radio__control">
+            <input type="radio"  id="bride-friend" class="radio__control"
+            name="friendFrom" #friendFrom="ngModel" value="Novia" [(ngModel)]="guestsService.selectedGuest.friendFrom">
             <span class="radio__custom">
               Novia
             </span>
           </label>
           <label class="radio radio__btn">
-            <input type="radio" name="couple" id="groom-friend" class="radio__control">
+            <input type="radio" id="groom-friend" class="radio__control"
+            name="friendFrom" #friendFrom="ngModel" value="Novio" [(ngModel)]="guestsService.selectedGuest.friendFrom">
             <span class="radio__custom">
               Novio
             </span>
           </label>
         </div>
+
         <div class="form__group form-group--access">
           <label for="guest_name" class="form-group__label">Nombre</label>
-          <input type="text" id="guest_name" required class="form__group-control form__group-control--access">
+          <input type="text" id="guest_name" required placeholder="Indique su nombre" class="form__group-control form__group-control--access"
+           name="name" #name="ngModel" [(ngModel)]="guestsService.selectedGuest.name">
         </div>
 
-        <label for="has-couple" class="form-group__label">¿Vienes acompañado?</label>
+        <label for="hasCouple" class="form-group__label">¿Vienes acompañado?</label>
 
         <div class="radio__form radio__form--centred">
           <label class="radio radio__btn" for="no-couple">
-            <input (click)="toggleCompanion(false)" type="radio" name="has-couple" id="no-couple" class="radio__control">
+            <input (click)="toggleCompanion(false)" type="radio" id="no-couple" class="radio__control"
+            name="withCompanion" #withCompanion="ngModel" value=false [(ngModel)]="guestsService.selectedGuest.withCompanion">
             <span class="radio__custom">
               No
             </span>
           </label>
           <label  class="radio radio__btn" for="yes-couple">
-            <input (click)="toggleCompanion(true)" type="radio"  name="has-couple" id="yes-couple" class="radio__control">
-            <span  class="radio__custom">
+            <input (click)="toggleCompanion(true)" type="radio" id="yes-couple" class="radio__control"
+            name="withCompanion" #withCompanion="ngModel" value=true [(ngModel)]="guestsService.selectedGuest.withCompanion">
+            <span class="radio__custom">
               Si
             </span>
           </label>
         </div>
-
-
-        <div *ngIf="showcompanion" class="form__group form-group--access">
+       <div *ngIf="showcompanion" class="form__group form-group--access">
           <label for="couple-name" class="form-group__label">Nombre pareja</label>
-          <input type="text" id="couple-name" class="form__group-control form__group-control--access">
+          <input type="text" id="couple-name" required placeholder="Nombre de su pareja" class="form__group-control form__group-control--access"
+          name="nameCompanion" #nameCompanion="ngModel" [(ngModel)]="guestsService.selectedGuest.nameCompanion">
         </div>
 
         <label for="friend-of" class="form-group__label">Conozco a los novios de...</label>
-
         <div class="radio__form--expanded">
           <label class="radio radio__btn">
-            <input type="checkbox" class="radio__control">
+            <input type="radio" class="radio__control"
+            name="category" #category="ngModel" value="Colegio" [(ngModel)]="guestsService.selectedGuest.category">
             <span class="radio__custom">
               Colegio
             </span>
           </label>
-          <label class="radio radio__btn">
-            <input type="checkbox" class="radio__control">
+          <label class="radio radio__btn" >
+            <input type="radio" class="radio__control"
+            name="category" #category="ngModel" value="Uni" [(ngModel)]="guestsService.selectedGuest.category">
             <span class="radio__custom">
               Uni
             </span>
           </label>
-          <label class="radio radio__btn">
-            <input type="checkbox" class="radio__control">
+      <label class="radio radio__btn" >
+            <input type="radio" class="radio__control"
+            name="category" #category="ngModel" value="Futbol" [(ngModel)]="guestsService.selectedGuest.category">
             <span class="radio__custom">
-              Futbol
+              Fútbol
             </span>
           </label>
-          <label class="radio radio__btn">
-            <input type="checkbox" class="radio__control">
+          <label class="radio radio__btn" >
+            <input type="radio" class="radio__control"
+            name="category" #category="ngModel" value="Pueblo" [(ngModel)]="guestsService.selectedGuest.category">
             <span class="radio__custom">
               Pueblo
             </span>
           </label>
-          <label class="radio radio__btn">
-            <input type="checkbox" class="radio__control">
+          <label class="radio radio__btn" >
+            <input type="radio" class="radio__control"
+            name="category" #category="ngModel" value="Boream" [(ngModel)]="guestsService.selectedGuest.category">
             <span class="radio__custom">
               Boream
             </span>
           </label>
-          <label class="radio radio__btn">
-            <input type="checkbox" class="radio__control">
+          <label class="radio radio__btn" >
+            <input type="radio" class="radio__control"
+            name="category" #category="ngModel" value="Baile" [(ngModel)]="guestsService.selectedGuest.category">
             <span class="radio__custom">
               Baile
             </span>
           </label>
-          <label class="radio radio__btn">
-            <input type="checkbox" class="radio__control">
+          <label class="radio radio__btn" >
+            <input type="radio" class="radio__control"
+            name="category" #category="ngModel" value="Máster" [(ngModel)]="guestsService.selectedGuest.category">
             <span class="radio__custom">
-              Master
+              Máster
             </span>
           </label>
-          <label class="radio radio__btn">
-            <input type="checkbox" class="radio__control">
+          <label class="radio radio__btn" >
+            <input type="radio" class="radio__control"
+            name="category" #category="ngModel" value="Música" [(ngModel)]="guestsService.selectedGuest.category">
             <span class="radio__custom">
-              Musica
+              Música
             </span>
-          </label>
+          </label> 
         </div>
 
         <div class="form__group form-group--access">
           <label for="phone" class="form-group__label">Teléfono</label>
-          <input type="tel" id="phone" class="form__group-control form__group-control--access">
+          <input type="tel" id="phone" class="form__group-control form__group-control--access"
+          name="phone" #phone="ngModel" value="Teléfono" [(ngModel)]="guestsService.selectedGuest.phone">
         </div>
-
-        <!-- <div class="form-group form-group--access content-select">
-                    <label for="allergies" class="form-group__label">¿Tienes alguna incompatibilidad alimenticia?</label>
-                    <select id="allergies" class="form__group-control">
-                        <option selected>Ninguna</option>
-                        <option value="lactosa">Lactosa</option>
-                        <option value="gluten">Gluten</option>
-                        <option value="pescado">Pescado</option>
-                        <option value="queso">Queso</option>
-                        <option value="cebolla">Cebolla</option>
-                        <option value="marisco">Marisco</option>
-                        <option value="chocolate">Chocolate</option>
-
-                    </select>
-                </div>  -->
-
 
         <div class="form__group form-group--access dropdown">
           <label for="allergies" class="form-group__label">¿Tienes alergia a algún alimento?</label>
@@ -140,41 +134,43 @@
               class="dropdown form__group-control form__group-control--access"></a>
           <div class="dropdown__menu" aria-labelledby="dropdownMenuButton">
             <label class="radio--block">
-              <input type="checkbox" class="radio__control">
+              <input type="checkbox" class="radio__control" (click)="notAllergic()"
+              name="allergies" #allergies="ngModel" [(ngModel)]="guestsService.selectedGuest.allergies" value="Sin alergias" >
               <span class="radio__checkbox radio__checkbox--success">
                 No tengo alergias
               </span>
             </label>
             <div aria-hidden="true" class="dropdown__menu--divider"></div>
             <label class="radio--block">
-              <input type="checkbox" class="radio__control">
+              <input [disabled]="showallergies" type="checkbox" class="radio__control" id="02"
+              name="allergies" #allergies="ngModel" [(ngModel)]="guestsService.selectedGuest.allergies" value="Queso" >
               <span class="radio__checkbox">
-                Quesos
+                Queso
               </span>
             </label>
             <label class="radio--block">
-              <input type="checkbox" class="radio__control">
+              <input [disabled]="showallergies" type="checkbox" class="radio__control" id="03"
+              name="allergies" #allergies="ngModel" value="Marisco" [(ngModel)]="guestsService.selectedGuest.allergies">
               <span class="radio__checkbox">
                 Marisco
               </span>
             </label>
             <label class="radio--block">
-              <input type="checkbox" class="radio__control">
+              <input [disabled]="showallergies" type="checkbox" class="radio__control" id="04"
+              name="allergies" #allergies="ngModel" [(ngModel)]="guestsService.selectedGuest.allergies" value="Pescado">
               <span class="radio__checkbox">
                 Pescado
               </span>
             </label>
             <label class="radio--block">
-              <input type="checkbox" class="radio__control">
+              <input [disabled]="showallergies" type="checkbox" class="radio__control" id="05"
+              name="allergies" #allergies="ngModel" [(ngModel)]="guestsService.selectedGuest.allergies" value="Gluten">
               <span class="radio__checkbox">
                 Gluten
               </span>
             </label>
-
           </div>
         </div>
-
-
         <div class="form__group--center">
           <button type="submit" class="button button--lg">Voy a la boda!</button>
         </div>

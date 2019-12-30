@@ -8,6 +8,7 @@ import { GuestPresentsComponent } from './components/guest-presents/guest-presen
 import { GuestRoutingModule } from './guest-routing.module';
 
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { CommonModule } from '@angular/common';
   imports: [
     SharedModule,
     GuestRoutingModule,
+    FormsModule,
     CommonModule
   ]
 })
