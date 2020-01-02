@@ -123,7 +123,7 @@
 
         <div class="form__group form-group--access">
           <label for="phone" class="form-group__label">Teléfono</label>
-          <input type="tel" id="phone" class="form__group-control form__group-control--access"
+          <input type="tel" class="form__group-control form__group-control--access" placeholder="preferiblemente móvil"
           name="phone" #phone="ngModel" value="Teléfono" [(ngModel)]="guestsService.selectedGuest.phone">
         </div>
 
@@ -134,8 +134,8 @@
               class="dropdown form__group-control form__group-control--access"></a>
           <div class="dropdown__menu" aria-labelledby="dropdownMenuButton">
             <label class="radio--block">
-              <input type="checkbox" class="radio__control" (input)="toggleAllergy('none')"
-              name="none" #none="ngModel" [(ngModel)]="allergies.none">
+              <input type="checkbox" class="radio__control" (input)="toggleAllergy('noAllergies')"
+              name="noAllergies" #noAllergies="ngModel" [(ngModel)]="allergies.noAllergies">
               <span class="radio__checkbox radio__checkbox--success">
                 No tengo alergias
               </span>
@@ -143,7 +143,7 @@
             <div aria-hidden="true" class="dropdown__menu--divider"></div>
             <label class="radio--block">
               <input [disabled]="showallergies" type="checkbox" class="radio__control" id="02" (click)="toggleAllergy('queso')"
-              name="queso" #queso="ngModel" [(ngModel)]="allergies.queso">
+              name="queso" #queso="ngModel" [(ngModel)]="allergies.queso" value="queso">
               <span class="radio__checkbox">
                 Queso
               </span>
@@ -172,7 +172,7 @@
           </div>
         </div>
         <div class="form__group--center">
-          <button type="submit" class="button button--lg">Voy a la boda!</button>
+          <button type="submit" (click)="resetForm()" class="button button--lg">Voy a la boda!</button>
         </div>
       </form>
     </div>

@@ -6,6 +6,7 @@ import { Guest } from 'src/app/core/models/guest';
 
 
 
+
 @Component({
   selector: 'app-guest-confirmation',
   templateUrl: './guest-confirmation.component.html',
@@ -17,7 +18,7 @@ export class GuestConfirmationComponent implements OnInit {
   showallergies = false;
 
   allergies = {
-    none: true,
+    noAllergies: true,
     queso: false,
     marisco: false,
     pescado: false,
@@ -36,9 +37,16 @@ export class GuestConfirmationComponent implements OnInit {
     console.log(form.value);
     this.guestsService.postGuest(form.value)
       .subscribe( res => {
-        console.log(res); 
-        // this.getGuests();
+        this.resetForm(form); 
       });
+  }
+
+
+  resetForm(form?: NgForm) {
+    if(form) {
+      form.reset();
+      this.guestsService.selectedGuest = new Guest();
+    }
   }
 
  init() {
@@ -57,20 +65,6 @@ export class GuestConfirmationComponent implements OnInit {
     }
   };
   
-    // Search form
-    // --------------------------------------------------------
-    
-    /* let input: any = document.querySelector('.search__input'); */
-  
-    /* input.onfocus = function(e) {
-      this.setAttribute('aria-expanded', 'true');
-    } */
-  
-    /* input.onblur = function(e) {
-      this.setAttribute('aria-expanded', 'false');
-    } */
-  
-
   toggleCompanion(value) {
     this.showcompanion = value;
   }
@@ -80,20 +74,20 @@ export class GuestConfirmationComponent implements OnInit {
   }
 
   toggleAllergy(allergy) {
-    if (allergy === 'none') {
-      if (!this.allergies.none) {
+    if (allergy === 'noAllergies') {
+      if (!this.allergies.noAllergies) {
         this.allergies = {
-          none: true,
+          noAllergies: true,
           queso: false,
           marisco: false,
           pescado: false,
           gluten: false
         };
       } else {
-        this.allergies.none = false;
+        this.allergies.noAllergies = false;
       }
     } else {
-      this.allergies.none = false;
+      this.allergies.noAllergies = false;
       this.allergies[allergy] = !this.allergies[allergy];
     }
   }

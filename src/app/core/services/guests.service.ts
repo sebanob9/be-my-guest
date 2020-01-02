@@ -97,4 +97,13 @@ postGuest(guest: Guest) {
   return this.http.post(this.URL_API, guest);
 }
 
+putGuest(guest: Guest) {
+  return this.http.put(this.URL_API + `/${guest._id}`, guest)
+  // url + el id que vamos a actualizar, seguido de los datos que metemos
+}
+
+deleteGuest(_id:string) {
+  return this.http.delete(this.URL_API + `/${_id}`)
+}
+
 }

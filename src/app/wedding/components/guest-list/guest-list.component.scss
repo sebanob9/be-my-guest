@@ -12,3 +12,19 @@ th {
   text-align: left;
   /* font-size: 0.8rem; */
 }
+
+.table tr{
+  &:hover {
+    background-color: rgba(#701658,0.1);
+  }
+}
+
+.svg {
+  
+  margin-left: 15px;
+}
+
+.table td {
+  vertical-align: middle;  
+}
+

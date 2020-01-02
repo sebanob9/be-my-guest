@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Guest } from 'src/app/core/models/guest';
 import { GuestsService } from 'src/app/core/services/guests.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-guest-list',
@@ -15,6 +16,7 @@ export class GuestListComponent implements OnInit {
     this.getGuests();
   }
   
+
   getGuests() {
     this.guestsService.getGuest()
       .subscribe( res => {
@@ -22,4 +24,26 @@ export class GuestListComponent implements OnInit {
         console.log(res);
       });
   }
+
+  editGuest(guest: Guest) {
+    this.guestsService.selectedGuest = guest; // primero seleccionamos al invitado
+  }
+
+
+  deleteGuest(_id: string) {
+      if(confirm('¿Estas seguro de querer eliminar a este invitado?')) {
+        this.guestsService.deleteGuest(_id)
+          .subscribe(res => {
+            this.getGuests();
+          });
+      }
+}
+
+  // revisar, no se guardan los cambios correctamente
+ /*  addGuest(form: NgForm) {
+    this.guestsService.putGuest(form.value)
+      .subscribe(res => {
+        console.log(res);
+      })
+  } */
 }
