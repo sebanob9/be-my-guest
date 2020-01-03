@@ -14,6 +14,8 @@ export class RegisterComponent implements OnInit {
   BoyGirl = false;
   otherEvent = false;
 
+  user = {} // creamos objeto vacio que se va a ir
+
   constructor() { }
 
   ngOnInit() {
@@ -44,6 +46,10 @@ export class RegisterComponent implements OnInit {
     this.GirlGirl = false;
     this.BoyGirl = false;
     this.BoyBoy = false;
+  }
+
+  signUp() {
+    console.log(this.user);
   }
 
 }

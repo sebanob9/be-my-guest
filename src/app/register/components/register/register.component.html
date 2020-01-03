@@ -1,6 +1,6 @@
 <main class="table-image">
   <div class="main main__center">
-    <form action="..." method="get" class="form-lg ">
+    <form (submit)="signUp()" #userForm="ngForm" class="form-lg ">
       <div class="form__group--center text-item--lg">
         <h1 class="form__title">Registra tu evento</h1>
       </div>
@@ -12,7 +12,7 @@
 <div class="radio__form--centred">
       
         <label>
-          <input type="radio" name="couple" id="event-type" class="radio__control">
+          <input type="radio" name="couple" id="BoyGirl" class="radio__control">
           <span (click)="toggleBoyGirl(true)" class="radio__custom">
           <svg width="50" height="50">
             <use xlink:href="../assets/svg/sprite.svg#suit"></use>
@@ -24,7 +24,7 @@
         </label>
 
         <label>
-          <input type="radio" name="couple" id="event-type" class="radio__control">
+          <input type="radio" name="couple" id="GirlGirl" class="radio__control">
           <span (click)="toggleGirlGirl(true)" class="radio__custom">
             <svg width="50" height="50">
               <use xlink:href="../assets/svg/sprite.svg#dress"></use>
@@ -35,7 +35,7 @@
           </span>
         </label>
         <label>
-          <input type="radio" name="couple" id="event-type" class="radio__control">
+          <input type="radio" name="couple" id="BoyBoy" class="radio__control">
           <span (click)="toggleBoyBoy(true)"class="radio__custom">
             <svg width="50" height="50">
               <use xlink:href="../assets/svg/sprite.svg#suit"></use>
@@ -47,7 +47,7 @@
         </label>
 
         <label>
-          <input type="radio" name="couple" id="event-type" class="radio__control">
+          <input type="radio" name="couple" id="OtherEvent" class="radio__control">
           <span (click)="toggleOtherEvent(true)"class="radio__custom">
             <svg width="50" height="50">
               <use xlink:href="../assets/svg/sprite.svg#meeting"></use>
@@ -98,9 +98,12 @@
         <label for="date" class="form-group__label">Fecha</label>
         <input type="date" id="date" required class="form__group-control form__group-control--access">
       </div>
+
+
       <div class="form-group text-item">
         <label for="email" class="form-group__label">Email</label>
-        <input type="email" id="email" required class="form__group-control form__group-control--access">
+        <input type="email" id="email" required class="form__group-control form__group-control--access"
+        [(ngModel)]="user.email" name="email" #email="ngModel">
       </div>
       <div class="form-group text-item">
         <label for="phone" class="form-group__label">Teléfono</label>
@@ -108,11 +111,12 @@
       </div>
       <div class="form-group text-item">
         <label for="password" class="form-group__label">Contraseña</label>
-        <input type="password" required id="password" class="form__group-control form__group-control--access">
+        <input type="password" required id="password" class="form__group-control form__group-control--access"
+        [(ngModel)]="user.password" name="password" #password="ngModel">
       </div>
       <div class="form-group text-item">
         <label for="password" class="form-group__label">Confirmar contraseña</label>
-        <input type="password" required id="password" class="form__group-control form__group-control--access">
+        <input type="password" required id="confirmPassword" class="form__group-control form__group-control--access">
       </div>
 
       <!-- <div class="form-group text-item--lg">

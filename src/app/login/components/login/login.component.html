@@ -1,28 +1,30 @@
 <div class="table-image">
   <main class="main main-left">
     <div class="maincontainer">
-      <!-- <form (submit)="login()" class="form"> -->
-        <div class="form">
+      <form  class="form" (submit)="signIn()" > 
         <div class="form__group--center">
           <h1 class="form__title">Iniciar sesión</h1>
         </div>
         <div class="form__group">
           <label for="user" class="form-group__label">Usuario</label>
-          <input #user type="text" size=auto id="user" required class="form__group-control">
+          <input type="text" id="user" required class="form__group-control"
+          [(ngModel)]="user.email" name="email" >
         </div>
         <div class="form__group">
           <label for="password" class="form-group__label">Contraseña</label>
-          <input type="password" id="password" required class="form__group-control">
+          <input type="password" required class="form__group-control"
+          [(ngModel)]="user.password" name="password">
         </div>
         <div class="form__group form__group--right">
           <a data-toggle="modal" data-target="#rememberPassword" role="button">Recordar contraseña</a>
         </div>
         <div class="form__group--center">
-          <button role="button" class="button" (click)="login(user)">Acceder</button>
+          <button type="submit" class="button" >Acceder</button>
         </div>
-      </div>
-<!--       </form>
- -->
+       <!--  (click)="login(user)" 
+      TAMBIEN ELIMINADOS #USER Y #PASSWORD-->
+     </form>
+ 
       <!------------------ MODAL --------------------------->
 
       <div class="modal fade" id="rememberPassword" tabindex="-1" role="dialog" aria-labelledby="rememberPasswordLabel"

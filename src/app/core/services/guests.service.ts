@@ -40,6 +40,7 @@ export class GuestsService {
     @Inject(LOCAL_STORAGE) private storage: StorageService
   ) {
     this.selectedGuest=new Guest
+    
     this.guests$ = new BehaviorSubject<any[]>(this.guests);
     const savedGuest = this.storage.get('guests');
     if (!savedGuest) {
