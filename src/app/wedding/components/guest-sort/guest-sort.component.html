@@ -32,7 +32,7 @@
 
 
   <div class="table__list">
-    <ul>
+    <ul> <!-- *ngIf="tables.weddingId === 1" -->
       <li class="table" *ngFor="let table of tableList$ | async">
         <!-- <button (click)="deleteTable(table.id)">Delete Table</button> -->
         <div class="form__table-item--s">{{table.name}}</div>
@@ -44,11 +44,11 @@
            <!-- <button class="button--delete" (click)="deleteTable(table)">Borrar</button> -->
         </div>
 
-        <span>Listado de invitados:</span>
+        <span>Listado de invitados: </span>
         
         <ul>
-          <li *ngFor="let guest of guestsService.getGuestByTable(table)| async">
-            <span>{{guest.name}}</span>
+          <li class="guestname" *ngFor="let guest of guestsService.getGuestByTable(table)| async">
+            <span >, {{ guest.name }}</span>
           </li>
         </ul>
       </li>

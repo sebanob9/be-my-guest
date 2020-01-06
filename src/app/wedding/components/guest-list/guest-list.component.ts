@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Guest } from 'src/app/core/models/guest';
 import { GuestsService } from 'src/app/core/services/guests.service';
 import { NgForm } from '@angular/forms';
+import { format } from 'url';
 
 @Component({
   selector: 'app-guest-list',
@@ -27,6 +28,27 @@ export class GuestListComponent implements OnInit {
 
   editGuest(guest: Guest) {
     this.guestsService.selectedGuest = guest; // primero seleccionamos al invitado
+    
+    /* this.guestsService.putGuest(guest)
+      .subscribe(res => {
+        console.log(res);
+      }) */
+  }
+
+  addguest(form?: NgForm) {
+    console.log(form.value);
+    if(form.value._id) {
+      this.guestsService.putGuest(form.value)
+        .subscribe(res => {
+          // this.resetForm(form);
+          this.getGuests();
+        });
+    } else {
+      this.guestsService.postGuest(form.value)
+      .subscribe(res => {
+        this.getGuests();
+      });
+}
   }
 
 
@@ -40,10 +62,10 @@ export class GuestListComponent implements OnInit {
 }
 
   // revisar, no se guardan los cambios correctamente
- /*  addGuest(form: NgForm) {
+  updateGuest(form: NgForm) {
     this.guestsService.putGuest(form.value)
       .subscribe(res => {
         console.log(res);
       })
-  } */
+  }
 }

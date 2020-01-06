@@ -28,8 +28,6 @@ export class GuestSortComponent implements OnInit {
 
   ngOnInit() {
     this.guestList$ = this.guestsService.getAllGuests();
-    
-    // this.tableList = this.tableService.getTableList();
     this.tableList$ = this.tableService.getAll();
   }
 
@@ -51,7 +49,6 @@ export class GuestSortComponent implements OnInit {
       guestList: [],
       maxGuestCount: this.model.guestNumber
     });
-    // this.tableList.push({name: "Mesa" + (this.tableList.length + 1), guestList: [], maxGuestCount: 20})
   }
 
  /*  deleteTable(id){

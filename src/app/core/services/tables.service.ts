@@ -8,12 +8,12 @@ import { StorageService, LOCAL_STORAGE } from 'ngx-webstorage-service';
 })
 export class TablesService {
 
-  private tables = [
+  public tables = [
     { id: 1, weddingId: 1, name: "Familia de la novia", guestList: [3], maxGuestCount: 10, type: "square" },
-    { id: 2, weddingId: 1, name: "Amigos del Cole", guestList: [], maxGuestCount: 12, type: "square" },
+    { id: 2, weddingId: 1, name: "Amigos del Cole", guestList: [1], maxGuestCount: 12, type: "square" },
     { id: 3, weddingId: 1, name: "Familia de él", guestList: [], maxGuestCount: 8, type: "round" },
     { id: 5, weddingId: 1, name: "Gente que cae regular", guestList: [], maxGuestCount: 10, type: "round" },
-    { weddingId: 2, id: 1, name: "Familia de la novia boda2", guestList: [3], maxGuestCount: 10, type: "square" }
+    { weddingId: 2, id: 6, name: "Familia de la novia boda2", guestList: [3], maxGuestCount: 10, type: "square" }
   ];
 
   tables$: BehaviorSubject<any[]>;

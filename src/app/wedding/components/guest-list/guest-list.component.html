@@ -29,6 +29,7 @@
             <li *ngIf="guest.gluten === true">Gluten</li>
           </ul>
         </td>
+
         <td>
           <a (click)="editGuest(guest)" data-toggle="modal" data-target="#editData" role="button">
             <svg class="svg" width="25" height="25">
@@ -41,6 +42,7 @@
             </svg>
           </a>
         </td>
+        
       </tr>
     </tbody>
   </table>
@@ -53,7 +55,7 @@
           <div class="modal-content">
             <div class="modal-body">
               <div class="main__center">
-                <form #guestForm="ngForm" (ngSubmit)="addGuest(guestForm)" class="form form--register">
+                <form #guestForm="ngForm" (ngSubmit)="addguest(guestForm)" class="form form--register">
                   <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="guestsService.selectedGuest._id">
                   <div class="form__group form-group--access">
                     <label for="guest_name" class="form-group__label">Nombre</label>
@@ -67,9 +69,11 @@
                   </div>
                 </form>
               </div>
-              <button type="submit" data-dismiss="modal" class="button button--lg">Voy a la boda!</button>
+              <button type="submit" (click)="addguest(guestForm)" data-dismiss="modal" class="button button--lg">Actualizar</button>
             </div>
-            <a data-dismiss="modal" (click)="addGuest(guestForm)">&times;</a>
+            <a data-dismiss="modal" >&times;</a>
           </div>
         </div>
       </div>
+
+      <!-- (click)="addGuest(guestForm)" -->

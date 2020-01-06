@@ -39,7 +39,7 @@ export class GuestConfirmationComponent implements OnInit {
         this.resetForm(form); 
       });
   }
-
+// hacemos subscribe para escuchar el retorno de la respuesta del servidor
 
   resetForm(form?: NgForm) {
     if(form) {
