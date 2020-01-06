@@ -6,7 +6,8 @@
   margin: 0 auto;
   justify-content: center;
   align-items: center;
-  margin-bottom:20px;
+  margin-bottom:30px;
+  margin-top:40px;
   &-item {
     &--xl {
       flex: 0 1 calc(50% - 10px);
@@ -52,6 +53,9 @@
   &:hover {
     background-color: rgba(#701658,0.1);
     border-radius: $main-border-radius;
+  }
+  &__list {
+    margin-bottom: 50px;
   }
 }
 
@@ -100,3 +104,7 @@
     box-shadow: 0 0 6px red;
   }
 }
+
+/* .guestname {
+  display: inline-flex;
+} */

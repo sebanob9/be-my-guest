@@ -31,7 +31,7 @@
   </div>
 
 
-  <div>
+  <div class="table__list">
     <ul>
       <li class="table" *ngFor="let table of tableList$ | async">
         <!-- <button (click)="deleteTable(table.id)">Delete Table</button> -->
@@ -41,7 +41,7 @@
 
         <div class="form__table-item--xs">
           <button class="button--edit" (click)="openDialog(table)">Editar</button>
-          <button class="button--delete" (click)="deleteTable(table)">Borrar</button>
+           <!-- <button class="button--delete" (click)="deleteTable(table)">Borrar</button> -->
         </div>
 
         <span>Listado de invitados:</span>

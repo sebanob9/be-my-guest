@@ -9,10 +9,15 @@ import { BlogComponent } from './core/components/header/components/blog/blog.com
 import { AboutComponent } from './core/components/header/components/about/about.component';
 import { ContactComponent } from './core/components/header/components/contact/contact.component';
 
+import { UserGuard } from './core/guards/user.guard';
+
 
 const routes: Routes = [
   {path: '', redirectTo: '/landing', pathMatch: 'full'},
-  {path: 'wedding', loadChildren: () => import('./wedding/wedding.module').then(mod => mod.WeddingModule)}, 
+  {path: 'wedding',
+   loadChildren: () => import('./wedding/wedding.module').then(mod => mod.WeddingModule),
+  canActivate: [UserGuard]
+  }, 
   {path: 'guest', loadChildren: () => import('./guest/guest.module').then(mod => mod.GuestModule)},
   {path: 'landing', component: LandingComponent},
   {path: 'login', component: LoginComponent},  

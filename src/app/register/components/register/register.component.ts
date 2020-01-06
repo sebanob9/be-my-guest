@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/core/services/user.service';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-register',
@@ -16,7 +20,8 @@ export class RegisterComponent implements OnInit {
 
   user = {} // creamos objeto vacio que se va a ir
 
-  constructor() { }
+  constructor(public userservice: UserService,
+              public router: Router) { }
 
   ngOnInit() {
   }
@@ -48,8 +53,18 @@ export class RegisterComponent implements OnInit {
     this.BoyBoy = false;
   }
 
-  signUp() {
-    console.log(this.user);
+  signUp(form: NgForm) {
+    this.userservice.signUp(form.value)
+      .subscribe(
+        res => {
+          console.log(res);
+          localStorage.setItem('token', res['token']); // lo guardamos en la app para enviarlo siempre que sea necesario
+          this.router.navigate(['/wedding/my-wedding'])
+        },
+        err => 
+          console.log(err)
+      )
+    //console.log(form.value);
   }
 
 }

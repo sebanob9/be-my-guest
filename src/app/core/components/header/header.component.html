@@ -1,11 +1,26 @@
 <div class="maincontainer header__flexbox" id="navbar">
-  <img routerLink='/wedding/my-wedding' class="logo" src="../../../../assets/img/logo1a.png" height='80' alt="mesa de bodas" id="logo">
+  <img routerLink='/wedding/my-wedding' class="logo" src="../../../../assets/img/logo1a.png" height='80'
+    alt="mesa de bodas" id="logo">
   <nav class="navbar">
-      <a routerLink='/wedding/my-wedding' class="navbar__item" *ngIf="isLogged">Home</a>
-      <a routerLink='/blog' class="navbar__item">Blog</a>
-      <a routerLink='/about' class="navbar__item">¿Te casas?</a>
-      <a routerLink='/contact' class="navbar__item">Contacto</a>
-      <a routerLink='/register' href="#sent-password" role="button" class="button button--empty" *ngIf="!isLogged">Nuevo ususario</a>
-      <a routerLink='/login' href="#sent-password" role="button" class="button" *ngIf="!isLogged">Acceder</a>
-  </nav>  
+    <a routerLink='/wedding/my-wedding' class="navbar__item" *ngIf="userservice.loggedIn()">Home</a>
+    <a routerLink='/blog' class="navbar__item">Blog</a>
+    <a routerLink='/about' class="navbar__item">¿Te casas?</a>
+    <a routerLink='/contact' class="navbar__item">Contacto</a>
+
+  </nav>
+  <nav class="navbar">
+  <a routerLink='/register' role="button" class="button button--empty" *ngIf="!userservice.loggedIn()">Nuevo
+    ususario</a>
+  <a routerLink='/login' role="button" class="button" *ngIf="!userservice.loggedIn()">Acceder</a>
+  <a routerLink='/login' *ngIf="userservice.loggedIn()" (click)="userservice.logOut()" class="button__logout">
+    Cerrar sesión 
+    <svg class="logout" width="20" height="20">
+      <use xlink:href="../assets/svg/sprite.svg#window-close"></use>
+    </svg></a>
+  </nav>
+
+
 </div>
+
+<!-- *ngIf="isLogged" quitado del metodo kike
+*ngIf="isLogged" -->

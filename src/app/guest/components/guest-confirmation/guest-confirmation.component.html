@@ -29,19 +29,25 @@
               Novio
             </span>
           </label>
+          <div *ngIf="!friendFrom?.valid">
+            <p class="error">Debes indicar a quién conoces para poder continuar</p>
+          </div>
         </div>
 
-        <div class="form__group form-group--access">
+        <div class="form__group form__group--guests form-group--access">
           <label for="guest_name" class="form-group__label">Nombre</label>
           <input type="text" id="guest_name" required placeholder="Indique su nombre" class="form__group-control form__group-control--access"
            name="name" #name="ngModel" [(ngModel)]="guestsService.selectedGuest.name">
+           <div *ngIf="!name?.valid && name?.touched">
+            <p class="error">Debes introducir un nombre para poder continuar</p>
+          </div>
         </div>
+        
 
         <label for="hasCouple" class="form-group__label">¿Vienes acompañado?</label>
-
         <div class="radio__form radio__form--centred">
           <label class="radio radio__btn" for="no-couple">
-            <input (click)="toggleCompanion(false)" type="radio" id="no-couple" class="radio__control"
+            <input (click)="toggleCompanion(false)" type="radio" id="no-couple" class="radio__control" required
             name="withCompanion" #withCompanion="ngModel" value=false [(ngModel)]="guestsService.selectedGuest.withCompanion">
             <span class="radio__custom">
               No
@@ -54,18 +60,26 @@
               Si
             </span>
           </label>
+          <div *ngIf="!withCompanion?.valid">
+            <p class="error">Debes indicar si vienes acompañado para poder continuar</p>
+          </div>
         </div>
-       <div *ngIf="showcompanion" class="form__group form-group--access">
+
+
+       <div *ngIf="showcompanion" class="form__group form__group--guests form-group--access">
           <label for="couple-name" class="form-group__label">Nombre pareja</label>
           <input type="text" id="couple-name" required placeholder="Nombre de su pareja" class="form__group-control form__group-control--access"
           name="nameCompanion" #nameCompanion="ngModel" [(ngModel)]="guestsService.selectedGuest.nameCompanion">
+          <div *ngIf="!nameCompanion?.valid && nameCompanion?.touched">
+            <p class="error">Indique el nombre de su pareja para poder continuar</p>
+          </div>
         </div>
 
         <label for="friend-of" class="form-group__label">Conozco a los novios de...</label>
         <div class="radio__form--expanded">
           <label class="radio radio__btn">
-            <input type="radio" class="radio__control"
-            name="category" #category="ngModel" value="Colegio" [(ngModel)]="guestsService.selectedGuest.category">
+            <input type="radio" class="radio__control" required
+            name="category" #category="ngModel" value="Colegio" [(ngModel)]="guestsService.selectedGuest.category"> 
             <span class="radio__custom">
               Colegio
             </span>
@@ -118,16 +132,22 @@
             <span class="radio__custom">
               Música
             </span>
-          </label> 
+          </label>
+          <div *ngIf="!category?.valid">
+            <p class="error">Indique una categoría para poder continuar</p>
+          </div>
         </div>
 
-        <div class="form__group form-group--access">
+        <div class="form__group form__group--guests form-group--access">
           <label for="phone" class="form-group__label">Teléfono</label>
-          <input type="tel" class="form__group-control form__group-control--access" placeholder="preferiblemente móvil"
+          <input type="tel" class="form__group-control form__group-control--access" placeholder="Número móvil" required
           name="phone" #phone="ngModel" value="Teléfono" [(ngModel)]="guestsService.selectedGuest.phone">
+          <div *ngIf="!phone?.valid && phone?.touched">
+            <p class="error">Debes introducir un teléfono para poder continuar</p>
+          </div>
         </div>
 
-        <div class="form__group form-group--access dropdown">
+        <div class="form__group form__group--guests form-group--access dropdown">
           <label for="allergies" class="form-group__label">¿Tienes alergia a algún alimento?</label>
           <a class="dropdown__btn" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
             <input id="allergies" readonly
@@ -135,7 +155,8 @@
           <div class="dropdown__menu" aria-labelledby="dropdownMenuButton">
             <label class="radio--block">
               <input type="checkbox" class="radio__control" (input)="toggleAllergy('noAllergies')"
-              name="noAllergies" #noAllergies="ngModel" [(ngModel)]="allergies.noAllergies">
+              name="noAllergies" #noAllergies="ngModel" [(ngModel)]="allergies.noAllergies" 
+              placeholder="No tengo alergias">
               <span class="radio__checkbox radio__checkbox--success">
                 No tengo alergias
               </span>
@@ -172,7 +193,7 @@
           </div>
         </div>
         <div class="form__group--center">
-          <button type="submit" (click)="resetForm()" class="button button--lg">Voy a la boda!</button>
+          <button type="submit" (click)="resetForm()" [disabled]="guestForm.form.invalid" class="button button--lg">Voy a la boda!</button>
         </div>
       </form>
     </div>

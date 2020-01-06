@@ -4,11 +4,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
+
+
 @NgModule({
-  declarations: [],
   imports: [
     CommonModule,
     FontAwesomeModule
   ]
 })
-export class SharedModule { }
+export class SharedModule { 
+}

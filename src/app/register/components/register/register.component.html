@@ -1,25 +1,25 @@
 <main class="table-image">
   <div class="main main__center">
-    <form (submit)="signUp()" #userForm="ngForm" class="form-lg ">
+    <form (ngSubmit)="signUp(userForm)" #userForm="ngForm" class="form-lg ">
       <div class="form__group--center text-item--lg">
         <h1 class="form__title">Registra tu evento</h1>
       </div>
 
 
-<div class="radio__form--centred text-item--lg">
-  <label class="form-group__label">Tipo de evento</label>
-</div>      
-<div class="radio__form--centred">
-      
+      <div class="radio__form--centred text-item--lg">
+        <label class="form-group__label">Tipo de evento</label>
+      </div>
+      <div class="radio__form--centred">
+
         <label>
           <input type="radio" name="couple" id="BoyGirl" class="radio__control">
           <span (click)="toggleBoyGirl(true)" class="radio__custom">
-          <svg width="50" height="50">
-            <use xlink:href="../assets/svg/sprite.svg#suit"></use>
-          </svg>
-          <svg width="50" height="50">
-            <use xlink:href="../assets/svg/sprite.svg#dress"></use>
-          </svg>
+            <svg width="50" height="50">
+              <use xlink:href="../assets/svg/sprite.svg#suit"></use>
+            </svg>
+            <svg width="50" height="50">
+              <use xlink:href="../assets/svg/sprite.svg#dress"></use>
+            </svg>
           </span>
         </label>
 
@@ -34,9 +34,10 @@
             </svg>
           </span>
         </label>
+        
         <label>
           <input type="radio" name="couple" id="BoyBoy" class="radio__control">
-          <span (click)="toggleBoyBoy(true)"class="radio__custom">
+          <span (click)="toggleBoyBoy(true)" class="radio__custom">
             <svg width="50" height="50">
               <use xlink:href="../assets/svg/sprite.svg#suit"></use>
             </svg>
@@ -48,87 +49,124 @@
 
         <label>
           <input type="radio" name="couple" id="OtherEvent" class="radio__control">
-          <span (click)="toggleOtherEvent(true)"class="radio__custom">
+          <span (click)="toggleOtherEvent(true)" class="radio__custom">
             <svg width="50" height="50">
               <use xlink:href="../assets/svg/sprite.svg#meeting"></use>
             </svg>
           </span>
         </label>
       </div>
+
       
       <!-- --- El --- -->
+      <div *ngIf="BoyBoy" class="form__group text-item">
+        <label for="groom" class="form-group__label">El Novio</label>
+        <input type="text" id="groom" placeholder="El nombre de él"
+          class="form__group-control form__group-control--access"
+          [(ngModel)]="userservice.selectedUser.groom" name="groom" #groom="ngModel">
+      </div>
+
       <div *ngIf="BoyBoy || BoyGirl" class="form__group text-item">
         <label for="groom" class="form-group__label">El Novio</label>
-        <input type="text" id="groom" required placeholder="El nombre de él"
-          class="form__group-control form__group-control--access">
+        <input type="text" id="groom" placeholder="El nombre de él"
+          class="form__group-control form__group-control--access"
+          [(ngModel)]="userservice.selectedUser.groom" name="groom" #groom="ngModel">
       </div>
-      <div *ngIf="BoyBoy"class="form-group text-item">
-        <label for="bride" class="form-group__label">El Novio</label>
-        <input type="text" id="groom" required placeholder="El nombre de él"
-          class="form__group-control form__group-control--access">
-      </div>
+
+     
 
       <!----- Ella ----->
       <div *ngIf="BoyGirl || GirlGirl" class="form__group text-item">
         <label for="groom" class="form-group__label">La Novia</label>
-        <input type="text" id="groom" required placeholder="El nombre de ella"
-          class="form__group-control form__group-control--access">
+        <input type="text" id="bride" placeholder="El nombre de ella"
+          class="form__group-control form__group-control--access"
+          [(ngModel)]="userservice.selectedUser.bride" name="bride" #bride="ngModel">
       </div>
 
       <div *ngIf="GirlGirl" class="form__group text-item">
         <label for="groom" class="form-group__label">La Novia</label>
-        <input type="text" id="groom" required placeholder="El nombre de ella"
-          class="form__group-control form__group-control--access">
+        <input type="text" id="bride" placeholder="El nombre de ella"
+          class="form__group-control form__group-control--access"
+          [(ngModel)]="userservice.selectedUser.bride" name="bride" #bride="ngModel">
       </div>
+    
 
       <!----- Otro ----->
       <div *ngIf="otherEvent" class="form-group text-item--lg">
         <label for="message-text" class="form-group__label">Nombre del evento</label>
-        <input type="text" id="comments" 
-        class="form__group-control form__group-control--access">
+        <input type="text" id="comments" class="form__group-control form__group-control--access"
+        [(ngModel)]="userservice.selectedUser.otherEvent" name="otherEvent" #otherEvent="ngModel">
       </div>
 
-     <!--  Continuacion formulario -->
+      <!--  Continuacion formulario -->
       <div class="form-group text-item">
-        <label for="event-place" class="form-group__label">¿Dónde se celebra?</label>
-        <input type="text" id="event-place" required placeholder="El nombre de la finca / salón "
-          class="form__group-control form__group-control--access">
+        <label for="eventPlace" class="form-group__label">¿Dónde se celebra?</label>
+        <input type="text" id="eventPlace" placeholder="El nombre de la finca / salón "
+          class="form__group-control form__group-control--access"
+          [(ngModel)]="userservice.selectedUser.eventPlace" name="eventPlace" #eventplace="ngModel">
       </div>
+
       <div class="form-group text-item">
         <label for="date" class="form-group__label">Fecha</label>
-        <input type="date" id="date" required class="form__group-control form__group-control--access">
+        <input type="date" id="date" class="form__group-control form__group-control--access"
+        [(ngModel)]="userservice.selectedUser.date" name="date" #date="ngModel">
       </div>
 
 
       <div class="form-group text-item">
         <label for="email" class="form-group__label">Email</label>
         <input type="email" id="email" required class="form__group-control form__group-control--access"
-        [(ngModel)]="user.email" name="email" #email="ngModel">
-      </div>
-      <div class="form-group text-item">
-        <label for="phone" class="form-group__label">Teléfono</label>
-        <input type="tel" id="phone" class="form__group-control form__group-control--access">
-      </div>
-      <div class="form-group text-item">
-        <label for="password" class="form-group__label">Contraseña</label>
-        <input type="password" required id="password" class="form__group-control form__group-control--access"
-        [(ngModel)]="user.password" name="password" #password="ngModel">
-      </div>
-      <div class="form-group text-item">
-        <label for="password" class="form-group__label">Confirmar contraseña</label>
-        <input type="password" required id="confirmPassword" class="form__group-control form__group-control--access">
+          [(ngModel)]="userservice.selectedUser.email" name="email" #email="ngModel">
       </div>
 
-      <!-- <div class="form-group text-item--lg">
-                <label for="message-text" class="form-group__label">Peticion especial</label>
-              
-                <input type="text" id="comments" 
-                class="form__group-control form__group-control--access">
-              </div> -->
+      <div class="form-group text-item">
+        <label for="phone" class="form-group__label">Teléfono</label>
+        <input type="tel" id="phone" required class="form__group-control form__group-control--access"
+          [(ngModel)]="userservice.selectedUser.phone" name="phone" #phone="ngModel">
+      </div>
+
+
+
+
+
+      <div class="form-group text-item" [class.has-error]="password.touched && password.invalid">
+        <label for="password" class="form-group__label">Contraseña</label>
+        <input type="text" required id="password" class="form__group-control form__group-control--access"
+          [(ngModel)]="userservice.selectedUser.password" name="password" #password="ngModel">
+        <span class="help-block" *ngIf="password.touched && password.errors?.required">
+          Password is required
+        </span>
+      </div>
+
+
+      <div class="form-group text-item" [class.has-error]="confirmPassword.touched && confirmPassword.invalid">
+        <label for="password" class="form-group__label">Confirmar contraseña</label>
+        <input type="text" id="confirmPassword" required class="form__group-control form__group-control--access"
+          [(ngModel)]="userservice.selectedUser.confirmPassword" name="confirmPassword" #confirmPassword="ngModel"
+          appConfirmEqualValidator="password">
+      </div>
+      <span class="help-block" *ngIf="confirmPassword.touched && confirmPassword.errors?.required">
+        Confirm Password is required
+      </span>
+      <span class="help-block" *ngIf="confirmPassword.touched && confirmPassword.errors?.notEqual &&
+          !confirmPassword.errors?.required">
+        Password and Confirm Password does not match
+      </span>
+
+
       <div class="form-group--center">
-        <button type="submit" class="button">Si quiero!</button>
+        <button type="submit" [disabled]="userForm.form.invalid" class="button">Si quiero!</button>
       </div>
     </form>
   </div>
 
 </main>
+
+
+
+<!-- <div class="form-group text-item--lg">
+                <label for="message-text" class="form-group__label">Peticion especial</label>
+              
+                <input type="text" id="comments" 
+                class="form__group-control form__group-control--access">
+              </div> -->

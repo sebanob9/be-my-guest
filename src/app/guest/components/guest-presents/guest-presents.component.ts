@@ -18,7 +18,7 @@ export class GuestPresentsComponent implements OnInit {
   ngOnInit() {
   }
 
-  //user: User;
+  user: User;
  
 
   signUp(form: NgForm) {

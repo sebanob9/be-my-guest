@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -6,24 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  private isLogged: boolean = false;
-  constructor() { }
+
+  //private isLogged: boolean = false;
+
+  constructor(private userservice: UserService) { }
 
   ngOnInit() {
-    this.isLogged = localStorage.getItem("user") !== null;
+    // this.isLogged = localStorage.getItem("token") !== null;
   }
 }
-/*   window.onscroll = function() {scrollFunction()};
 
-  function scrollFunction() {
-  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.getElementById("navbar").style.padding = "10px 10px";
-    document.getElementById("logo").style.width = "20%";
-  } else {
-    document.getElementById("navbar").style.padding = "30px 10px";
-    document.getElementById("logo").style.fontSize = "35px";
-  }
-}
-  }
- */
 

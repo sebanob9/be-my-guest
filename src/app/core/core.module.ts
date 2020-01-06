@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 /* import { CommonModule } from '@angular/common'; */
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,6 +14,13 @@ import { BlogComponent } from './components/header/components/blog/blog.componen
 import { ContactComponent } from './components/header/components/contact/contact.component';
 import { AboutComponent } from './components/header/components/about/about.component';
 
+import { UserGuard } from './guards/user.guard';
+
+import {TokenInterceptorService} from './services/token-interceptor.service'
+import { SharedModule } from '../shared/shared.module';
+
+
+
 const COMPONENTS = [
   ErrorComponent,
   HeaderComponent,
@@ -22,6 +29,7 @@ const COMPONENTS = [
 ];
 
 const MODULES = [
+  SharedModule,
   BrowserModule,
   HttpClientModule,
   NgbModule
@@ -30,7 +38,14 @@ const MODULES = [
 
 @NgModule({
   declarations: [...COMPONENTS, BlogComponent, ContactComponent, AboutComponent],
-  imports: [
+  providers: [
+    { // con esta configuracion, todas las peticiones van a tener una cabecera extra
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    },
+    UserGuard],
+  imports: [ 
     RouterModule,
     BrowserModule
   ],

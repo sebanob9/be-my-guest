@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/core/services/user.service';
+import { NgForm } from '@angular/forms';
+
 
 
 @Component({
@@ -9,7 +11,8 @@ import { UserService } from 'src/app/core/services/user.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  // private passwordRegExp: RegExp= /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/;
+  
   user = {
     email: '',
     password: '',
@@ -22,7 +25,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  signIn() {
+  signIn(login:NgForm) {
+    
     this.userservice.signIn(this.user)
       .subscribe(
         res => {
@@ -32,15 +36,8 @@ export class LoginComponent implements OnInit {
         },
         err => console.log(err)
       )
+      console.log('valor:',login.value)
+      console.log(login)
   }
 
-// metodo de kike
-/*   login(element) {
-    if (element.value === "sebas"){
-      localStorage.setItem("user", element.value);
-      this.router.navigate(["/wedding/my-wedding"]);
-    } else {
-      alert("Usuario incorrecto");
-    }
-  } */
 }

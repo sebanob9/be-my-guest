@@ -10,10 +10,18 @@ import { RegisterComponent } from './register/components/register/register.compo
 import { LoginComponent } from './login/components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatChipsModule } from '@angular/material/chips';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule} from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptorService } from './core/services/token-interceptor.service';
+import { UserService } from 'src/app/core/services/user.service';
+import { ConfirmEqualValidatorDirective } from '../app/register/directive/confirm-equal-validator.directive'
+
+
+
 
 @NgModule({
   declarations: [
@@ -21,6 +29,12 @@ import { FormsModule } from '@angular/forms';
     RegisterComponent,
     LoginComponent
   ],
+  providers: [ConfirmEqualValidatorDirective,
+    { // con esta configuracion, todas las peticiones van a tener una cabecera extra
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }],
   imports: [
     BrowserModule,
     CommonModule,
@@ -32,7 +46,6 @@ import { FormsModule } from '@angular/forms';
     MatDialogModule,
     FormsModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

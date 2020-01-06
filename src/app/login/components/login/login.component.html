@@ -1,25 +1,34 @@
 <div class="table-image">
   <main class="main main-left">
     <div class="maincontainer">
-      <form  class="form" (submit)="signIn()" > 
+      <form class="form" (ngSubmit)="signIn(login)" #login="ngForm" novalidate=""> 
         <div class="form__group--center">
           <h1 class="form__title">Iniciar sesión</h1>
         </div>
         <div class="form__group">
           <label for="user" class="form-group__label">Usuario</label>
-          <input type="text" id="user" required class="form__group-control"
-          [(ngModel)]="user.email" name="email" >
+          <input type="email" id="email" email 
+          required class="form__group-control"
+          [(ngModel)]="user.email" name="email" #email="ngModel"
+          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+        </div>
+        <div *ngIf="!email?.valid && email?.touched">
+          <p class="error">Email no válido</p>
         </div>
         <div class="form__group">
           <label for="password" class="form-group__label">Contraseña</label>
           <input type="password" required class="form__group-control"
+          #password="ngModel" minlength="6"
           [(ngModel)]="user.password" name="password">
         </div>
+        <div *ngIf="!password?.valid && password?.touched">
+          <p class="error">La contraseña debe tener al menos 6 dígitos</p>
+        </div>
         <div class="form__group form__group--right">
-          <a data-toggle="modal" data-target="#rememberPassword" role="button">Recordar contraseña</a>
+          <a data-toggle="modal" data-target="#rememberPassword" >Recordar contraseña</a>
         </div>
         <div class="form__group--center">
-          <button type="submit" class="button" >Acceder</button>
+          <button type="submit" [disabled]="login.form.invalid" class="button" >Acceder</button>
         </div>
        <!--  (click)="login(user)" 
       TAMBIEN ELIMINADOS #USER Y #PASSWORD-->
