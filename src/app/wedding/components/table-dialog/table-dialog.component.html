@@ -15,8 +15,8 @@
       <tr *ngFor="let guest of guestList">
         <!-- <th scope="row">1</th> -->
         <td>
-          <mat-checkbox (change)="setTable(guest)" 
-                      [checked]="checkUserInTable(guest)" 
+          <mat-checkbox (change)="setTable(guest)"
+                      [checked]="checkUserInTable(guest)"
                       [disabled]="checkUserInOtherTable(guest)">
           </mat-checkbox>
         </td>
@@ -26,7 +26,7 @@
         <td>{{guest.category}}</td>
         <td>{{guest.allergies}}</td>
         <td>{{guest.couple}}</td>
-        <td>{{guest.table}}</td>
+        <td>{{checkTableName(guest.table)}}</td>
       </tr>
     </tbody>
   </table>

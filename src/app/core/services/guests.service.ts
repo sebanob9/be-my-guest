@@ -73,15 +73,28 @@ export class GuestsService {
   }
 
   setTable(table, guest) {
-    const newArray = this.guests.map(g => {
-      if (g.id === guest.id) {
+    debugger;
+    const newGuest = this.guests.find(g => g.id === guest.id);
+    const guestIndex = this.guests.findIndex(g => g.id === guest.id);
+    if (newGuest.table !== table.id) {
+      newGuest.table = table.id;
+    } else {
+      newGuest.table = null;
+    }
+    this.guests.splice(guestIndex, 1, newGuest);
+    this.storage.set('guests', this.guests);
+    this.guests$.next(this.guests);
+  /*  const newGuest = this.guests.filter(g => {
+      if (g.id === guest.id && guest.table !== table.id) {
         return Object.assign({}, guest, { table: table.id });
+      } else {
+        return Object.assign({}, guest, { table: null });
       }
       return g;
     });
     this.guests = newArray;
     this.storage.set('guests', this.guests);
-    this.guests$.next(this.guests);
+    this.guests$.next(this.guests); */
   }
 
 

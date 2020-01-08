@@ -28,6 +28,7 @@ export class TableDialogComponent implements OnInit {
   }
 
   setTable(guest) {
+    debugger;
     this.guestService.setTable(this.data.table, guest);
     /*if (guest.table) {
       guest.table = null;
@@ -50,11 +51,20 @@ export class TableDialogComponent implements OnInit {
   }
 
   checkUserInTable(guest) {
+    debugger;
     return guest.table && guest.table === this.data.table.id;
   }
 
   checkUserInOtherTable(guest) {
+    debugger;
     return guest.table && guest.table !== this.data.table.id;
+  }
+
+  checkTableName(idTable) {
+    // Traer en el constructor o ngonInit el array de todas las mesas y hacer sobre ese array un find por el idTable
+    //const selectedTable = this.misMesas.find((t => t.id === t.idTable));
+    //if (selectedTable) return selectedTable.name;
+    return 'sebas haz esto!';
   }
 
 }
