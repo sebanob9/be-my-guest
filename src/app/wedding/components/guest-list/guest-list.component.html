@@ -42,38 +42,70 @@
             </svg>
           </a>
         </td>
-        
+
       </tr>
     </tbody>
   </table>
 </div>
 
-<div class="modal fade" id="editData" tabindex="-1" role="dialog" aria-labelledby="editDataLabel"
-        aria-hidden="true">
+<div class="modal fade" id="editData" tabindex="-1" role="dialog" aria-labelledby="editDataLabel" aria-hidden="true">
 
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-body">
-              <div class="main__center">
-                <form #guestForm="ngForm" (ngSubmit)="addguest(guestForm)" class="form form--register">
-                  <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="guestsService.selectedGuest._id">
-                  <div class="form__group form-group--access">
-                    <label for="guest_name" class="form-group__label">Nombre</label>
-                    <input type="text" id="guest_name" required placeholder="Indique su nombre" class="form__group-control form__group-control--access"
-                     name="name" #name="ngModel" [(ngModel)]="guestsService.selectedGuest.name">
-                  </div>
-                  <div class="form__group form-group--access">
-                    <label for="phone" class="form-group__label">Teléfono</label>
-                    <input type="tel" class="form__group-control form__group-control--access" placeholder="preferiblemente móvil"
-                    name="phone" #phone="ngModel" value="Teléfono" [(ngModel)]="guestsService.selectedGuest.phone">
-                  </div>
-                </form>
-              </div>
-              <button type="submit" (click)="addguest(guestForm)" data-dismiss="modal" class="button button--lg">Actualizar</button>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="main__center">
+
+          <form #guestForm="ngForm" (ngSubmit)="addguest(guestForm)" class="form form--register">
+
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="guestsService.selectedGuest._id">
+
+            <div class="form__group form-group--access">
+              <label for="guest_name" class="form-group__label">Nombre</label>
+              <input type="text" id="guest_name" required placeholder="Indique su nombre"
+                class="form__group-control form__group-control--access" name="name" #name="ngModel"
+                [(ngModel)]="guestsService.selectedGuest.name">
             </div>
-            <a data-dismiss="modal" >&times;</a>
-          </div>
-        </div>
-      </div>
 
-      <!-- (click)="addGuest(guestForm)" -->
+            <div class="form__group form-group--access">
+              <label for="phone" class="form-group__label">Teléfono</label>
+              <input type="tel" class="form__group-control form__group-control--access"
+                placeholder="preferiblemente móvil" name="phone" #phone="ngModel" value="Teléfono"
+                [(ngModel)]="guestsService.selectedGuest.phone">
+            </div>
+
+            
+
+            <div class="form__group form-group--access">
+              <label for="friend-of" class="form__group__label">Amigo de...</label>
+              <label class="radio radio__btn">
+                <input type="radio" id="bride-friend" class="radio__control" name="friendFrom" #friendFrom="ngModel"
+                  value="Novia" [(ngModel)]="guestsService.selectedGuest.friendFrom">
+                <span class="radio__custom">
+                  Novia
+                </span>
+              </label>
+              <label class="radio radio__btn">
+                <input type="radio" id="groom-friend" class="radio__control" name="friendFrom" #friendFrom="ngModel"
+                  value="Novio" [(ngModel)]="guestsService.selectedGuest.friendFrom">
+                <span class="radio__custom">
+                  Novio
+                </span>
+              </label>
+              <div *ngIf="!friendFrom?.valid">
+                <p class="error">Debes indicar a quién conoces para poder continuar</p>
+              </div>
+            </div>
+
+          </form>
+
+        </div>
+
+        <button type="submit" (click)="addguest(guestForm)" data-dismiss="modal"
+          class="button button--lg">Actualizar</button>
+      </div>
+      <a data-dismiss="modal">&times;</a>
+    </div>
+  </div>
+</div>
+
+<!-- (click)="addGuest(guestForm)" -->
