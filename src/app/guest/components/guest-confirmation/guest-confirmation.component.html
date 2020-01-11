@@ -12,7 +12,7 @@
           <h1 class="form__title">Confirmar asistencia</h1>
         </div>
 
-        <label for="friend-of" class="form__group__label">Amigo de...</label>
+        <label for="friend-of" class="form-group__label">Amigo de...</label>
         
         <div class="radio__form radio__form--centred">
           <label class="radio radio__btn">
@@ -34,7 +34,7 @@
           </div>
         </div>
 
-        <div class="form__group form__group--guests form-group--access">
+        <div class="form__group form__group--guests">
           <label for="guest_name" class="form-group__label">Nombre</label>
           <input type="text" id="guest_name" required placeholder="Indique su nombre" class="form__group-control form__group-control--access"
            name="name" #name="ngModel" [(ngModel)]="guestsService.selectedGuest.name">

@@ -20,25 +20,12 @@ background-size: cover;
     &__control {
         position: absolute;
         display: none;
-        
         &:checked~.radio__custom {
             background-color: transparent;
             border: 3px solid $dark-pink;
             box-shadow: 0 0 5px $dark-pink;
         }
-    }
-/*         &:checked~.radio__checkbox {
-            background-color: $dark-pink;
-            color: #fff;
-        } */
-
-        /* &:checked~.radio__checkbox--success {
-            background-color: yellow;
-            color: #fff;  
-        } */
-
-   // -- final radio control --
-    
+    }  
     &__custom {
         position: static;
         width: 150px;

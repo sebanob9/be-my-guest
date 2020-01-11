@@ -72,8 +72,8 @@
       padding: 10px;
       text-transform: uppercase;
       &--sm {
-         font-size: 2rem;
-         padding-bottom: 20px;
+         font-size: rem(25px);
+         //padding-bottom: rem(20px);
       }
    }
    &--transparent {

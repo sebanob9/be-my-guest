@@ -4,8 +4,8 @@
       <th scope="col">Nombre</th>
       <th scope="col">Amigo de</th>
       <th scope="col">Acompañante</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">categoria</th>
+      <!-- <th scope="col">Nombre</th> -->
+      <th scope="col">Categoria</th>
       <th scope="col">Teléfono</th>
       <th scope="col">Alergias</th>
       <th scope="col">Gestionar</th>
@@ -14,9 +14,8 @@
       <tr class="table" *ngFor="let guest of guestsService.guests2">
         <td>{{guest.name}}</td>
         <td>{{guest.friendFrom}}</td>
-        <td *ngIf="guest.withCompanion === true;else No">Si</td>
-
-        <ng-template #No>No</ng-template>
+        <!--  <td *ngIf="guest.withCompanion === true;else No">Si</td> 
+      <ng-template #No>No</ng-template>-->
         <td>{{guest.nameCompanion}}</td>
         <td>{{guest.category}}</td>
         <td>{{guest.phone}}</td>
@@ -52,58 +51,117 @@
 
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-body">
-        <div class="main__center">
+      <div class="modal-headers">
+        <p>{{guestsService.selectedGuest.name}}</p>
+      </div>
+      <form #guestForm="ngForm" (ngSubmit)="addguest(guestForm)" class="form">
 
-          <form #guestForm="ngForm" (ngSubmit)="addguest(guestForm)" class="form form--register">
 
-            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="guestsService.selectedGuest._id">
+        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="guestsService.selectedGuest._id">
 
-            <div class="form__group form-group--access">
-              <label for="guest_name" class="form-group__label">Nombre</label>
-              <input type="text" id="guest_name" required placeholder="Indique su nombre"
-                class="form__group-control form__group-control--access" name="name" #name="ngModel"
-                [(ngModel)]="guestsService.selectedGuest.name">
-            </div>
-
-            <div class="form__group form-group--access">
-              <label for="phone" class="form-group__label">Teléfono</label>
-              <input type="tel" class="form__group-control form__group-control--access"
-                placeholder="preferiblemente móvil" name="phone" #phone="ngModel" value="Teléfono"
-                [(ngModel)]="guestsService.selectedGuest.phone">
-            </div>
-
-            
-
-            <div class="form__group form-group--access">
-              <label for="friend-of" class="form__group__label">Amigo de...</label>
-              <label class="radio radio__btn">
-                <input type="radio" id="bride-friend" class="radio__control" name="friendFrom" #friendFrom="ngModel"
-                  value="Novia" [(ngModel)]="guestsService.selectedGuest.friendFrom">
-                <span class="radio__custom">
-                  Novia
-                </span>
-              </label>
-              <label class="radio radio__btn">
-                <input type="radio" id="groom-friend" class="radio__control" name="friendFrom" #friendFrom="ngModel"
-                  value="Novio" [(ngModel)]="guestsService.selectedGuest.friendFrom">
-                <span class="radio__custom">
-                  Novio
-                </span>
-              </label>
-              <div *ngIf="!friendFrom?.valid">
-                <p class="error">Debes indicar a quién conoces para poder continuar</p>
-              </div>
-            </div>
-
-          </form>
-
+        <div class="form__group form-group--access">
+          <label for="guest_name" class="form-group__label">Nombre</label>
+          <input type="text" id="guest_name" required placeholder="Indique su nombre"
+            class="form__group-control form__group-control--access" name="name" #name="ngModel"
+            [(ngModel)]="guestsService.selectedGuest.name">
         </div>
 
+        <div class="form__group form-group--access">
+          <label for="phone" class="form-group__label">Teléfono</label>
+          <input type="tel" class="form__group-control form__group-control--access" placeholder="preferiblemente móvil"
+            name="phone" #phone="ngModel" value="Teléfono" [(ngModel)]="guestsService.selectedGuest.phone">
+        </div>
+
+
+
+        <div class="form__group form-group--access">
+          <label for="friend-of" class="form-group__label">Amigo de...</label>
+          <div class="radio__form">
+            <label class="radio radio__btn">
+              <input type="radio" id="bride-friend" class="radio__control" name="friendFrom" #friendFrom="ngModel"
+                value="Novia" [(ngModel)]="guestsService.selectedGuest.friendFrom">
+              <span class="radio__custom">
+                Novia
+              </span>
+            </label>
+            <label class="radio radio__btn">
+              <input type="radio" id="groom-friend" class="radio__control" name="friendFrom" #friendFrom="ngModel"
+                value="Novio" [(ngModel)]="guestsService.selectedGuest.friendFrom">
+              <span class="radio__custom">
+                Novios
+              </span>
+            </label>
+          </div>
+        </div>
+        <label for="friend-of" class="form-group__label">Conozco a los novios de...</label>
+        <div class="radio__form--expanded">
+          <label class="radio radio__btn">
+            <input type="radio" class="radio__control" required name="category" #category="ngModel" value="Colegio"
+              [(ngModel)]="guestsService.selectedGuest.category">
+            <span class="radio__custom">
+              Colegio
+            </span>
+          </label>
+          <label class="radio radio__btn">
+            <input type="radio" class="radio__control" name="category" #category="ngModel" value="Uni"
+              [(ngModel)]="guestsService.selectedGuest.category">
+            <span class="radio__custom">
+              Uni
+            </span>
+          </label>
+          <label class="radio radio__btn">
+            <input type="radio" class="radio__control" name="category" #category="ngModel" value="Futbol"
+              [(ngModel)]="guestsService.selectedGuest.category">
+            <span class="radio__custom">
+              Fútbol
+            </span>
+          </label>
+          <label class="radio radio__btn">
+            <input type="radio" class="radio__control" name="category" #category="ngModel" value="Pueblo"
+              [(ngModel)]="guestsService.selectedGuest.category">
+            <span class="radio__custom">
+              Pueblo
+            </span>
+          </label>
+          <label class="radio radio__btn">
+            <input type="radio" class="radio__control" name="category" #category="ngModel" value="Boream"
+              [(ngModel)]="guestsService.selectedGuest.category">
+            <span class="radio__custom">
+              Boream
+            </span>
+          </label>
+          <label class="radio radio__btn">
+            <input type="radio" class="radio__control" name="category" #category="ngModel" value="Baile"
+              [(ngModel)]="guestsService.selectedGuest.category">
+            <span class="radio__custom">
+              Baile
+            </span>
+          </label>
+          <label class="radio radio__btn">
+            <input type="radio" class="radio__control" name="category" #category="ngModel" value="Máster"
+              [(ngModel)]="guestsService.selectedGuest.category">
+            <span class="radio__custom">
+              Máster
+            </span>
+          </label>
+          <label class="radio radio__btn">
+            <input type="radio" class="radio__control" name="category" #category="ngModel" value="Música"
+              [(ngModel)]="guestsService.selectedGuest.category">
+            <span class="radio__custom">
+              Música
+            </span>
+          </label>
+          <div *ngIf="!category?.valid">
+            <p class="error">Indique una categoría para poder continuar</p>
+          </div>
+        </div>
+        <div class="form__group--center">
         <button type="submit" (click)="addguest(guestForm)" data-dismiss="modal"
-          class="button button--lg">Actualizar</button>
-      </div>
-      <a data-dismiss="modal">&times;</a>
+          class="button button--lg">Guardar cambios</button>
+        </div>
+      </form>
+
+      <a class="modal__close" data-dismiss="modal">&times;</a>
     </div>
   </div>
 </div>
