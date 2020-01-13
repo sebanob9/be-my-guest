@@ -127,35 +127,36 @@
 
 
 
-
-
-      <div class="form-group text-item" [class.has-error]="password.touched && password.invalid">
-        <label for="password" class="form-group__label">Contraseña</label>
-        <input type="text" required id="password" class="form__group-control form__group-control--access"
-          [(ngModel)]="userservice.selectedUser.password" name="password" #password="ngModel">
-        <span class="help-block" *ngIf="password.touched && password.errors?.required">
-          Password is required
-        </span>
+      <div class="form-group text-item">
+        <label for="password" class="form-group__label">Contraseña <span>(mín. 8 caracteres)</span></label>
+        <input type="password" required id="password" class="form__group-control form__group-control--access"
+        [(ngModel)]="password" name="password" #Password="ngModel" minlength="8" >
+        <div *ngIf="!Password?.valid && Password?.touched">
+          <p class="error">Debes introducir una contraseña válida</p>
+        </div>
       </div>
 
 
-      <div class="form-group text-item" [class.has-error]="confirmPassword.touched && confirmPassword.invalid">
+      <div class="form-group text-item">
         <label for="password" class="form-group__label">Confirmar contraseña</label>
-        <input type="text" id="confirmPassword" required class="form__group-control form__group-control--access"
-          [(ngModel)]="userservice.selectedUser.confirmPassword" name="confirmPassword" #confirmPassword="ngModel"
-          appConfirmEqualValidator="password">
+        <input type="password" id="confirmPassword" required class="form__group-control form__group-control--access"
+           name="confirmPassword" [(ngModel)]="confirmPassword" #confirmpassword="ngModel">
+           <div *ngIf="Password?.touched && !samePassword()">
+            <p class="error error--right">Las contraseñas no coinciden</p>
+          </div>
       </div>
-      <span class="help-block" *ngIf="confirmPassword.touched && confirmPassword.errors?.required">
+      
+      <!-- <span class="help-block" *ngIf="confirmPassword.touched && confirmPassword.errors?.required">
         Confirm Password is required
       </span>
       <span class="help-block" *ngIf="confirmPassword.touched && confirmPassword.errors?.notEqual &&
           !confirmPassword.errors?.required">
         Password and Confirm Password does not match
-      </span>
+      </span> -->
 
 
       <div class="form-group--center">
-        <button type="submit" [disabled]="userForm.form.invalid" class="button">Si quiero!</button>
+        <button type="submit" [disabled]="userForm.form.invalid || !samePassword()" class="button">Si quiero!</button>
       </div>
     </form>
   </div>

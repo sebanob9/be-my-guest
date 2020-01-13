@@ -51,7 +51,7 @@
 
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-headers">
+      <div class="modal__header">
         <p>{{guestsService.selectedGuest.name}}</p>
       </div>
       <form #guestForm="ngForm" (ngSubmit)="addguest(guestForm)" class="form">
@@ -156,8 +156,8 @@
           </div>
         </div>
         <div class="form__group--center">
-        <button type="submit" (click)="addguest(guestForm)" data-dismiss="modal"
-          class="button button--lg">Guardar cambios</button>
+          <button type="submit" (click)="addguest(guestForm)" data-dismiss="modal" class="button button--lg">Guardar
+            cambios</button>
         </div>
       </form>
 
@@ -165,5 +165,3 @@
     </div>
   </div>
 </div>
-
-<!-- (click)="addGuest(guestForm)" -->

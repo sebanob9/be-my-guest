@@ -1,27 +1,25 @@
  @import "../../../../styles/partials/variables";
  @import "../../../../styles/partials/rem";
+ @import "../../../../styles/partials/modals";
+
+ // --- TABLE ---
 table .thead-dark th {
   background-color: $dark-pink;
 }
-
 th {
   font-size: 1.1rem;
 }
-
 .table th, .table td {
   padding: 0.4rem;
   text-align: left;
   /* font-size: 0.8rem; */
 }
-
 .table tr{
   &:hover {
     background-color: rgba(#701658,0.1);
   }
 }
-
 .svg {
-  
   margin-left: 15px;
 }
 
@@ -29,17 +27,6 @@ th {
   vertical-align: middle;  
 }
 
-.modal-headers{
-  background-color: $dark-pink;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: rem(25px);
-}
 
 // Cambios respecto a original
 .form {
@@ -51,13 +38,3 @@ th {
     margin-right: 5px;
   }
 }
-
-
-  .modal__close {
-    position: absolute;
-    bottom: 15px;
-    right: 30px;
-    text-decoration: none;
-    color: $danger;
-    font-size: 35px;
-  }

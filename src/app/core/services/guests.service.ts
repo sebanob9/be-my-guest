@@ -57,6 +57,10 @@ export class GuestsService {
 
   getGuestById(id) {
     const list = this.getAllGuests();
+    /* return list.subscribe((guestList) => {
+      guestList.filter(guest => guest.id === id);
+    } */
+
     return list;
   }
 
@@ -72,8 +76,23 @@ export class GuestsService {
     );
   }
 
+  cleanTablesFromGuestList(guestList) {
+    let list = this.guests;
+    guestList.forEach((guest) => {
+      const position = list.findIndex(g => g.id === guest.id);
+      if (position > -1) {
+        list[position].table = null;
+      }
+    })
+    this.setNewGuest(list);
+    location.reload();
+  }
+
+  setNewGuest(list){
+    this.storage.set('guests', list);
+  }
+
   setTable(table, guest) {
-    debugger;
     const newGuest = this.guests.find(g => g.id === guest.id);
     const guestIndex = this.guests.findIndex(g => g.id === guest.id);
     if (newGuest.table !== table.id) {

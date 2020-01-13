@@ -1,39 +1,34 @@
 <div class="table-image">
   <main class="main main-left">
     <div class="maincontainer">
-      <form class="form" (ngSubmit)="signIn(login)" #login="ngForm" novalidate=""> 
+      <form class="form" (ngSubmit)="signIn(login)" #login="ngForm" novalidate="">
         <div class="form__group--center">
           <h1 class="form__title">Iniciar sesión</h1>
         </div>
         <div class="form__group">
           <label for="user" class="form-group__label">Usuario</label>
-          <input type="email" id="email" email 
-          required class="form__group-control"
-          [(ngModel)]="user.email" name="email" #email="ngModel"
-          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+          <input type="email" id="email" email required class="form__group-control" [(ngModel)]="user.email"
+            name="email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
         </div>
         <div *ngIf="!email?.valid && email?.touched">
           <p class="error">Email no válido</p>
         </div>
         <div class="form__group">
           <label for="password" class="form-group__label">Contraseña</label>
-          <input type="password" required class="form__group-control"
-          #password="ngModel" minlength="6"
-          [(ngModel)]="user.password" name="password">
+          <input type="password" required class="form__group-control" minlength="8"
+            [(ngModel)]="user.password" name="password" #password="ngModel">
         </div>
         <div *ngIf="!password?.valid && password?.touched">
           <p class="error">La contraseña debe tener al menos 6 dígitos</p>
         </div>
         <div class="form__group form__group--right">
-          <a data-toggle="modal" data-target="#rememberPassword" >Recordar contraseña</a>
+          <a data-toggle="modal" data-target="#rememberPassword">Recordar contraseña</a>
         </div>
         <div class="form__group--center">
-          <button type="submit" [disabled]="login.form.invalid" class="button" >Acceder</button>
+          <button type="submit" [disabled]="login.form.invalid" class="button">Acceder</button>
         </div>
-       <!--  (click)="login(user)" 
-      TAMBIEN ELIMINADOS #USER Y #PASSWORD-->
-     </form>
- 
+      </form>
+
       <!------------------ MODAL --------------------------->
 
       <div class="modal fade" id="rememberPassword" tabindex="-1" role="dialog" aria-labelledby="rememberPasswordLabel"
@@ -41,22 +36,22 @@
 
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-              <div class="modal-headers">
-                <h2 class="form__title--sm">Recordar contraseña</h2>
+            <div class="modal__header">
+              <h2 class="form__title--sm">Recordar contraseña</h2>
+            </div>
+            <form class="form">
+
+              <div class="form-group">
+                <label for="remember-email" class="form-group__label">Email</label>
+                <input type="email" id="remember-email" placeholer="" required class="form__group-control">
               </div>
-              <form action="..." method="get" class="form">
-                
-                <div class="form-group">
-                  <label for="remember-email" class="form-group__label">Email</label>
-                  <input type="email" size=auto id="remember-email" placeholer="" required class="form__group-control">
-                </div>
-                <div class="form__group--center">
-                  <a data-dismiss="modal" data-toggle="modal" data-target="#sentPassword" role="button"
-                    class="button button--lg">Enviar</a>
-                </div>
-              </form>
-            
-            <a data-dismiss="modal" class="password-modal__close">&times;</a>
+              <div class="form__group--center">
+                <a data-dismiss="modal" data-toggle="modal" data-target="#sentPassword" role="button"
+                  class="button button--lg">Enviar</a>
+              </div>
+            </form>
+
+            <a data-dismiss="modal" class="modal__close">&times;</a>
           </div>
         </div>
       </div>
@@ -65,9 +60,9 @@
       <div class="modal fade" id="sentPassword" tabindex="-1" role="dialog" aria-labelledby="sentPasswordLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
-          <div class="password-modal__body form form--login form-group--center">
+          <div class="form form--login">
             <p>En un momento recibirá un enlace en su correo para restablecer su contraseña</p>
-            <a data-dismiss="modal" class="password-modal__close">&times;</a>
+            <a data-dismiss="modal" class="modal__close modal__close--danger">&times;</a>
           </div>
         </div>
       </div>

@@ -26,6 +26,7 @@ export class UserService {
     return this.http.post(this.URL_API + '/login', user)
   }
 
+
   // metodo para comprobar si un usuario está logueado o no
   loggedIn(): boolean {
     if (localStorage.getItem('token')) {
@@ -43,6 +44,14 @@ export class UserService {
   logOut() {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
+  }
+
+  getUserInfoByUserId(userId) {
+    return this.http.get(this.URL_API + '/' + userId);
+  }
+
+  saveUserById(userId, userInfo) {
+    return this.http.put(this.URL_API + '/' + userId, userInfo);
   }
   
 }

@@ -13,6 +13,9 @@ export class RegisterComponent implements OnInit {
 
   couple: string = '';
 
+  confirmPassword: string;
+  password: string;
+
   BoyBoy = false;
   GirlGirl = false;
   BoyGirl = false;
@@ -53,11 +56,17 @@ export class RegisterComponent implements OnInit {
     this.BoyBoy = false;
   }
 
+  samePassword() {
+    return (this.password === this.confirmPassword);
+  }
+
   signUp(form: NgForm) {
+    this.userservice.selectedUser.password = this.password;
     this.userservice.signUp(form.value)
       .subscribe(
         res => {
           console.log(res);
+          console.log(this.password);
           localStorage.setItem('token', res['token']); // lo guardamos en la app para enviarlo siempre que sea necesario
           this.router.navigate(['/wedding/my-wedding'])
         },

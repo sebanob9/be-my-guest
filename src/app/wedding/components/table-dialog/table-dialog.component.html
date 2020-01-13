@@ -11,12 +11,12 @@
         <th scope="col">Mesa</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf="tableList.length > 0">
       <tr *ngFor="let guest of guestList">
         <!-- <th scope="row">1</th> -->
         <td>
           <mat-checkbox (change)="setTable(guest)"
-                      [checked]="checkUserInTable(guest)"
+                      [checked]="checkUserInTable(guest) || checkUserInOtherTable(guest)"
                       [disabled]="checkUserInOtherTable(guest)">
           </mat-checkbox>
         </td>

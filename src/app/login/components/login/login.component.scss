@@ -1,94 +1,23 @@
 @import "../../../../styles/partials/variables";
+@import "../../../../styles/partials/rem";
+@import "../../../../styles/partials/modals";
+
 .table-image {
 line-height: 1.4;
 background-image: url('../../../../assets/img/table.jpg');
 background-size: cover;
 }
 
-.password-modal {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1000;
-  background-color: rgba(20, 1, 15, 0.8);
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 1s;
-  &:target  {
-    visibility: visible;
-    opacity: 1;
-  }
-  &__body {
-    position: relative;
-    z-index: 20;
-    margin: 150px auto 0;
-    background-color: rgba(255, 255, 255, 0.95);
-    max-width: 500px;
-    border-radius: 5px;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
-  }
-  &__close {
-    position: absolute;
-    top: 0;
-    right: 20px;
-    text-decoration: none;
-    color: $danger;
-    font-size: 35px;
-  }
-}
-
-.form-group--center>p {
-  padding-top: 15px;
-}
-
-.data-modal {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1000;
-  background-color: rgba(20, 1, 15, 0.8);
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 1s;
-  &:target  {
-    visibility: visible;
-    opacity: 1;
-  }
-  &__body {
-    position: relative;
-    z-index: 20;
-    top: 70px;
-    left: 1000px;
-    background-color: rgba(255, 255, 255, 0.8);
-    max-width: 300px;
-    border-radius: $main-border-radius;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
-  }
-  &__close {
-    position: absolute;
-    top: 5px;
-    right: 20px;
-    text-decoration: none;
-    color: #333;
-    font-size: 35px;
-  }
-}
-
+// --- VALIDATION 
 .form__group input {
-  border-left: 5px solid #cccccc;
+  border-left: $main-border-radius solid transparent;
   &:valid {
-    border-left-color: #3AA64A;
-  
+    border-left-color: $success;
   }
-  
 }
 
 .error {
-  font-size: 12px;
+  font-size: rem(12px);
   color: $danger;
 }
 
@@ -96,17 +25,4 @@ button[disabled]{
   border: 1.5px solid $danger;
   background-color: transparent;
   color: #666666;
-}
-
-.modal-headers{
-  background-color: $dark-pink;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: rem(25px);
-  border-radius: 5px 5px 0 0;
 }

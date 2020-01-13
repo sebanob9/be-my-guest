@@ -1,4 +1,5 @@
 @import "../../../../styles/partials/variables";
+@import "../../../../styles/partials/rem";
 
 .table-image {
 line-height: 1.4;
@@ -100,3 +101,16 @@ button[disabled]{
 .has-error{
     background-color: green;
 }
+
+.error {
+    font-size: rem(12px);
+    color: $danger;
+    margin-top: 10px;
+    &--right {
+        text-align: end;
+    }
+  }
+
+  span {
+      font-size: rem(10px);
+  }

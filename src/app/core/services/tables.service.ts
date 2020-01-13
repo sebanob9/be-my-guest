@@ -1,6 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { StorageService, LOCAL_STORAGE } from 'ngx-webstorage-service';
+import { GuestsService } from './guests.service';
 
 
 @Injectable({
@@ -13,13 +14,13 @@ export class TablesService {
     { id: 2, weddingId: 1, name: "Amigos del Cole", guestList: [1], maxGuestCount: 12, type: "square" },
     { id: 3, weddingId: 1, name: "Familia de él", guestList: [], maxGuestCount: 8, type: "round" },
     { id: 5, weddingId: 1, name: "Gente que cae regular", guestList: [], maxGuestCount: 10, type: "round" },
-    { weddingId: 2, id: 6, name: "Familia de la novia boda2", guestList: [3], maxGuestCount: 10, type: "square" }
   ];
 
   tables$: BehaviorSubject<any[]>;
 
   constructor(
-    @Inject(LOCAL_STORAGE) private storage: StorageService
+    @Inject(LOCAL_STORAGE) private storage: StorageService,
+    private guestService: GuestsService
   ) {
     const savedTables = this.storage.get('tables');
     if (!savedTables) {
@@ -49,10 +50,15 @@ export class TablesService {
     this.tables$.next(this.tables);
   }
 
-  remove(id) {
-    const found = this.tables.findIndex(t => t.id === id);
+  remove(object) {
+    const found = this.tables.findIndex(table => table.id === object.id);
     if (found > -1) {
-      this.tables.splice(found, 1);
+      
+      this.guestService.guests$.subscribe((guests) => {
+        const guestList = guests.filter((g => g.table === this.tables[found].id))
+        this.guestService.cleanTablesFromGuestList(guestList);
+        this.tables.splice(found, 1);
+      });
     }
     this.storage.set('tables', this.tables);
     this.tables$.next(this.tables);

@@ -45,6 +45,8 @@ export class GuestSortComponent implements OnInit {
 
   createTable() {
     this.tableService.addTable({
+      id:  Math.random().toString(36).substr(2, 9),
+      weddingId: 1,
       name: this.model.tableName,
       guestList: [],
       maxGuestCount: this.model.guestNumber
@@ -68,6 +70,10 @@ export class GuestSortComponent implements OnInit {
   getGuestNameById(id) {
     const guest = this.guestsService.getGuestById(id);
     /* return guest.name; */
+  }
+
+  deleteTable(table){
+    this.tableService.remove(table);
   }
 
 }

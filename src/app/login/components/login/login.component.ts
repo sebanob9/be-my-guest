@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         res => {
           localStorage.setItem('token', res['token'])
+          localStorage.setItem('userId', res['user']._id);
           this.router.navigate(['/wedding/my-wedding'])
           console.log(res);// este res devuelve el token en consola
         },

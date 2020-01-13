@@ -11,13 +11,19 @@ import { GuestsService } from 'src/app/core/services/guests.service';
 export class TableDialogComponent implements OnInit {
 
   guestList = [];
+  public tableList = [];
 
   constructor(
     public dialogRef: MatDialogRef<TableDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data,
-    private guestService: GuestsService) { }
+    private guestService: GuestsService,
+    private tableService: TablesService) { }
 
   ngOnInit() {
+    const tables = this.tableService.tables$.subscribe((tables) => {
+      this.tableList = tables
+    })
+    console.log("que tiene table!?", this.data)
     this.guestService.getGuestByWedding(this.data.table.weddingId).subscribe(guestList => {
       this.guestList = guestList;
     });
@@ -28,7 +34,6 @@ export class TableDialogComponent implements OnInit {
   }
 
   setTable(guest) {
-    debugger;
     this.guestService.setTable(this.data.table, guest);
     /*if (guest.table) {
       guest.table = null;
@@ -51,20 +56,15 @@ export class TableDialogComponent implements OnInit {
   }
 
   checkUserInTable(guest) {
-    debugger;
     return guest.table && guest.table === this.data.table.id;
   }
 
   checkUserInOtherTable(guest) {
-    debugger;
     return guest.table && guest.table !== this.data.table.id;
   }
 
   checkTableName(idTable) {
-    // Traer en el constructor o ngonInit el array de todas las mesas y hacer sobre ese array un find por el idTable
-    //const selectedTable = this.misMesas.find((t => t.id === t.idTable));
-    //if (selectedTable) return selectedTable.name;
-    return 'sebas haz esto!';
+    return idTable ? this.tableList.find(table => table.id === idTable).name : "";
   }
 
 }

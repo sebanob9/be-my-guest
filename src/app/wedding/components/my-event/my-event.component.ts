@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {MatChipInputEvent} from '@angular/material/chips';
+import { UserService } from 'src/app/core/services/user.service';
+import { StorageService } from 'ngx-webstorage-service';
 
 export interface Fruit {
   name: string;
@@ -11,17 +13,27 @@ export interface Fruit {
   templateUrl: './my-event.component.html',
   styleUrls: ['./my-event.component.scss']
 })
-export class MyEventComponent {
+export class MyEventComponent implements OnInit{
+  constructor(public userservice: UserService) { }
+
   visible = true;
   selectable = true;
   removable = true;
   addOnBlur = true;
+  protected userInfo: object = null;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   fruits: Fruit[] = [
     {name: 'Familia'},
     {name: 'Trabajo'},
     {name: 'GYM'},
   ];
+
+  ngOnInit() {
+    let userId = localStorage.getItem('userId');
+    this.userservice.getUserInfoByUserId(userId).subscribe((response) => {
+      this.userInfo = response;
+    });
+  }
 
   add(event: MatChipInputEvent): void {
     const input = event.input;
@@ -68,6 +80,17 @@ export class MyEventComponent {
 
   // 
 
+  saveUserData(userForm) {
+    console.log(userForm.email);
+    const newUser = {
+      email: userForm.email,
+      password: userForm.password,
+      phone: userForm.phone,
+      date: userForm.date
+    }
+
+    this.userservice.saveUserById(localStorage.getItem('userId'), newUser).subscribe();
+  }
 
 
 }
