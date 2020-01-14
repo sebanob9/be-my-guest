@@ -1,14 +1,25 @@
+@import "../partials/rem";
 
 // --- COLORS ---
+$white: #fff;
 $dark-pink: rgb(112, 22, 88);
+$main-color: $dark-pink;
 $dark-pink-op: rgba(112, 22, 88, 0.5);
-$danger: #D53E3E;
+$gray:#333;
+$danger: #C83838;
 $success: #3AA64A;
+
 
 // --- BORDERS ---
 $pink-border: 1px solid $dark-pink;
 $main-border-radius: 5px;
 
+
 // --- FONTS ---
 $bold: 700;
-
+$font-xs: rem(12px);
+$font-s: rem(14px);
+$font-main: rem(16px);
+$font-m: rem(18px);
+$font-l: rem(24px);
+$font-xl: rem(32px);

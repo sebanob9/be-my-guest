@@ -61,52 +61,13 @@
   }
 }
 
-.button--edit {
-  background-color: white;
-  color: $dark-pink;
-  font-weight: 700;
-  border: $pink-border;
-  box-shadow: 0 0 3px $dark-pink;
-  z-index: 10;
-  border: none;
-  border-radius: 5px;
-  min-height: 40px;
-  width: 75px;
-  outline: 0;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 10px;
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.02);
-    box-shadow: 0 0 6px $dark-pink;
-  }
-}
 
-.button--delete {
-  background-color: white;
-  color: $dark-pink;
-  font-weight: 700;
-  border: red;
-  box-shadow: 0 0 3px red;
-  z-index: 10;
-  border: none;
-  border-radius: 5px;
-  min-height: 40px;
-  width: 75px;
-  outline: 0;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 10px;
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.02);
-    box-shadow: 0 0 6px red;
+.list {
+  &__title {
+   width: 200px;
   }
-}
-
-.guestname {
-  display: inline-flex;
+  &__names {
+    display: inline-flex;
+    width: 500px;
+  }
 }

@@ -1,247 +1,251 @@
+@import "../partials/rem";
+@import "../partials/variables";
+
 .button {
-  background-color: $dark-pink;
-  color: #fff;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 5px;
-  min-height: 40px;
-  min-width: 150px;
-  outline: 0;
-  box-shadow: 0 0 3px #333;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   padding: 0 10px;
-
+  min-height: rem(40px);
+  min-width: rem(150px);
+  border: none;
+  border-radius: $main-border-radius;
+  outline: 0;
+  box-shadow: 0 0 3px $gray;
+  background-color: $main-color;
+  color: $white;
+  text-transform: uppercase;
   &:hover {
     cursor: pointer;
-    box-shadow: 0 0 10px $dark-pink;
+    box-shadow: 0 0 10px $main-color;
     transform: scale(1.02);
   }
-
   &--empty {
     background-color: transparent;
-    color: $dark-pink;
-    font-weight: 700;
+    color: $main-color;
+    font-weight: $bold;
     border: $pink-border;
-    box-shadow: 0 0 3px $dark-pink;
+    box-shadow: 0 0 3px $main-color;
     &:active {
-      background-color: $dark-pink;
-      color: #fff;
+      background-color: $main-color;
+      color: $white;
     }
     &:hover {
-      box-shadow: 0 0 6px $dark-pink;
+      box-shadow: 0 0 6px $main-color;
     }
   }
- &--lg {
-      font-size: 1.5rem;
-      height: 50px;
-      width: 300px;
-      margin-top: 20px;
-   }
-
-    &--xl {
-      font-size: 1.5rem;
-      height: 50px;
-      width: 500px;
+  &__edit {
+    background-color: $white;
+    color: $main-color;
+    font-weight: $bold;
+    box-shadow: 0 0 3px $main-color;
+    z-index: 10;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    min-height: rem(40px);
+    width: rem(75px);
+    outline: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    transition: background-color 0.5s;
+    &:hover {
       cursor: pointer;
-
-      &:hover {
-        box-shadow: 0 0 20px #fff;
-      }
+      color:$white;
+      background-color: $main-color;
     }
   }
-
-
-  // TRANSICION BOTON NUEVO USUARIO
-  .moved-hvr {
-    display: block;
-    overflow: hidden;
-    position: relative;
-    color: $dark-pink;
-    background-color: #fff;
-    transition: color 1s;
-
-    & span {
-      position: relative;
-      z-index: 1;
+  &__delete {
+    background-color: $white;
+    color: $danger;
+    font-weight: $bold;
+    border: $danger;
+    box-shadow: 0 0 3px $danger;
+    z-index: 10;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    min-height: rem(40px);
+    width: rem(75px);
+    outline: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    transition: background-color 0.5s;
+    &:hover {
+      cursor: pointer;
+      color: $white;
+      background-color: $danger;
     }
+  }
+  &--lg {
+    font-size: $font-l;
+    height: rem(50px);
+    width: rem(300px);
+    margin-top: rem(20px);
+  }
+
+  &--xl {
+    font-size: $font-l;
+    height: rem(50px);
+    width: rem(500px);
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 0 20px $white;
+    }
+  }
+}
+
+
+// TRANSICION BOTON NUEVO USUARIO
+.moved-hvr {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  color: $main-color;
+  background-color: $white;
+  transition: color 1s;
+
+  & span {
+    position: relative;
+    z-index: 1;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 700px;
+    width: 700px;
+    background: $main-color;
+    transition: all .5s ease-in-out;
+    transform: translateX(-98%) translateY(-25%) rotate(45deg);
+  }
+
+  &:hover {
+    color: $white;
 
     &:after {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 700px;
-      width: 700px;
-      background: $dark-pink;
-      transition: all .5s ease-in-out;
-      transform: translateX(-98%) translateY(-25%) rotate(45deg);
+      transform: translateX(-9%) translateY(-25%) rotate(45deg);
     }
+  }
+}
 
-    &:hover {
-      color: #fff;
-
-      &:after {
-        transform: translateX(-9%) translateY(-25%) rotate(45deg);
-      }
-    }
-  } // -- fin moved hvr --
+// -- fin moved hvr --
 
 
- // ------ RADIO BUTTON ------------ //
+// ------ RADIO BUTTON ------------ //
 .radio {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    min-height: 18px;
-    min-width: 60px;
-    cursor: pointer;
-    &--block {
-        display: block;
-        border: none;
-    }
-    &__control {
-        position: absolute;
-        display: none;
-        &:checked~.radio__custom {
-            background-color: $dark-pink;
-            color: #fff;
-        }
-    }
-/*         &:checked~.radio__checkbox {
-            background-color: $dark-pink;
-            color: #fff;
-        } */
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  min-height: rem(18px);
+  min-width: rem(60px);
+  cursor: pointer;
 
-        /* &:checked~.radio__checkbox--success {
-            background-color: yellow;
-            color: #fff;  
-        } */
+  &--block {
+    display: block;
+    border: none;
+  }
 
-   // -- final radio control --
-    
-    &__custom {
-        position: static;
-        width: auto;
-        min-height: 35px;
-        padding: 3px 16px;
-        border: $pink-border;
-        background-color: transparent;
-        color: #333;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: $main-border-radius;
-        &--none {
-            display: inline-block;
-        }
-        &::before {
-            content: "";
-            height: 6px;
-            width: 6px;
-            background-color: #333;
-            border-radius: 1px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
+  &__control {
+    position: absolute;
+    display: none;
+
+    &:checked~.radio__custom {
+      background-color: $main-color;
+      color: $white;
     }
-    &__checkbox {
-        position: static;
-        width: auto;
-        min-height: 35px;
-        padding: 3px 16px;
-        background-color: transparent;
-        color: #333;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: $main-border-radius;
+  }
+
+  // -- final radio control --
+
+  &__custom {
+    position: static;
+    width: auto;
+    min-height: rem(35px);
+    padding: 3px 16px;
+    border: $pink-border;
+    background-color: transparent;
+    color: $gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: $main-border-radius;
+
+    &--none {
+      display: inline-block;
     }
 
-    &__btn {
-        flex: 0 1 calc(25% - 5px);
-        margin-top: 5px;
-        margin-bottom: 5px;
-        & .radio__custom::before {
-            display: none;
-        }
+    &::before {
+      content: "";
+      height: rem(6px);
+      width: rem(6px);
+      background-color: $gray;
+      border-radius: 1px;
+      opacity: 0;
+      transition: opacity 0.5s;
     }
-} // ---final radio button ---
+  }
+
+  &__checkbox {
+    position: static;
+    width: auto;
+    min-height: rem(35px);
+    padding: 3px 16px;
+    background-color: transparent;
+    color: $gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: $main-border-radius;
+  }
+
+  &__btn {
+    flex: 0 1 calc(25% - 5px);
+    margin-top: rem(5px);
+    margin-bottom: rem(5px);
+
+    & .radio__custom::before {
+      display: none;
+    }
+  }
+}
+
+// ---final radio button ---
 
 .radio__form {
-    margin-top:15px;
-    margin-bottom: 15px;
-    &--expanded {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 15px;
+  margin-top: rem(15px);
+  margin-bottom: rem(15px);
+
+  &--expanded {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: rem(15px);
+  }
+
+  &--centred {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: rem(15px);
+
+    label+label {
+      margin-left: rem(30px);
     }
-    &--centred {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center; 
-        margin-bottom: 15px;
-        label + label {
-            margin-left: 30px;
-        }
-    }
+  }
 }
 
 .checkbox--btn {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    min-height: 20px;
-    cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  min-height: rem(20px);
+  cursor: pointer;
 }
-
-
-
-//====================================
-
-    /* &--white {
-      background-color: #fff;
-      color: $pink;
-   }
-
-  
-
-   &--xl {
-      font-size: 1.5rem;
-      height: 60px;
-      width: 500px;
-      cursor: pointer;
-      &:hover  {
-         box-shadow: 0 0 20px #fff;
-         font-weight: 700;
-      }
-
-   
-   &--whatsapp {
-      background-color: #25D366;
-      color: #fff;
-      min-width: 390px;
-      min-height: 25px;
-      font-size: 12px;
-   }
-   &--services {
-      background-color: #fff;
-      font-size: 1.5rem;
-      color: #333;
-      min-width: 200px;
-      min-height: 75px;
-      &:hover {
-         box-shadow: 0 0 20px $pink;
-         transform: scale(1.02);
-      }
-      &:active {
-         color:#333;
-      }
-   } */
-  
-
-  // --fin btn--

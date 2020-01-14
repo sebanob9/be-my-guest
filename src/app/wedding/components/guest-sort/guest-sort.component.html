@@ -32,23 +32,18 @@
 
 
   <div class="table__list">
-    <ul> <!-- *ngIf="tables.weddingId === 1" -->
+    <ul> 
       <li class="table" *ngFor="let table of tableList$ | async">
-        <!-- <button (click)="deleteTable(table.id)">Delete Table</button> -->
         <div class="form__table-item--s">{{table.name}}</div>
-
         <div class="form__table-item--s">Nº invitados: {{table.maxGuestCount}}</div>
-
         <div class="form__table-item--xs">
-          <button class="button--edit" (click)="openDialog(table)">Editar</button>
-          <button class="button--delete" (click)="deleteTable(table)">Borrar</button> 
+          <button class="button__edit" (click)="openDialog(table)">Editar</button>
+          <button class="button__delete" (click)="deleteTable(table)">Borrar</button> 
         </div>
-
-        <span>Listado de invitados: </span>
-        
-        <ul>
-          <li class="guestname" *ngFor="let guest of guestsService.getGuestByTable(table)| async">
-            <span >, {{ guest.name }}</span>
+        <span class="list__title">Listado de invitados: </span>
+        <ul class="list__names">
+          <li class="list__guestname" *ngFor="let guest of guestsService.getGuestByTable(table)| async">
+            <span >{{ guest.name }},&nbsp; </span>
           </li>
         </ul>
       </li>
