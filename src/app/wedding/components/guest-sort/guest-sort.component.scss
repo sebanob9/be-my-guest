@@ -25,6 +25,8 @@
     }
     &--xs {
       flex: 0 1 calc(10% - 10px);
+      display: flex;
+      margin-right: 40px;
     }
   }
   &-control {

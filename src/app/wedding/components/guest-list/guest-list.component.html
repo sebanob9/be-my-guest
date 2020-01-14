@@ -66,9 +66,15 @@
             [(ngModel)]="guestsService.selectedGuest.name">
         </div>
 
+        <!-- <div class="form__group form-group--access">
+        <label for="couple-name" class="form-group__label">Nombre pareja</label>
+          <input type="text" id="couple-name" required placeholder="Nombre de su pareja" class="form__group-control form__group-control--access"
+          name="nameCompanion" #nameCompanion="ngModel" [(ngModel)]="guestsService.selectedGuest.nameCompanion">
+        </div> -->
+
         <div class="form__group form-group--access">
           <label for="phone" class="form-group__label">Teléfono</label>
-          <input type="tel" class="form__group-control form__group-control--access" placeholder="preferiblemente móvil"
+          <input type="tel" class="form__group-control form__group-control--access" placeholder="preferiblemente móvil" minlength="9" maxlength="9"
             name="phone" #phone="ngModel" value="Teléfono" [(ngModel)]="guestsService.selectedGuest.phone">
         </div>
 
