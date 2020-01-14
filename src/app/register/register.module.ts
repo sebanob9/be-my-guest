@@ -9,9 +9,6 @@ import { ConfirmEqualValidatorDirective } from './directive/confirm-equal-valida
 
 
 
-
-
-
 @NgModule({
   declarations: [RegisterComponent, ConfirmEqualValidatorDirective],
   imports: [

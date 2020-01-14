@@ -15,14 +15,12 @@ background-size: cover;
     border-left-color: $success;
   }
 }
-
 .error {
-  font-size: rem(12px);
+  font-size: $font-xs;
   color: $danger;
 }
 
-button[disabled]{
-  border: 1.5px solid $danger;
-  background-color: transparent;
-  color: #666666;
+span {
+  color: $gray200;
+  font-size: $font-s;
 }

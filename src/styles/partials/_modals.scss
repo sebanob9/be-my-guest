@@ -1,3 +1,6 @@
+@import "../partials/variables";
+@import "../partials/rem";
+
 .modal {
   top: rem(100px);
   &__header {
@@ -6,19 +9,18 @@
     align-items: center;
     height: rem(50px);
     border-radius: rem(5px) rem(5px) 0 0;
-    background-color: $dark-pink;
-    color: #fff;
-    font-weight: $bold;
+    background-color: $main-color;
+    color: $white;
     text-transform: uppercase;
-    font-size: rem(25px);
+    font-size: $font-l;
   }
   &__close {
     position: absolute;
     top: 0;
     right: rem(20px);
     text-decoration: none;
-    color: #fff;
-    font-size: rem(35px);
+    color: $white;
+    font-size: $font-xl;
     &--danger {
       color: $danger;
     }

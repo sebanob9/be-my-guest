@@ -3,7 +3,6 @@ import { UserService } from 'src/app/core/services/user.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -12,9 +11,6 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   couple: string = '';
-
-  confirmPassword: string;
-  password: string;
 
   BoyBoy = false;
   GirlGirl = false;
@@ -56,12 +52,26 @@ export class RegisterComponent implements OnInit {
     this.BoyBoy = false;
   }
 
+//----- - PASSWORD - ----- //
+  public passwordType = 'password';
+  confirmPassword: string;
+  password: string;
+
   samePassword() {
     return (this.password === this.confirmPassword);
   }
 
+  showPassword(){
+    if(this.passwordType==='password'){
+     this.passwordType = 'text';
+    }else{
+     this.passwordType = 'password';
+    }
+  } 
+
+
   signUp(form: NgForm) {
-    this.userservice.selectedUser.password = this.password;
+    //this.userservice.selectedUser.password = this.password;
     this.userservice.signUp(form.value)
       .subscribe(
         res => {
@@ -75,5 +85,6 @@ export class RegisterComponent implements OnInit {
       )
     //console.log(form.value);
   }
+
 
 }

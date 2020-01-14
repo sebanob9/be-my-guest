@@ -15,6 +15,9 @@
   background-color: $main-color;
   color: $white;
   text-transform: uppercase;
+  &:active {
+    background-color: $white;
+  }
   &:hover {
     cursor: pointer;
     box-shadow: 0 0 10px $main-color;
@@ -23,9 +26,10 @@
   &--empty {
     background-color: transparent;
     color: $main-color;
-    font-weight: $bold;
+    //font-weight: $bold;
     border: $pink-border;
     box-shadow: 0 0 3px $main-color;
+    margin-right: 10px;
     &:active {
       background-color: $main-color;
       color: $white;
@@ -248,4 +252,18 @@
   display: inline-block;
   min-height: rem(20px);
   cursor: pointer;
+}
+
+button:disabled,
+button[disabled] {
+  border: 1px solid $gray300;
+  background-color: $gray500;
+  color: $gray300;
+  box-shadow: none;
+  &:hover {
+    cursor: pointer;
+    box-shadow: none;
+    transform: scale(1.02);
+  }
+
 }

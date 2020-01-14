@@ -2,115 +2,127 @@
 @import "../../../../styles/partials/rem";
 
 .table-image {
-line-height: 1.4;
-background-image: url('../../../../assets/img/sunset.jpg');
-background-size: cover;
+  line-height: 1.4;
+  background-image: url('../../../../assets/img/sunset.jpg');
+  background-size: cover;
 }
-/* body {
-    overflow: hidden;
+
+.radio {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  cursor: pointer;
+
+  &__control {
+    position: absolute;
+    display: none;
+
+    &:checked~.radio__custom {
+      background-color: transparent;
+      border: 3px solid $main-color;
+      box-shadow: 0 0 5px $main-color;
+    }
+  }
+
+  &__custom {
+    position: static;
+    width: rem(150px);
+    min-height: rem(35px);
+    padding: 3px 16px;
+    border: $pink-border;
+    background-color: transparent;
+    color: $gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: $main-border-radius;
+
+    &--none {
+      display: inline-block;
+    }
+
+    &::before {
+      content: "";
+      height: 6px;
+      width: 6px;
+      background-color: $gray;
+      border-radius: 1px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+  }
+
+  &__checkbox {
+    position: static;
+    width: auto;
+    min-height: rem(35px);
+    padding: 3px 16px;
+    background-color: transparent;
+    color: $gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: $main-border-radius;
+  }
+
+  &__btn {
+    flex: 0 1 calc(25% - 5px);
+    margin-top: rem(5px);
+    margin-bottom: rem(5px);
+
+    & .radio__custom::before {
+      display: none;
+    }
+  }
 }
- */
- .radio {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-   /*  min-height: 60px;
-    min-width: 60px; */
-    cursor: pointer;
 
-    &__control {
-        position: absolute;
-        display: none;
-        &:checked~.radio__custom {
-            background-color: transparent;
-            border: 3px solid $dark-pink;
-            box-shadow: 0 0 5px $dark-pink;
-        }
-    }  
-    &__custom {
-        position: static;
-        width: 150px;
-        min-height: 35px;
-        padding: 3px 16px;
-        border: $pink-border;
-        background-color: transparent;
-        color: #333;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: $main-border-radius;
-        &--none {
-            display: inline-block;
-        }
-        &::before {
-            content: "";
-            height: 6px;
-            width: 6px;
-            background-color: #333;
-            border-radius: 1px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-    }
-    &__checkbox {
-        position: static;
-        width: auto;
-        min-height: 35px;
-        padding: 3px 16px;
-        background-color: transparent;
-        color: #333;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: $main-border-radius;
-    }
-
-    &__btn {
-        flex: 0 1 calc(25% - 5px);
-        margin-top: 5px;
-        margin-bottom: 5px;
-        & .radio__custom::before {
-            display: none;
-        }
-    }
-} // ---final radio btn ---
-
+// ---Final radio btn ---
 
 .radio__form {
-    margin-top:10px;
-    margin-bottom: 10px;
-    &--centred {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center; 
-        margin-bottom: 15px;
-        label + label {
-            margin-left: 30px;
-        }
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  &--centred {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+
+    label+label {
+      margin-left: 30px;
     }
+  }
 }
 
-button:disabled,
-button[disabled]{
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
-}
 
-.has-error{
-    background-color: green;
+
+.has-error {
+  background-color: $success;
 }
 
 .error {
-    font-size: rem(12px);
-    color: $danger;
-    margin-top: 10px;
-    &--right {
-        text-align: end;
-    }
+  font-size: rem(12px);
+  color: $danger;
+  margin-top: 5px;
+
+  &--right {
+    text-align: end;
+  }
+}
+
+span {
+  font-size: rem(10px);
+}
+
+.input {
+  &__group {
+    position: relative;
   }
 
-  span {
-      font-size: rem(10px);
+  &__svg {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
   }
+}

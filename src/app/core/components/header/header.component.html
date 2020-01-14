@@ -9,8 +9,8 @@
 
   </nav>
   <nav class="navbar">
-  <a routerLink='/register' role="button" class="button button--empty" *ngIf="!userservice.loggedIn()">Nuevo
-    ususario</a>
+  <button routerLink='/register' role="button" class="button button--empty" *ngIf="!userservice.loggedIn()">Nuevo
+    ususario</button>
   <a routerLink='/login' role="button" class="button" *ngIf="!userservice.loggedIn()">Acceder</a>
   <a routerLink='/login' *ngIf="userservice.loggedIn()" (click)="userservice.logOut()" class="button__logout">
     Cerrar sesión 
