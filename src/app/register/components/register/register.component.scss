@@ -102,10 +102,9 @@
 }
 
 .error {
-  font-size: rem(12px);
+  font-size: $font-xs;
   color: $danger;
   margin-top: 5px;
-
   &--right {
     text-align: end;
   }

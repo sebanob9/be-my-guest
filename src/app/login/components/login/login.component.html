@@ -13,14 +13,16 @@
         <div *ngIf="!email?.valid && email?.touched">
           <p class="error">Email no válido</p>
         </div>
+        
         <div class="form__group">
           <label for="password" class="form-group__label">Contraseña</label>
           <input type="password" required class="form__group-control" minlength="8"
             [(ngModel)]="user.password" name="password" #password="ngModel">
+            <div *ngIf="!password?.valid && password?.touched">
+              <p class="error">La contraseña debe tener al menos 6 dígitos</p>
+            </div>
         </div>
-        <div *ngIf="!password?.valid && password?.touched">
-          <p class="error">La contraseña debe tener al menos 6 dígitos</p>
-        </div>
+        
         <div class="form__group form__group--right">
           <a data-toggle="modal" data-target="#rememberPassword"><span>Recordar contraseña</span></a>
         </div>

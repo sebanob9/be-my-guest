@@ -62,10 +62,10 @@ export class GuestListComponent implements OnInit {
 }
 
   // revisar, no se guardan los cambios correctamente
-  updateGuest(form: NgForm) {
+ /*  updateGuest(form: NgForm) {
     this.guestsService.putGuest(form.value)
       .subscribe(res => {
         console.log(res);
       })
-  }
+  } */
 }

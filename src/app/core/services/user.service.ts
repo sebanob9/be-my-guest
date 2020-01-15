@@ -46,12 +46,19 @@ export class UserService {
     this.router.navigate(['/login']);
   }
 
-  getUserInfoByUserId(userId) {
-    return this.http.get(this.URL_API + '/' + userId);
+
+  // ------ Para Base Datos ----- //
+  getUserInfoByUserId(user: User) {
+    return this.http.get(this.URL_API + '/' + user);
   }
 
-  saveUserById(userId, userInfo) {
-    return this.http.put(this.URL_API + '/' + userId, userInfo);
+  saveUserById(user: User) {
+    return this.http.put(this.URL_API  + `/${user._id}`, user);
+    
   }
+
+  /* saveUserById(userId, userInfo) {
+    return this.http.put(this.URL_API + '/' + userId, userInfo);
+  } */
   
 }

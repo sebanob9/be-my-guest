@@ -3,6 +3,7 @@ import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {MatChipInputEvent} from '@angular/material/chips';
 import { UserService } from 'src/app/core/services/user.service';
 import { StorageService } from 'ngx-webstorage-service';
+import { NgForm } from '@angular/forms';
 
 export interface Fruit {
   name: string;
@@ -80,17 +81,27 @@ export class MyEventComponent implements OnInit{
 
   // 
 
-  saveUserData(userForm) {
-    console.log(userForm.email);
-    const newUser = {
+  saveUserData(form?: NgForm) {
+    console.log(form.value);
+    this.userservice.saveUserById(userForm).subscribe(response => {
+      console.log('response:', response);
+    });
+  
+    /* const newUser = {
       email: userForm.email,
       password: userForm.password,
       phone: userForm.phone,
       date: userForm.date
     }
 
-    this.userservice.saveUserById(localStorage.getItem('userId'), newUser).subscribe();
+    this.userservice.saveUserById(localStorage.getItem('userId'), newUser).subscribe(); */
+    
   }
 
-
 }
+
+/* this.guestsService.putGuest(form.value)
+        .subscribe(res => {
+          // this.resetForm(form);
+          this.getGuests();
+        }); */

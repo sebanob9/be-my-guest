@@ -50,15 +50,19 @@
   <div class="myevent-nav">
     <div class="myevent-nav__title">Datos personales</div>
     <div class="myevent-nav__content">
+
       <form (ngSubmit)="saveUserData(userForm)" #userForm="ngForm" *ngIf="userInfo">
+        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userInfo._id">
       <div class="form-group text-item">
         <label for="event-place" class="form-group__label">¿Dónde se celebra?</label>
         <input type="text" id="event-place" required placeholder="El nombre de la finca / salón "
-          class="form__group-control form__group-control--access" [value]="userInfo.eventPlace">
+          class="form__group-control form__group-control--access" 
+          [(ngModel)]="userInfo.eventPlace" name="eventPlace" #eventPlace="ngModel">
       </div>
       <div class="form-group text-item">
         <label for="date" class="form-group__label">Fecha</label>
-        <input type="date" id="date" required class="form__group-control form__group-control--access" [value]="userInfo.date">
+        <input type="date" id="date" required class="form__group-control form__group-control--access" 
+        [(ngModel)]="userInfo.date" name="date" #date="ngModel" >
       </div>
       <div class="form-group text-item">
         <label for="email" class="form-group__label">Email</label>
@@ -67,17 +71,11 @@
       </div>
       <div class="form-group text-item">
         <label for="phone" class="form-group__label">Teléfono</label>
-        <input type="tel" id="phone" class="form__group-control form__group-control--access" [value]="userInfo.phone">
+        <input type="tel" id="phone" class="form__group-control form__group-control--access"
+         [(ngModel)]="userInfo.phone" name="phone" #phone="ngModel">
       </div>
-      <div class="form-group text-item">
-        <label for="password" class="form-group__label">Contraseña</label>
-        <input type="password" required id="password" class="form__group-control form__group-control--access">
-      </div>
-      <div class="form-group text-item">
-        <label for="password" class="form-group__label">Confirmar contraseña</label>
-        <input type="password" required id="password" class="form__group-control form__group-control--access">
-      </div>
-      <button type="submit">Guardar datos</button>
+    
+      <button type="submit" >Guardar datos</button>
     </form>
     </div>
   </div>
