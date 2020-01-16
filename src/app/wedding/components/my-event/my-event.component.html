@@ -14,9 +14,9 @@
   <div class="myevent-nav">
     <div class="myevent-nav__title">Enlace Invitación</div>
     <div class="myevent-nav__content">
-        <a (click)="copyLink(eventLink)" value="click to copy" class="button button--empty" target="_blank">Copiar</a>
-        <input type="text" class="myevent-nav__content__input" value="bemyguest.com/c&a" #eventLink>
-        
+      <a (click)="copyLink(eventLink)" value="click to copy" class="button button--empty" target="_blank">Copiar</a>
+      <input type="text" class="myevent-nav__content__input" value="bemyguest.com/c&a" #eventLink>
+
     </div>
   </div>
   <hr>
@@ -25,8 +25,8 @@
     <div class="myevent-nav__content">
       <a (click)="copyLink(eventLink)" value="click to copy" class="button" target="_blank">Copiar</a>
       <input type="text" class="myevent-nav__content__input" value="/c&a/gallery" #eventLink>
-      
-  </div>
+
+    </div>
   </div>
   <hr>
   <div class="myevent-nav">
@@ -53,30 +53,44 @@
 
       <form (ngSubmit)="saveUserData(userForm)" #userForm="ngForm" *ngIf="userInfo">
         <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userInfo._id">
-      <div class="form-group text-item">
-        <label for="event-place" class="form-group__label">¿Dónde se celebra?</label>
-        <input type="text" id="event-place" required placeholder="El nombre de la finca / salón "
-          class="form__group-control form__group-control--access" 
-          [(ngModel)]="userInfo.eventPlace" name="eventPlace" #eventPlace="ngModel">
-      </div>
-      <div class="form-group text-item">
-        <label for="date" class="form-group__label">Fecha</label>
-        <input type="date" id="date" required class="form__group-control form__group-control--access" 
-        [(ngModel)]="userInfo.date" name="date" #date="ngModel" >
-      </div>
-      <div class="form-group text-item">
-        <label for="email" class="form-group__label">Email</label>
-        <input type="email" id="email" [(ngModel)]="userInfo.email" name="email" #email="ngModel" 
-        required class="form__group-control form__group-control--access">
-      </div>
-      <div class="form-group text-item">
-        <label for="phone" class="form-group__label">Teléfono</label>
-        <input type="tel" id="phone" class="form__group-control form__group-control--access"
-         [(ngModel)]="userInfo.phone" name="phone" #phone="ngModel">
-      </div>
-    
-      <button type="submit" >Guardar datos</button>
-    </form>
+
+        <div class="form-group text-item">
+          <label for="groom" class="form-group__label">El Novio</label>
+          <input type="text" id="groom" placeholder="El nombre de él"
+            class="form__group-control form__group-control--access" [(ngModel)]="userInfo.groom"
+            name="groom" #groom="ngModel">
+        </div>
+
+        <div class="form-group text-item">
+          <label for="groom" class="form-group__label">La Novia</label>
+          <input type="text" id="groom" placeholder="El nombre de él"
+            class="form__group-control form__group-control--access" [(ngModel)]="userInfo.bride"
+            name="bride" #bride="ngModel">
+        </div>
+        <div class="form-group text-item">
+          <label for="event-place" class="form-group__label">¿Dónde se celebra?</label>
+          <input type="text" id="event-place" required placeholder="El nombre de la finca / salón "
+            class="form__group-control form__group-control--access" [(ngModel)]="userInfo.eventPlace" name="eventPlace"
+            #eventPlace="ngModel">
+        </div>
+        <div class="form-group text-item">
+          <label for="date" class="form-group__label">Fecha</label>
+          <input type="date" id="date" required class="form__group-control form__group-control--access"
+            [(ngModel)]="userInfo.date" name="date" #date="ngModel">
+        </div>
+        <div class="form-group text-item">
+          <label for="email" class="form-group__label">Email</label>
+          <input type="email" id="email" [(ngModel)]="userInfo.email" name="email" #email="ngModel" required
+            class="form__group-control form__group-control--access">
+        </div>
+        <div class="form-group text-item">
+          <label for="phone" class="form-group__label">Teléfono</label>
+          <input type="tel" id="phone" class="form__group-control form__group-control--access"
+            [(ngModel)]="userInfo.phone" name="phone" #phone="ngModel">
+        </div>
+
+        <button type="submit">Guardar datos</button>
+      </form>
     </div>
   </div>
 

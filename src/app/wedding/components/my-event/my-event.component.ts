@@ -83,7 +83,7 @@ export class MyEventComponent implements OnInit{
 
   saveUserData(form?: NgForm) {
     console.log(form.value);
-    this.userservice.saveUserById(userForm).subscribe(response => {
+    this.userservice.saveUserById(form.value).subscribe(response => {
       console.log('response:', response);
     });
   

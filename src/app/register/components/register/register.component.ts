@@ -71,7 +71,7 @@ export class RegisterComponent implements OnInit {
 
 
   signUp(form: NgForm) {
-    //this.userservice.selectedUser.password = this.password;
+    this.userservice.selectedUser.password = this.password;
     this.userservice.signUp(form.value)
       .subscribe(
         res => {
