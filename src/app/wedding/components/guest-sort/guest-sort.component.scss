@@ -2,7 +2,7 @@
 
 .form__table {
   display: flex;
-  width: 600px;
+  width: rem(600px);
   margin: 0 auto;
   justify-content: center;
   align-items: center;
@@ -10,21 +10,21 @@
   margin-top:40px;
   &-item {
     &--xl {
-      flex: 0 1 calc(50% - 10px);
+      flex: $calc50;
     }
     &--l {
-      flex: 0 1 calc(40% - 10px);
+      flex: $calc40;
     }
     &--m {
-      flex: 0 1 calc(30% - 10px);
+      flex: $calc30;
       margin-left: 10px;
     }
     &--s {
-      flex: 0 1 calc(20% - 10px);
+      flex: $calc20;
       
     }
     &--xs {
-      flex: 0 1 calc(10% - 10px);
+      flex: $calc10;
       display: flex;
       margin-right: 40px;
     }

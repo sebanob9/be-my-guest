@@ -5,6 +5,7 @@ $white: #fff;
 $white90: rgba(255, 255, 255, 0.9);
 $white50: rgba(255,255,255,0.5);
 $dark-pink:#701658;
+$strong-pink:hsl(316, 100%, 15%);
 $main-color: $dark-pink;
 $dark-pink-op: rgba(112, 22, 88, 0.5);
 $danger: #C83838;
@@ -32,3 +33,11 @@ $font-m: rem(18px);
 $font-l: rem(24px);
 $font-xl: rem(32px);
 $font-xxl: rem(48px);
+
+
+// --- FLEX CALC ---
+$calc50: 0 1 calc(50% - 5px);
+$calc40: 0 1 calc(40% - 5px);
+$calc30: 0 1 calc(30% - 5px);
+$calc20: 0 1 calc(20% - 5px);
+$calc10: 0 1 calc(10% - 5px);

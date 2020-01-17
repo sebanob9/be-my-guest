@@ -1,23 +1,40 @@
  @import "../../../../styles/partials/variables";
- .banner--img {
-        background-image: url('../../../../assets/img/back3.jpg');
-        background-size: cover;
-    }
+ @import "../../../../styles/partials/rem";
 
-.home-menu {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding-left: 0;
-    list-style: none;
-    margin-top:15px;
-    margin-bottom: 25px;
-   
-    &__item {
-        padding: 10px 50px;
-        &.active {
-            border-bottom: 2px solid $dark-pink;
-        }
-    }
-}
- 
+ .banner--img {
+   background-image: url('../../../../assets/img/back3.jpg');
+   background-size: cover;
+ }
+
+ .home-menu {
+   display: flex;
+   justify-content: space-around;
+   padding-left: 0;
+   list-style: none;
+   margin-bottom: 40px;
+
+   &__link {
+     flex: $calc20;
+     padding: 10px 0;
+     color: $main-color;
+     border-radius: 0 0 5px 5px;
+     text-align: center;
+     position: relative;
+     &.active {
+        background: linear-gradient(0deg, rgba(112,22,88,1) 0%, rgba(145,28,114,1) 100%);
+        color: $white;
+       &::before {
+         content: "";
+         position: absolute;
+         top: rem(13px);
+         left: calc(50% - 15px);
+         z-index: -1;
+         width: 30px;
+         height: 30px;
+         background: $main-color;
+         transform: rotate(45deg);
+       }
+     }
+   }
+
+ }

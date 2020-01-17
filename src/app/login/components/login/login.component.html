@@ -16,7 +16,7 @@
         
         <div class="form__group">
           <label for="password" class="form-group__label">Contraseña</label>
-          <input type="password" required class="form__group-control" minlength="8"
+          <input type="password" required class="form__group-control" minlength="6"
             [(ngModel)]="user.password" name="password" #password="ngModel">
             <div *ngIf="!password?.valid && password?.touched">
               <p class="error">La contraseña debe tener al menos 6 dígitos</p>
