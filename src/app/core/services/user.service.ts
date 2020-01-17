@@ -48,7 +48,7 @@ export class UserService {
 
 
   // ------ Para Base Datos ----- //
-  getUserInfoByUserId(user: User) {
+  getUserInfoByUserId(user: string) {
     return this.http.get(this.URL_API + '/' + user);
   }
 

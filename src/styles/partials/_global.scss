@@ -7,7 +7,7 @@ textarea,
 select,
 button {
   font-family: 'Solway', serif;
-  color: #333;
+  color: $gray;
   font-size: $font-main;
   letter-spacing: 0.3px;
 }
@@ -18,30 +18,30 @@ a {
 
 .table-image {
   line-height: 1.4;
-  /* background-image: url('../images/mesa.jpg'); */
   background-size: cover;
 }
 
 
 input,
 textarea {
-  border: 1px solid #dadada;
+  //border: 1px solid #dadada;
   border-radius: 0;
-  height: 2.5rem;
+  height: rem(40px);
   padding: 0 10px;
 }
 
 a {
   text-decoration: none !important;
-  color: #333;
+  color: $gray;
+
   &:active {
-      color: $dark-pink;
+    color: $main-color;
   }
 }
 
 // contenedores
 .maincontainer {
-  max-width: 1250px;
+  max-width: rem(1250px);
   margin: 0 auto;
   width: 100%;
 }
@@ -49,48 +49,43 @@ a {
 .main {
   height: calc(100vh - 120px);
   &-left {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
   }
+
   &__center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-  &__dark {
+ /*  &__dark {
     background-color: $dark-pink;
-    box-shadow: inset 0 0 50px rgba(51, 2, 38, 0.9);
-    
-  }
-/*   &__separator-m {
-    margin-bottom: 30px;
-  }
-  &__separator-l {
-    margin-bottom: 50px;
-  } */
-  &__rows {
+    box-shadow: inset 0 0 50px rgba(51, 2, 38, 0.9); */
+
+ /*  &__rows {
     display: flex;
     align-items: center;
     justify-content: space-around;
     min-height: calc(50vh - 35px);
-  }
+  } */
 }
 
 //footer
-footer {
-  min-height: 60px; 
+/* footer {
+  min-height: 60px;
   background: linear-gradient(transparent 0%, rgba(212, 34, 212, 0.15) 100%);
 }
+
 .footer {
   &-flexbox {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 10px;
   }
+
   &-text {
     color: #fff;
     font-size: 0.8rem;
@@ -100,10 +95,7 @@ footer {
 footer>div>p {
   color: #fff;
   font-size: 0.8rem;
-}
-
-
-
-/* .half-page {
-  min-height: calc(50vh - 35px);
 } */
+
+
+

@@ -2,9 +2,13 @@
 
 // --- COLORS ---
 $white: #fff;
+$white90: rgba(255, 255, 255, 0.9);
+$white50: rgba(255,255,255,0.5);
 $dark-pink:#701658;
 $main-color: $dark-pink;
 $dark-pink-op: rgba(112, 22, 88, 0.5);
+$danger: #C83838;
+$success: #3AA64A;
 
 $gray:#333;
 $gray100: #4E4E4E;
@@ -12,9 +16,6 @@ $gray200: #737373;
 $gray300: #9D9D9D;
 $gray400: #D0D0D0;
 $gray500: #EBEBEB;
-
-$danger: #C83838;
-$success: #3AA64A;
 
 
 // --- BORDERS ---
@@ -30,3 +31,4 @@ $font-main: rem(16px);
 $font-m: rem(18px);
 $font-l: rem(24px);
 $font-xl: rem(32px);
+$font-xxl: rem(48px);

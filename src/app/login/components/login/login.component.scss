@@ -2,13 +2,13 @@
 @import "../../../../styles/partials/rem";
 @import "../../../../styles/partials/modals";
 
-.table-image {
+.background-image {
 line-height: 1.4;
 background-image: url('../../../../assets/img/table.jpg');
 background-size: cover;
 }
 
-// --- VALIDATION 
+// --- VALIDATION ---
 .form__group input {
   border-left: $main-border-radius solid transparent;
   &:valid {
