@@ -9,8 +9,7 @@
  .home-menu {
    display: flex;
    justify-content: space-around;
-   padding-left: 0;
-   list-style: none;
+   //list-style: none;
    margin-bottom: 40px;
 
    &__link {
@@ -21,8 +20,13 @@
      text-align: center;
      position: relative;
      &.active {
-        background: linear-gradient(0deg, rgba(112,22,88,1) 0%, rgba(145,28,114,1) 100%);
-        color: $white;
+        //background: linear-gradient(0deg, rgba(112,22,88,1) 0%, rgba(145,28,114,1) 100%);
+        background-color: $white;
+        font-weight: 700;
+        //color: $white;
+        border-left: 2px solid $main-color;
+        border-right: 2px solid $main-color;
+        border-bottom: 2px solid $main-color;
        &::before {
          content: "";
          position: absolute;

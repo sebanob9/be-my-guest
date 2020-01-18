@@ -1,4 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule,LOCALE_ID} from '@angular/core';
+import localeEs from '@angular/common/locales/es';
+
 import { SharedModule } from '../shared/shared.module';
 
 import { WeddingRoutingModule } from './wedding-routing.module';
@@ -15,7 +17,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 
-import { CommonModule } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
+registerLocaleData(localeEs);
 import { MatDialogModule } from '@angular/material/dialog';
 import { TableDialogComponent } from './components/table-dialog/table-dialog.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -47,6 +50,7 @@ import { FormsModule } from '@angular/forms';
   ],
   entryComponents: [
     TableDialogComponent
-  ]
+  ],
+  providers: [ { provide: LOCALE_ID, useValue: 'es' } ]
 })
 export class WeddingModule { }

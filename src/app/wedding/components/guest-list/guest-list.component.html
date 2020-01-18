@@ -75,7 +75,7 @@
         <div class="form__group form-group--access">
           <label for="phone" class="form-group__label">Teléfono</label>
           <input type="tel" class="form__group-control form__group-control--access" placeholder="preferiblemente móvil" minlength="9" maxlength="9"
-            name="phone"  value="Teléfono" >
+            name="phone" [(ngModel)]="guestsService.selectedGuest.phone" value="Teléfono" >
         </div>
 
 

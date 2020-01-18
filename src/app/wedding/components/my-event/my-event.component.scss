@@ -1,5 +1,25 @@
 @import "../../../../styles/partials/variables";
+@import "../../../../styles/partials/rem";
 
+.gallery{
+    display: grid;
+    padding: rem(10px);
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: rem(10px);
+  }
+
+main {
+    grid-column: 1/2;
+    grid-row:1/4;
+    //border: 2px solid $main-color;
+    border-radius: $main-border-radius;
+    //background-color: $main-color;
+}
+aside {
+    background-color: green;
+}
 .myevent-nav {
     display: flex;
     margin-top: 15px;
@@ -51,3 +71,32 @@ hr {
         background: $dark-pink;
     }
 }
+
+// Cambios respecto a form original
+.form-lg {
+    padding:rem(8px);
+    //background-color: $main-color;
+}
+
+.text-item {    
+    margin: 8px 8px 0 8px;
+  }
+   
+  input:read-only {
+    background-color: $gray600;
+    color: $gray400 ;
+    border-bottom: 1px solid $gray400;
+  }
+
+  .enabled {
+      border: 2px solid $main-color;
+  }
+
+  .disabled {
+      background-color: $gray600;
+      border: 2px solid $gray500;
+      & label {
+          color: $gray400;
+          
+      }
+  }

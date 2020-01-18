@@ -17,6 +17,7 @@ $gray200: #737373;
 $gray300: #9D9D9D;
 $gray400: #D0D0D0;
 $gray500: #EBEBEB;
+$gray600: #F6F6F6 ;
 
 
 // --- BORDERS ---
@@ -36,8 +37,8 @@ $font-xxl: rem(48px);
 
 
 // --- FLEX CALC ---
-$calc50: 0 1 calc(50% - 5px);
+$calc50: 0 1 calc(50% - 16px);
 $calc40: 0 1 calc(40% - 5px);
 $calc30: 0 1 calc(30% - 5px);
-$calc20: 0 1 calc(20% - 5px);
+$calc20: 0 1 calc(20% - 0px);
 $calc10: 0 1 calc(10% - 5px);

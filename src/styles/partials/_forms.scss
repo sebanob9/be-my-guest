@@ -92,7 +92,7 @@
 } // ----- fin del form ----
 
  .text-item {
-   flex: 0 1 calc(50% - 1rem);
+   flex: $calc50;
    height: rem(64px);
    margin: rem(8px);
    &--lg {

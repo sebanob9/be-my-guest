@@ -1,4 +1,81 @@
-<div>
+<div class="gallery">
+  <main>
+    <form (ngSubmit)="saveUserData(userForm)" #userForm="ngForm" *ngIf="userInfo" class="form-lg"
+    [ngClass]="status ? 'enabled' : 'disabled'">
+      <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userInfo._id">
+      <div class="form-group text-item">
+        <label for="groom" class="form-group__label">El Novio</label>
+        <input type="text" id="groom" [readonly]="isReadOnly"
+          class="form__group-control form__group-control--access" [(ngModel)]="userInfo.groom" name="groom"
+          #groom="ngModel">
+      </div>
+
+      <div class="form-group text-item">
+        <label for="groom" class="form-group__label">La Novia</label>
+        <input type="text" id="groom" [readonly]="isReadOnly"
+          class="form__group-control form__group-control--access" [(ngModel)]="userInfo.bride" name="bride"
+          #bride="ngModel">
+      </div>
+
+      <div class="form-group text-item">
+        <label for="event-place" class="form-group__label">¿Dónde se celebra?</label>
+        <input type="text" id="event-place" required [readonly]="isReadOnly"
+          class="form__group-control form__group-control--access" [(ngModel)]="userInfo.eventPlace" name="eventPlace"
+          #eventPlace="ngModel">
+      </div>
+      <div class="form-group text-item">
+        <label for="date" class="form-group__label">Fecha</label>
+        <input type="date" id="date" required class="form__group-control form__group-control--access" [readonly]="isReadOnly"
+          [(ngModel)]="userInfo.date" name="date" #date="ngModel">
+      </div>
+      <div class="form-group text-item">
+        <label for="email" class="form-group__label">Email</label>
+        <input type="email" id="email" [(ngModel)]="userInfo.email" name="email" #email="ngModel" required 
+        [readonly]="isReadOnly" class="form__group-control form__group-control--access">
+      </div>
+      <div class="form-group text-item">
+        <label for="phone" class="form-group__label">Teléfono</label>
+        <input type="tel" id="phone" class="form__group-control form__group-control--access" [readonly]="isReadOnly"
+          [(ngModel)]="userInfo.phone" name="phone" #phone="ngModel">
+      </div>
+      
+      <div class="form-group text-item">
+        <label for="password" class="form-group__label">Nueva contraseña</label>
+        <input [type]="passwordType" required id="password" class="form__group-control form__group-control--access" 
+        [readonly]="isReadOnly" [(ngModel)]="password" name="password" #Password="ngModel" minlength="6">
+        <div *ngIf="!Password?.valid && Password?.dirty">
+          <p class="error">La contraseña no es válida</p>
+        </div>
+      </div>
+
+
+      <div class="form-group text-item">
+        <label for="password" class="form-group__label">Confirmar contraseña</label>
+        <div class="input__group">
+        <input [type]="passwordType" id="confirmPassword" required class="form__group-control form__group-control--access probando" 
+          name="confirmPassword" [(ngModel)]="confirmPassword" #confirmpassword="ngModel" [readonly]="isReadOnly"
+          >
+          <svg *ngIf="Password?.valid && !confirmpassword?.pristine" (click)="showPassword()" class="input__svg" width="25" height="25">
+            <use xlink:href="../assets/svg/sprite.svg#padlock"></use>
+          </svg>
+        </div>
+        <div *ngIf="confirmpassword?.touched && !samePassword()">
+          <p class="error error--right">Las contraseñas no coinciden</p>
+        </div>
+      </div>
+
+      <button class="button" [disabled]="!isReadOnly" (click)="isDisabled()">Editar</button>
+      <button type="submit" [disabled]="isReadOnly" class="button">Guardar</button>
+    </form>
+  </main>
+  <aside>1</aside>
+  <aside>2</aside>
+  <aside>3</aside>
+</div>
+
+
+
+<!-- <div>
   <div class="myevent-nav">
     <div class="myevent-nav__title">Invitación por Whatsapp</div>
     <div class="myevent-nav__content">
@@ -28,6 +105,7 @@
 
     </div>
   </div>
+  
   <hr>
   <div class="myevent-nav">
     <div class="myevent-nav__title">Crear/editar categorias</div>
@@ -93,11 +171,13 @@
       </form>
     </div>
   </div>
+</div>
+ -->
 
 
 
-
-  <!--  <div>
+<!-- DEL BLOQUE MATERIAL
+      <div>
     <mat-form-field class="example-chip-list">
       <mat-chip-list #chipList aria-label="Fruit selection">
         <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable" [removable]="removable"
@@ -111,4 +191,3 @@
       </mat-chip-list>
     </mat-form-field>
   </div> -->
-</div>

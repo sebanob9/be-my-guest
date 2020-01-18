@@ -22,6 +22,7 @@ export class MyEventComponent implements OnInit{
   removable = true;
   addOnBlur = true;
   protected userInfo: object = null;
+  
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   fruits: Fruit[] = [
     {name: 'Familia'},
@@ -51,6 +52,31 @@ export class MyEventComponent implements OnInit{
     }
     
   }
+
+
+  //----- - PASSWORD - ----- //
+  public passwordType = 'password';
+  confirmPassword: string;
+  password: string;
+
+  samePassword() {
+    return (this.password === this.confirmPassword);
+  }
+
+  showPassword(){
+    if(this.passwordType==='password'){
+     this.passwordType = 'text';
+    }else{
+     this.passwordType = 'password';
+    }
+  } 
+
+  isReadOnly: boolean = true;
+  status: boolean = false;
+  isDisabled(){
+    this.status = !this.status;
+    this.isReadOnly = !this.isReadOnly;
+}
 
   /* add(event: MatChipInputEvent): void {
     const input = event.input;
@@ -83,10 +109,14 @@ export class MyEventComponent implements OnInit{
 
   saveUserData(form?: NgForm) {
     console.log(form.value);
+    this.status = !this.status;
+    this.isReadOnly = !this.isReadOnly;
     this.userservice.saveUserById(form.value).subscribe(response => {
       console.log('response:', response);
+      window.location.reload();
     });
   
+    
     /* const newUser = {
       email: userForm.email,
       password: userForm.password,
