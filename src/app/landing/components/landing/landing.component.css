@@ -1,0 +1,35 @@
+.slider {
+  height: calc(100vh - 110px);
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.carousel-item {
+  /* font-family: 'Shadows Into Light', cursive; */
+}
+
+.carousel-item__title {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.carousel-item__text {
+  font-size: 1.2rem;
+}
+
+.carousel-item__background {
+  position: absolute;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  left: 30%;
+  bottom: 40px;
+  z-index: 10;
+  padding: 15px;
+  background-color: #33333375;
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+}
+/*# sourceMappingURL=landing.component.css.map */

@@ -1,0 +1,66 @@
+.modal {
+  top: 6.25rem;
+}
+
+.modal__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 3.125rem;
+  border-radius: 0.3125rem 0.3125rem 0 0;
+  background-color: #701658;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+.modal__close {
+  position: absolute;
+  top: 0;
+  right: 1.25rem;
+  text-decoration: none;
+  color: #fff;
+  font-size: 2rem;
+}
+
+.modal__close--danger {
+  color: #C83838;
+}
+
+/* .modal-backdrop {
+  background-color: red;
+
+  // Fade for backdrop
+  &.fade { opacity: 0; }
+  &.show { opacity: 0.5; }
+} */
+.background-image {
+  line-height: 1.4;
+  background-image: url("../../../../assets/img/table.jpg");
+  background-size: cover;
+}
+
+.form__group input {
+  border-left: 5px solid transparent;
+}
+
+.form__group input:valid {
+  border-left-color: #3AA64A;
+}
+
+.error {
+  font-size: 0.75rem;
+  color: #C83838;
+}
+
+span {
+  color: #737373;
+  font-size: 0.875rem;
+}
+/*# sourceMappingURL=login.component.css.map */

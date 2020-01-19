@@ -1,0 +1,26 @@
+.table-image {
+  line-height: 1.4;
+  background-image: url("../../../../assets/img/gallery (33).jpg");
+  /* opacity:0.3; */
+  background-size: cover;
+}
+
+.main {
+  /* width: 100vh; */
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+button {
+  background-color: rgba(112, 22, 88, 0.9);
+  min-height: 75px;
+}
+/*# sourceMappingURL=guest-landing.component.css.map */

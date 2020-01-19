@@ -68,6 +68,13 @@
   }
   &__names {
     display: inline-flex;
-    width: 500px;
+    width: 100%;
   }
+}
+
+.guestname {
+  font-size: $font-xs;
+}
+.guestnumber {
+  font-size: $font-s;
 }

@@ -1,22 +1,49 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { Guest } from 'src/app/core/models/guest';
 import { GuestsService } from 'src/app/core/services/guests.service';
 import { NgForm } from '@angular/forms';
 import { format } from 'url';
+import {
+  MatSnackBar,
+  MatSnackBarConfig,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material';
 
 @Component({
   selector: 'app-guest-list',
   templateUrl: './guest-list.component.html',
-  styleUrls: ['./guest-list.component.scss']
+  styleUrls: ['./guest-list.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class GuestListComponent implements OnInit {
 
-  constructor(public guestsService: GuestsService) { }
+  // SNACKBAR //
+  message: string = 'Invitado actualizado';
+  name = 'Angular 4';
+  actionButtonLabel: string = '';
+  action: boolean = true;
+  addExtraClass: boolean = false;
+  setAutoHide: boolean = true;
+  autoHide: number = 2000;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+  open() {
+    let config = new MatSnackBarConfig();
+    config.verticalPosition = this.verticalPosition;
+    config.horizontalPosition = this.horizontalPosition;
+    config.duration = this.setAutoHide ? this.autoHide : 0;
+    this.snackBar.open(this.message, this.action ? this.actionButtonLabel : undefined, config);
+  }
+
+  constructor(public guestsService: GuestsService,
+              public snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.getGuests();
   }
-  
+
+ 
 
   getGuests() {
     this.guestsService.getGuest()
@@ -61,11 +88,5 @@ export class GuestListComponent implements OnInit {
       }
 }
 
-  // revisar, no se guardan los cambios correctamente
- /*  updateGuest(form: NgForm) {
-    this.guestsService.putGuest(form.value)
-      .subscribe(res => {
-        console.log(res);
-      })
-  } */
+
 }

@@ -83,6 +83,16 @@
       background-color: $danger;
     }
   }
+  &__copied {
+    color: $main-color;
+    font-size: $font-xs;
+    position: absolute;
+    right: 20px;
+    border: 1px dashed $main-color;
+    padding: 5px;
+    border-radius: $main-border-radius;
+    //display: block;
+  }
   &--lg {
     font-size: $font-l;
     height: rem(50px);

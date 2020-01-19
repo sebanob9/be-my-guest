@@ -22,10 +22,10 @@ export class GuestPresentsComponent {
   
   
   message: string = 'Invitado eliminado';
-  //name = 'Angular 4';
-  //actionButtonLabel: string = 'Retry';
-  //action: boolean = true;
-  //addExtraClass: boolean = false;
+  name = 'Angular 4';
+  actionButtonLabel: string = 'Retry';
+  action: boolean = true;
+  addExtraClass: boolean = false;
   setAutoHide: boolean = true;
   autoHide: number = 50000;
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
@@ -39,7 +39,7 @@ export class GuestPresentsComponent {
     config.verticalPosition = this.verticalPosition;
     config.horizontalPosition = this.horizontalPosition;
     config.duration = this.setAutoHide ? this.autoHide : 0;
-    config.extraClasses = this.addExtraClass ? ['test'] : undefined;
+    //config.extraClasses = this.addExtraClass ? ['test'] : undefined;
     this.snackBar.open(this.message, this.action ? this.actionButtonLabel : undefined, config);
   }
 

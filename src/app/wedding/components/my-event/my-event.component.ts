@@ -106,13 +106,29 @@ export class MyEventComponent implements OnInit{
       this.fruits.splice(index, 1);
     }
   }  
+
+// copiar enlace del input
+  show : boolean = false
   
-  // copiar enlace del input
-  copyLink(inputElement){
-    inputElement.select();
-    document.execCommand('copy');
-    inputElement.setSelectionRange(0, 0);
-  }
+    
+  
+    copyLink(val: string){
+      this.show = true;
+    setTimeout(function(){this.show = !this.show}.bind(this), 3000);
+      let selBox = document.createElement('textarea');
+        selBox.style.position = 'fixed';
+        selBox.style.left = '0';
+        selBox.style.top = '0';
+        selBox.style.opacity = '0';
+        selBox.value = val;
+        document.body.appendChild(selBox);
+        selBox.focus();
+        selBox.select();
+        document.execCommand('copy');
+        document.body.removeChild(selBox);
+      }
+
+  
 
   // 
 

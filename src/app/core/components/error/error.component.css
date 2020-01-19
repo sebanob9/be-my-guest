@@ -1,0 +1,30 @@
+/* :host {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+} */
+.error {
+  text-align: center;
+}
+
+.error__title {
+  font-size: 6rem;
+  font-weight: 700;
+  margin: 25px 0 25px 0;
+}
+
+.error__num {
+  color: #701658;
+}
+
+.error__text {
+  margin-top: 1rem;
+  font-size: 2.5rem;
+  margin-top: 25px;
+}
+
+.error__img {
+  margin: 0 15px;
+}
+/*# sourceMappingURL=error.component.css.map */

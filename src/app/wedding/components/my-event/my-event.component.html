@@ -76,31 +76,30 @@
   <aside class="grid">
     <div class="grid__title">Enlace evento</div>
     <div class="grid__content">
-      <a href="https://wa.me/?text=http://localhost:4200/guest/confirmation" class="button" target="_blank">Enviar
+      <a href="https://wa.me/?text=http://localhost:4200/guest/confirmation" class="button">Enviar
         <svg class="right" width="25" height="25">
           <use xlink:href="../assets/svg/sprite.svg#whatsapp"></use>
         </svg>
       </a>
-      <a (click)="copyLink(eventLink)" value="click to copy" class="button button--empty" target="_blank">Copiar</a>
-      <input hidden type="text" class="myevent-nav__content__input" value="http://localhost:4200/guest/confirmation" #eventLink>
+      
+        <a (click)="copyLink('http://localhost:4200/guest/confirmation')" value="copiar!" class="button button--empty">Copiar</a>
+          <div *ngIf="show" class="button__copied">¡Enlace copiado!</div>
     </div>
   </aside>
 
   <aside>
     <div class="grid__title">Categorías</div>
     <div class="myevent-nav">
-<!--       <div class="myevent-nav__title">Crear/editar categorias</div> -->      
- <div class="myevent-nav__content">
+      <!--       <div class="myevent-nav__title">Crear/editar categorias</div> -->
+      <div class="myevent-nav__content">
         <mat-form-field class="example-chip-list">
           <mat-chip-list #chipList aria-label="Fruit selection">
-            <mat-chip *ngFor="let fruit of fruits"  [removable]="removable"
-              (removed)="remove(fruit)">
+            <mat-chip *ngFor="let fruit of fruits" [removable]="removable" (removed)="remove(fruit)">
               {{fruit.name}}
               <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
             </mat-chip>
-            <input  [matChipInputFor]="chipList"
-              [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
-              (matChipInputTokenEnd)="add($event)">
+            <input [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
           </mat-chip-list>
         </mat-form-field>
       </div>
@@ -109,14 +108,6 @@
 
 
 </div>
-<mat-form-field>
-  <mat-label>Snack bar duration (seconds)</mat-label>
-  <input type="number" [(ngModel)]="durationInSeconds" matInput>
-</mat-form-field>
-
-<button mat-button (click)="openSnackBar()" aria-label="Show an example snack-bar">
-  Pizza party
-</button>
 
 
 <!-- <div>
@@ -124,7 +115,7 @@
     <div class="myevent-nav__title">Invitación por Whatsapp</div>
     <div class="myevent-nav__content">
 
-      <a href="https://wa.me/?text=wedding.sit/º&r" class="button" target="_blank">Enviar
+      <a href="https://wa.me/?text=wedding.sit/º&r" class="button">Enviar
         <svg class="right" width="25" height="25">
           <use xlink:href="../assets/svg/sprite.svg#whatsapp"></use>
         </svg>
@@ -135,7 +126,7 @@
   <div class="myevent-nav">
     <div class="myevent-nav__title">Enlace Invitación</div>
     <div class="myevent-nav__content">
-      <a (click)="copyLink(eventLink)" value="click to copy" class="button button--empty" target="_blank">Copiar</a>
+      <a (click)="copyLink(eventLink)" value="click to copy" class="button button--empty">Copiar</a>
       <input type="text" class="myevent-nav__content__input" value="bemyguest.com/c&a" #eventLink>
 
     </div>
@@ -144,7 +135,7 @@
   <div class="myevent-nav">
     <div class="myevent-nav__title">Compartir galeria fotos</div>
     <div class="myevent-nav__content">
-      <a (click)="copyLink(eventLink)" value="click to copy" class="button" target="_blank">Copiar</a>
+      <a (click)="copyLink(eventLink)" value="click to copy" class="button">Copiar</a>
       <input type="text" class="myevent-nav__content__input" value="/c&a/gallery" #eventLink>
 
     </div>

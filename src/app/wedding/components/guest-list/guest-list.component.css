@@ -1,0 +1,81 @@
+.modal {
+  top: 6.25rem;
+}
+
+.modal__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 3.125rem;
+  border-radius: 0.3125rem 0.3125rem 0 0;
+  background-color: #701658;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+.modal__close {
+  position: absolute;
+  top: 0;
+  right: 1.25rem;
+  text-decoration: none;
+  color: #fff;
+  font-size: 2rem;
+}
+
+.modal__close--danger {
+  color: #C83838;
+}
+
+/* .modal-backdrop {
+  background-color: red;
+
+  // Fade for backdrop
+  &.fade { opacity: 0; }
+  &.show { opacity: 0.5; }
+} */
+table .thead-dark th {
+  background-color: #701658;
+}
+
+th {
+  font-size: 1.1rem;
+}
+
+.table th, .table td {
+  padding: 0.4rem;
+  text-align: left;
+  /* font-size: 0.8rem; */
+}
+
+.table tr:hover {
+  background-color: rgba(112, 22, 88, 0.1);
+}
+
+.svg {
+  margin-left: 15px;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.form {
+  padding-top: 0;
+}
+
+.radio__custom {
+  margin-right: 5px;
+}
+
+.mat-snack-bar-container {
+  background-color: #3AA64A;
+  color: #fff;
+}
+/*# sourceMappingURL=guest-list.component.css.map */

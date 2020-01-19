@@ -1,0 +1,109 @@
+.form__table {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 37.5rem;
+  margin: 0 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 30px;
+  margin-top: 40px;
+}
+
+.form__table-item--xl {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 calc(50% - 16px);
+          flex: 0 1 calc(50% - 16px);
+}
+
+.form__table-item--l {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 calc(40% - 5px);
+          flex: 0 1 calc(40% - 5px);
+}
+
+.form__table-item--m {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 calc(30% - 5px);
+          flex: 0 1 calc(30% - 5px);
+  margin-left: 10px;
+}
+
+.form__table-item--s {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 calc(20% - 0px);
+          flex: 0 1 calc(20% - 0px);
+}
+
+.form__table-item--xs {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 calc(10% - 5px);
+          flex: 0 1 calc(10% - 5px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 40px;
+}
+
+.form__table-control {
+  width: 100%;
+  height: 2.5rem;
+  background: none;
+  border: 0px;
+  border: 1px solid #701658;
+  border-radius: 5px;
+}
+
+.form__table-control--access {
+  height: 2rem;
+}
+
+.form__table-control:focus {
+  outline: none;
+}
+
+.table {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* border: 1px dashed red; */
+  padding: 10px;
+  margin-bottom: 0px;
+  border-bottom: 1px dashed #701658;
+}
+
+.table:hover {
+  background-color: rgba(112, 22, 88, 0.1);
+  border-radius: 5px;
+}
+
+.table__list {
+  margin-bottom: 50px;
+}
+
+.list__title {
+  width: 200px;
+}
+
+.list__names {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 100%;
+}
+
+.guestname {
+  font-size: 0.75rem;
+}
+
+.guestnumber {
+  font-size: 0.875rem;
+}
+/*# sourceMappingURL=guest-sort.component.css.map */
