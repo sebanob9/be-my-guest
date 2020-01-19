@@ -1,102 +1,136 @@
 @import "../../../../styles/partials/variables";
 @import "../../../../styles/partials/rem";
 
-.gallery{
-    display: grid;
-    padding: rem(10px);
-    width: 100%;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-gap: rem(10px);
+
+
+.myevent-nav {
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  align-items: center;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    width: 30%;
   }
 
-main {
-    grid-column: 1/2;
-    grid-row:1/4;
-    //border: 2px solid $main-color;
-    border-radius: $main-border-radius;
-    //background-color: $main-color;
-}
-aside {
-    background-color: green;
-}
-.myevent-nav {
-    display: flex;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    align-items: center;
-    &__title {
-        display: flex;
-        align-items: center;
-        width: 30%; 
+  &__content {
+    &__input {
+      outline: none;
+      text-decoration: none;
+      border-radius: $main-border-radius;
+      margin-left: 5px;
+
+      &:focus {
+        text-decoration: none;
+      }
     }
-    &__content {
-        &__input {
-            outline:none;
-            text-decoration: none;
-            border-radius: $main-border-radius;
-            margin-left:5px;
-            &:focus {
-                text-decoration: none; 
-            }
-        }
-    }
+  }
 }
 
 .right {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 
+// Chip-list
+
 .example-chip-list {
-    width: 100%;
+  width: 100%;
 }
 
 hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid $dark-pink;
-    margin: 1em 0;
-    padding: 0;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid $dark-pink;
+  margin: 1em 0;
+  padding: 0;
 }
 
 .mat-form-field {
-    min-width: 600px;
+  min-width: 600px;
 }
 
 .mat-chip.mat-standard-chip {
-    background-color: rgba(#701658,0.2);
-    &::after {
-        background: $dark-pink;
-    }
+  background-color: rgba(#701658, 0.2);
+
+  &::after {
+    background: $dark-pink;
+  }
 }
+
+/*  {
+  border-bottom: 10px solid red;
+} */
 
 // Cambios respecto a form original
 .form-lg {
-    padding:rem(8px);
-    //background-color: $main-color;
+  padding: rem(8px);
 }
 
-.text-item {    
-    margin: 8px 8px 0 8px;
-  }
-   
-  input:read-only {
-    background-color: $gray600;
-    color: $gray400 ;
-    border-bottom: 1px solid $gray400;
-  }
+.text-item {
+  margin: 8px 8px 0 8px;
+}
 
-  .enabled {
-      border: 2px solid $main-color;
-  }
+// --- Formulario ---
+input:read-only {
+  background-color: $gray600;
+  color: $gray400;
+  border-bottom: 1px solid $gray400;
+}
 
-  .disabled {
-      background-color: $gray600;
-      border: 2px solid $gray500;
-      & label {
-          color: $gray400;
-          
-      }
+.enabled {
+  border: 2px solid $main-color;
+}
+
+.disabled {
+  background-color: $gray600;
+  border: 2px solid $gray500;
+
+  & label {
+    color: $gray400;
+
   }
+}
+
+// --- GRID ---
+.grid {
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top:25px;
+        & a {
+          margin: 5px;
+        }
+    }
+  &__title {
+    text-align: center;
+    font-size: $font-l;
+  }
+  
+}
+
+.gallery {
+  display: grid;
+  padding: rem(10px);
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: rem(10px);
+}
+
+main {
+  grid-column: 1/2;
+  grid-row: 1/4;
+  border-radius: $main-border-radius;
+
+}
+
+aside {
+  margin-left: 30px;
+  //border-bottom: 1px dashed MediumSeaGreen;
+}
+

@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {MatChipInputEvent} from '@angular/material/chips';
 import { UserService } from 'src/app/core/services/user.service';
-import { StorageService } from 'ngx-webstorage-service';
+//import { StorageService } from 'ngx-webstorage-service';
 import { NgForm } from '@angular/forms';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import { GuestLandingComponent } from 'src/app/guest/components/guest-landing/guest-landing.component';
+import { GuestListComponent } from '../guest-list/guest-list.component';
 
 export interface Fruit {
   name: string;
@@ -15,7 +18,14 @@ export interface Fruit {
   styleUrls: ['./my-event.component.scss']
 })
 export class MyEventComponent implements OnInit{
-  constructor(public userservice: UserService) { }
+  constructor(public userservice: UserService, private _snackBar: MatSnackBar) { }
+  
+  durationInSeconds = 5;
+  openSnackBar() {
+    this._snackBar.openFromComponent(GuestListComponent, {
+      duration: this.durationInSeconds * 100,
+    });
+  }
 
   visible = true;
   selectable = true;
@@ -52,7 +62,6 @@ export class MyEventComponent implements OnInit{
     }
     
   }
-
 
   //----- - PASSWORD - ----- //
   public passwordType = 'password';

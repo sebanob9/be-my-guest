@@ -15,10 +15,14 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 import { CommonModule, registerLocaleData } from '@angular/common';
 registerLocaleData(localeEs);
+import { ReversePipe } from '../core/pipes/reverse.pipe';
+
 import { MatDialogModule } from '@angular/material/dialog';
 import { TableDialogComponent } from './components/table-dialog/table-dialog.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -34,6 +38,7 @@ import { FormsModule } from '@angular/forms';
     PresentListComponent,
     MyEventComponent,
     TableDialogComponent,
+    ReversePipe
   ],
 
   imports: [
@@ -46,7 +51,8 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSnackBarModule
   ],
   entryComponents: [
     TableDialogComponent

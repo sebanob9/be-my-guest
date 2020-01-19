@@ -11,7 +11,7 @@
       <th scope="col">Gestionar</th>
     </thead>
     <tbody>
-      <tr class="table" *ngFor="let guest of guestsService.guests2">
+      <tr class="table" *ngFor="let guest of guestsService.guests2 | reverse">
         <td>{{guest.name}}</td>
         <td>{{guest.friendFrom}}</td>
         <!--  <td *ngIf="guest.withCompanion === true;else No">Si</td> 
