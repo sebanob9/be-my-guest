@@ -1,0 +1,23 @@
+@import "../../../../styles/partials/variables";
+@import "../../../../styles/partials/rem";
+
+.title {
+    text-align: center;
+    font-family: $main-font;
+    font-size: $font-xl;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.table th, .table td {
+    padding: 0.4rem;
+    text-align: left;
+    /* font-size: 0.8rem; */
+  }
+
+  ::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+    background-color: $main-color !important;
+  }

@@ -1,6 +1,6 @@
 export class Guest {
     constructor(_id='', friendFrom='', name="", withCompanion=false,
-    nameCompanion='', category='', phone=0, allergies='', noAllergies=false) {
+    nameCompanion='', category='', phone=0, allergies='', noAllergies=false, table=null) {
         this._id= _id;
         this.friendFrom = friendFrom;
         this.name = name;
@@ -10,8 +10,7 @@ export class Guest {
         this.phone = phone;
         this.allergies = allergies;
         this.noAllergies = noAllergies;
-        
-
+        this.table= table;
     }
 
     _id: string;
@@ -27,5 +26,7 @@ export class Guest {
     pescado: string;
     marisco: string;
     gluten: string;
+    table: number;
+
 }
  

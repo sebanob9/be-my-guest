@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>{{data.table.name}}</h1>
+<h1 mat-dialog-title class="title">{{data.table.name}}</h1>
 <div mat-dialog-content>
   <table class="table table-striped">
     <thead class="thead-dark">
@@ -7,7 +7,6 @@
         <th scope="col">Nombre</th>
         <th scope="col">Categoria</th>
         <th scope="col">Intolerancias</th>
-        <th scope="col">Pareja</th>
         <th scope="col">Mesa</th>
       </tr>
     </thead>
@@ -25,13 +24,12 @@
         </td>
         <td>{{guest.category}}</td>
         <td>{{guest.allergies}}</td>
-        <td>{{guest.couple}}</td>
         <td>{{checkTableName(guest.table)}}</td>
       </tr>
     </tbody>
   </table>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cerrar</button>
-  <button mat-button [mat-dialog-close]="data.guestList" cdkFocusInitial>Guardar</button>
+<div mat-dialog-actions class="center">
+  <!-- <button mat-button (click)="onNoClick()">Cerrar</button> -->
+  <button class="button button--xl" mat-button [mat-dialog-close]="data.guestList" cdkFocusInitial>Guardar</button>
 </div>

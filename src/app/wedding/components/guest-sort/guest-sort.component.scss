@@ -17,7 +17,6 @@
     }
     &--m {
       flex: $calc30;
-      margin-left: 10px;
     }
     &--s {
       flex: $calc20;
@@ -26,7 +25,7 @@
     &--xs {
       flex: $calc10;
       display: flex;
-      margin-right: 40px;
+      margin: 0 10px 0 10px;
     }
   }
   &-control {

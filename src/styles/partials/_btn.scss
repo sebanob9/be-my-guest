@@ -17,6 +17,7 @@
   text-transform: uppercase;
   &:active {
     background-color: $white;
+    color: $main-color;
   }
   &:hover {
     cursor: pointer;
@@ -107,7 +108,7 @@
     cursor: pointer;
 
     &:hover {
-      box-shadow: 0 0 20px $white;
+      box-shadow: 0 0 10px $main-color;
     }
   }
 }

@@ -6,7 +6,7 @@ input,
 textarea,
 select,
 button {
-  font-family: 'Solway', serif;
+  font-family: $main-font;
   color: $gray;
   font-size: $font-main;
   letter-spacing: 0.3px;

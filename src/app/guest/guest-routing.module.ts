@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: '', component: GuestLandingComponent}, 
   { path: 'confirmation', component: GuestConfirmationComponent },
   { path: 'presents', component: GuestPresentsComponent },
-  { path: 'confirmation/gratitude', component: GuestGratitudeComponent },
+  { path: 'gratitude', component: GuestGratitudeComponent },
   
 ];
 
