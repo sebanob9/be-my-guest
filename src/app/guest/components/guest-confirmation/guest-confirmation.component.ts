@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { GuestsService } from 'src/app/core/services/guests.service';
 import { Guest } from 'src/app/core/models/guest';
+import { UserService } from 'src/app/core/services/user.service';
+import { User } from 'src/app/core/models/user';
 
 
 
@@ -23,13 +25,20 @@ export class GuestConfirmationComponent implements OnInit {
     pescado: false,
     gluten: false
   };
+  
+  protected userInfo: object = new User;
 
-  constructor(public guestsService: GuestsService) { 
+  constructor(public guestsService: GuestsService,
+              public userservice: UserService) { 
     
   }
 
   ngOnInit() {
-    this.init() 
+    this.init();
+    let userId = localStorage.getItem('userId');
+    this.userservice.getUserInfoByUserId(userId).subscribe((response) => {
+      this.userInfo = response;
+    });
   }
 
   addGuest(form: NgForm) {

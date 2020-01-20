@@ -69,33 +69,44 @@
     </form>
   </main>
 
+  <!-- -----ASIDES----- -->
   <aside>
     <div class="grid__title">Datos boda</div>
+
     <div class="grid__content">
+
       <div class="grid__box">
         <div class="grid__box-items">
-        <svg width="35" height="35">
-          <use xlink:href="../assets/svg/sprite.svg#suit"></use>
-        </svg>
-        <p class="grid__box-title">{{guestsService.guests2.length}}</p>
+          <svg width="35" height="35">
+            <use xlink:href="../assets/svg/sprite.svg#suit"></use>
+          </svg>
+          <p class="grid__box-title">{{guestsService.guests2.length}}</p>
+        </div>
+        <p class="grid__box-text">Confirmados</p>
       </div>
-        <p class="grid__box-text">Confirmados</p> 
 
+      <div class="grid__box">
+        <div class="grid__box-items">
+          <svg width="35" height="35">
+            <use xlink:href="../assets/svg/sprite.svg#table"></use>
+          </svg>
+          <p class="grid__box-title">{{tableService.tables.length}}</p>
+        </div>
+        <p class="grid__box-text">Mesas</p>
       </div>
-      
     </div>
   </aside>
 
   <aside class="grid">
     <div class="grid__title">Enlace evento</div>
     <div class="grid__content">
-      <a href="https://wa.me/?text=http://localhost:4200/guest/confirmation" class="button">Enviar
+      <a href="https://wa.me/?text=http://localhost:4200/guest" class="button">Enviar
         <svg class="right" width="25" height="25">
           <use xlink:href="../assets/svg/sprite.svg#whatsapp"></use>
         </svg>
       </a>
 
-      <a (click)="copyLink('http://localhost:4200/guest/confirmation')" value="copiar!"
+      <a (click)="copyLink('http://localhost:4200/guest')" value="copiar!"
         class="button button--empty">Copiar</a>
       <div *ngIf="show" class="button__copied">¡Enlace copiado!</div>
     </div>

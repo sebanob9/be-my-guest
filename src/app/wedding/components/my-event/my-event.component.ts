@@ -7,6 +7,7 @@ import { NgForm } from '@angular/forms';
 import { GuestListComponent } from '../guest-list/guest-list.component';
 import { GuestsService } from 'src/app/core/services/guests.service';
 import { Guest } from 'src/app/core/models/guest';
+import { TablesService } from 'src/app/core/services/tables.service';
 
 export interface Fruit {
   name: string;
@@ -18,7 +19,9 @@ export interface Fruit {
   styleUrls: ['./my-event.component.scss']
 })
 export class MyEventComponent implements OnInit{
-  constructor(public userservice: UserService, public guestsService: GuestsService) { }
+  constructor(public userservice: UserService,
+    public guestsService: GuestsService,
+    private tableService: TablesService) { }
   
 
   visible = true;

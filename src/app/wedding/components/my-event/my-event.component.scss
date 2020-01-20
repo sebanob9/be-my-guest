@@ -34,8 +34,7 @@
 }
 
 
-// Chip-list
-
+// --- Chip-list --- //
 .example-chip-list {
   width: 100%;
 }
@@ -102,7 +101,7 @@ input:read-only {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: 10px;
     position: relative;
     & a {
       margin: 5px;
@@ -115,13 +114,15 @@ input:read-only {
   &__box {
     display: flex;
     flex-direction: column;
+    margin: 0 25px 0 25px;
     &-items{
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: center;
     }
     &-title{
       font-size: $font-xl;
+      padding-left: 10px;
     }
   }
   

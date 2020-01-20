@@ -1,7 +1,7 @@
 <body class="table-image">
   <main>
     <div class="banner banner--img">
-      <h1 class="banner__title">Cupido & Apolonia</h1>
+      <h1 class="banner__title">{{userInfo.bride}} & {{userInfo.groom}}</h1>
       <p class="banner__data">25 Noviembre 2020<p>
           <p class="banner__data">Finca Prados Moros<p>
     </div>
@@ -141,10 +141,11 @@
 
         <div class="form__group form__group--guests form-group--access">
           <label for="phone" class="form-group__label">Teléfono</label>
-          <input type="tel" class="form__group-control form__group-control--access" placeholder="Número móvil" required
-          name="phone" #phone="ngModel" value="Teléfono" [(ngModel)]="guestsService.selectedGuest.phone">
+          <input type="tel" class="form__group-control form__group-control--access" placeholder="Número móvil" 
+          name="phone" #phone="ngModel" value="Teléfono" [(ngModel)]="guestsService.selectedGuest.phone"
+          required pattern="^[9|8|7|6]\d{8}$" maxlength="9">
           <div *ngIf="!phone?.valid && phone?.touched">
-            <p class="error">Debes introducir un teléfono para poder continuar</p>
+            <p class="error">Debes introducir un teléfono válido para poder continuar</p>
           </div>
         </div>
 
@@ -194,7 +195,7 @@
           </div>
         </div>
         <div class="form__group--center">
-          <button type="submit" (click)="resetForm()" [disabled]="guestForm.form.invalid" class="button button--lg">Voy a la boda!</button>
+          <button type="submit" routerLink='gratitude' (click)="resetForm()" [disabled]="guestForm.form.invalid" class="button button--lg">Voy a la boda!</button>
         </div>
       </form>
     </div>

@@ -10,10 +10,11 @@ import { GuestRoutingModule } from './guest-routing.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {MatSnackBarModule, MatFormFieldModule, MatSelectModule, MatCheckboxModule, MatInputModule, } from '@angular/material';
+import { GuestGratitudeComponent } from './components/guest-gratitude/guest-gratitude.component';
 
 
 @NgModule({
-  declarations: [GuestLandingComponent, GuestConfirmationComponent, GuestPresentsComponent ],
+  declarations: [GuestLandingComponent, GuestConfirmationComponent, GuestPresentsComponent, GuestGratitudeComponent ],
   imports: [
     SharedModule,
     GuestRoutingModule,
