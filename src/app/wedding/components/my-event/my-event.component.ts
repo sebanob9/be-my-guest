@@ -4,9 +4,9 @@ import {MatChipInputEvent} from '@angular/material/chips';
 import { UserService } from 'src/app/core/services/user.service';
 //import { StorageService } from 'ngx-webstorage-service';
 import { NgForm } from '@angular/forms';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import { GuestLandingComponent } from 'src/app/guest/components/guest-landing/guest-landing.component';
 import { GuestListComponent } from '../guest-list/guest-list.component';
+import { GuestsService } from 'src/app/core/services/guests.service';
+import { Guest } from 'src/app/core/models/guest';
 
 export interface Fruit {
   name: string;
@@ -18,14 +18,8 @@ export interface Fruit {
   styleUrls: ['./my-event.component.scss']
 })
 export class MyEventComponent implements OnInit{
-  constructor(public userservice: UserService, private _snackBar: MatSnackBar) { }
+  constructor(public userservice: UserService, public guestsService: GuestsService) { }
   
-  durationInSeconds = 5;
-  openSnackBar() {
-    this._snackBar.openFromComponent(GuestListComponent, {
-      duration: this.durationInSeconds * 100,
-    });
-  }
 
   visible = true;
   selectable = true;
@@ -45,8 +39,18 @@ export class MyEventComponent implements OnInit{
     this.userservice.getUserInfoByUserId(userId).subscribe((response) => {
       this.userInfo = response;
     });
+    this.getGuests();
   }
 
+  getGuests() {
+    this.guestsService.getGuest()
+      .subscribe( res => {
+        this.guestsService.guests2 = res as Guest[]; // OJO: guest2 al ser el servicio que apunta a la BBDD
+        console.log(res);
+      });
+  }
+
+  // --- Material ---
   add(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;

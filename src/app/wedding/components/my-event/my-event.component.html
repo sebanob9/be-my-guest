@@ -71,6 +71,19 @@
 
   <aside>
     <div class="grid__title">Datos boda</div>
+    <div class="grid__content">
+      <div class="grid__box">
+        <div class="grid__box-items">
+        <svg width="35" height="35">
+          <use xlink:href="../assets/svg/sprite.svg#suit"></use>
+        </svg>
+        <p class="grid__box-title">{{guestsService.guests2.length}}</p>
+      </div>
+        <p class="grid__box-text">Confirmados</p> 
+
+      </div>
+      
+    </div>
   </aside>
 
   <aside class="grid">
@@ -81,9 +94,10 @@
           <use xlink:href="../assets/svg/sprite.svg#whatsapp"></use>
         </svg>
       </a>
-      
-        <a (click)="copyLink('http://localhost:4200/guest/confirmation')" value="copiar!" class="button button--empty">Copiar</a>
-          <div *ngIf="show" class="button__copied">¡Enlace copiado!</div>
+
+      <a (click)="copyLink('http://localhost:4200/guest/confirmation')" value="copiar!"
+        class="button button--empty">Copiar</a>
+      <div *ngIf="show" class="button__copied">¡Enlace copiado!</div>
     </div>
   </aside>
 

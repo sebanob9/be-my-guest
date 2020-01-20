@@ -44,7 +44,7 @@ export class GuestListComponent implements OnInit {
   }
 
  
-
+// --- CRUD --- ///
   getGuests() {
     this.guestsService.getGuest()
       .subscribe( res => {
@@ -61,7 +61,6 @@ export class GuestListComponent implements OnInit {
         console.log(res);
       }) */
   }
-
   addguest(form?: NgForm) {
     console.log(form.value);
     if(form.value._id) {
@@ -77,8 +76,6 @@ export class GuestListComponent implements OnInit {
       });
 }
   }
-
-
   deleteGuest(_id: string) {
       if(confirm('¿Estas seguro de querer eliminar a este invitado?')) {
         this.guestsService.deleteGuest(_id)

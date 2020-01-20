@@ -97,20 +97,32 @@ input:read-only {
 
 // --- GRID ---
 .grid {
-    
-    &__content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top:25px;
-        position: relative;
-        & a {
-          margin: 5px;
-        }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    position: relative;
+    & a {
+      margin: 5px;
     }
+  }
   &__title {
     text-align: center;
     font-size: $font-l;
+  }
+  &__box {
+    display: flex;
+    flex-direction: column;
+    &-items{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    &-title{
+      font-size: $font-xl;
+    }
   }
   
 }
@@ -120,7 +132,7 @@ input:read-only {
   padding: rem(10px);
   width: 100%;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 30% 30% 30%;
   grid-gap: rem(10px);
 }
 
@@ -135,4 +147,3 @@ aside {
   margin-left: 30px;
   //border-bottom: 1px dashed MediumSeaGreen;
 }
-
