@@ -1,5 +1,54 @@
-<div class="gallery">
-  <main>
+ 
+    <!-- -----ASIDES----- -->
+  <aside>
+    <div class="grid__content">
+      <a routerLink='/wedding/guest-list' class="grid__box">
+        <div class="grid__box-items">
+          <svg width="35" height="35">
+            <use xlink:href="../assets/svg/sprite.svg#suit"></use>
+          </svg>
+          <p class="grid__box-title">{{guestsService.guests2.length}}</p>
+        </div>
+        <p class="grid__box-text">Confirmados</p>
+      </a>
+
+      <a routerLink='/wedding/guest-sort' class="grid__box">
+        <div  class="grid__box-items">
+          <svg width="35" height="35">
+            <use xlink:href="../assets/svg/sprite.svg#table"></use>
+          </svg>
+          <p class="grid__box-title">{{tableService.tables.length}}</p>
+        </div>
+        <p class="grid__box-text">Mesas creadas</p>
+      </a>
+
+      <a routerLink='/wedding/present-list' class="grid__box">
+        <div class="grid__box-items">
+          <svg width="35" height="35">
+            <use xlink:href="../assets/svg/sprite.svg#gift"></use>
+          </svg>
+          <p class="grid__box-title">0 / 30</p>
+        </div>
+        <p class="grid__box-text">Regalos asignados</p>
+      </a>
+    </div>
+    
+  </aside>
+
+  <aside class="grid">
+    <div class="grid__title">Enlace evento</div>
+    <div class="grid__content">
+      <a href="https://wa.me/?text=http://localhost:4200/guest" target="_blank" class="button">Enviar
+        <svg class="right" width="25" height="25">
+          <use xlink:href="../assets/svg/sprite.svg#whatsapp"></use>
+        </svg>
+      </a>
+
+      <a (click)="copyLink('http://localhost:4200/guest')" value="copiar!"
+        class="button button--empty">Copiar</a>
+      <div *ngIf="show" class="button__copied">¡Enlace copiado!</div>
+    </div>
+  </aside>
     <div class="grid__title">Datos usuario</div>
     <form (ngSubmit)="saveUserData(userForm)" #userForm="ngForm" *ngIf="userInfo" class="form-lg"
       [ngClass]="status ? 'enabled' : 'disabled'">
@@ -67,55 +116,14 @@
       <button class="button" [disabled]="!isReadOnly" (click)="isDisabled()">Editar</button>
       <button type="submit" [disabled]="isReadOnly" class="button">Guardar</button>
     </form>
-  </main>
+ 
 
-  <!-- -----ASIDES----- -->
-  <aside>
-    <div class="grid__title">Datos boda</div>
+  
 
-    <div class="grid__content">
-
-      <div class="grid__box">
-        <div class="grid__box-items">
-          <svg width="35" height="35">
-            <use xlink:href="../assets/svg/sprite.svg#suit"></use>
-          </svg>
-          <p class="grid__box-title">{{guestsService.guests2.length}}</p>
-        </div>
-        <p class="grid__box-text">Confirmados</p>
-      </div>
-
-      <div class="grid__box">
-        <div class="grid__box-items">
-          <svg width="35" height="35">
-            <use xlink:href="../assets/svg/sprite.svg#table"></use>
-          </svg>
-          <p class="grid__box-title">{{tableService.tables.length}}</p>
-        </div>
-        <p class="grid__box-text">Mesas</p>
-      </div>
-    </div>
-  </aside>
-
-  <aside class="grid">
-    <div class="grid__title">Enlace evento</div>
-    <div class="grid__content">
-      <a href="https://wa.me/?text=http://localhost:4200/guest" class="button">Enviar
-        <svg class="right" width="25" height="25">
-          <use xlink:href="../assets/svg/sprite.svg#whatsapp"></use>
-        </svg>
-      </a>
-
-      <a (click)="copyLink('http://localhost:4200/guest')" value="copiar!"
-        class="button button--empty">Copiar</a>
-      <div *ngIf="show" class="button__copied">¡Enlace copiado!</div>
-    </div>
-  </aside>
-
-  <aside>
+ <!--  <aside>
     <div class="grid__title">Categorías</div>
     <div class="myevent-nav">
-      <!--       <div class="myevent-nav__title">Crear/editar categorias</div> -->
+      <div class="myevent-nav__title">Crear/editar categorias</div> 
       <div class="myevent-nav__content">
         <mat-form-field class="example-chip-list">
           <mat-chip-list #chipList aria-label="Fruit selection">
@@ -129,125 +137,5 @@
         </mat-form-field>
       </div>
     </div>
-  </aside>
+  </aside> -->
 
-
-</div>
-
-
-<!-- <div>
-  <div class="myevent-nav">
-    <div class="myevent-nav__title">Invitación por Whatsapp</div>
-    <div class="myevent-nav__content">
-
-      <a href="https://wa.me/?text=wedding.sit/º&r" class="button">Enviar
-        <svg class="right" width="25" height="25">
-          <use xlink:href="../assets/svg/sprite.svg#whatsapp"></use>
-        </svg>
-      </a>
-    </div>
-  </div>
-  <hr>
-  <div class="myevent-nav">
-    <div class="myevent-nav__title">Enlace Invitación</div>
-    <div class="myevent-nav__content">
-      <a (click)="copyLink(eventLink)" value="click to copy" class="button button--empty">Copiar</a>
-      <input type="text" class="myevent-nav__content__input" value="bemyguest.com/c&a" #eventLink>
-
-    </div>
-  </div>
-  <hr>
-  <div class="myevent-nav">
-    <div class="myevent-nav__title">Compartir galeria fotos</div>
-    <div class="myevent-nav__content">
-      <a (click)="copyLink(eventLink)" value="click to copy" class="button">Copiar</a>
-      <input type="text" class="myevent-nav__content__input" value="/c&a/gallery" #eventLink>
-
-    </div>
-  </div>
-  
-  <hr>
-  <div class="myevent-nav">
-    <div class="myevent-nav__title">Crear/editar categorias</div>
-    <div class="myevent-nav__content">
-      <mat-form-field class="example-chip-list">
-        <mat-chip-list #chipList aria-label="Fruit selection">
-          <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable" [removable]="removable"
-            (removed)="remove(fruit)">
-            {{fruit.name}}
-            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-          </mat-chip>
-          <input placeholder="Categorías" [matChipInputFor]="chipList"
-            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
-            (matChipInputTokenEnd)="add($event)">
-        </mat-chip-list>
-      </mat-form-field>
-    </div>
-  </div>
-  <hr>
-  <div class="myevent-nav">
-    <div class="myevent-nav__title">Datos personales</div>
-    <div class="myevent-nav__content">
-
-      <form (ngSubmit)="saveUserData(userForm)" #userForm="ngForm" *ngIf="userInfo">
-        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userInfo._id">
-
-        <div class="form-group text-item">
-          <label for="groom" class="form-group__label">El Novio</label>
-          <input type="text" id="groom" placeholder="El nombre de él"
-            class="form__group-control form__group-control--access" [(ngModel)]="userInfo.groom"
-            name="groom" #groom="ngModel">
-        </div>
-
-        <div class="form-group text-item">
-          <label for="groom" class="form-group__label">La Novia</label>
-          <input type="text" id="groom" placeholder="El nombre de él"
-            class="form__group-control form__group-control--access" [(ngModel)]="userInfo.bride"
-            name="bride" #bride="ngModel">
-        </div>
-        <div class="form-group text-item">
-          <label for="event-place" class="form-group__label">¿Dónde se celebra?</label>
-          <input type="text" id="event-place" required placeholder="El nombre de la finca / salón "
-            class="form__group-control form__group-control--access" [(ngModel)]="userInfo.eventPlace" name="eventPlace"
-            #eventPlace="ngModel">
-        </div>
-        <div class="form-group text-item">
-          <label for="date" class="form-group__label">Fecha</label>
-          <input type="date" id="date" required class="form__group-control form__group-control--access"
-            [(ngModel)]="userInfo.date" name="date" #date="ngModel">
-        </div>
-        <div class="form-group text-item">
-          <label for="email" class="form-group__label">Email</label>
-          <input type="email" id="email" [(ngModel)]="userInfo.email" name="email" #email="ngModel" required
-            class="form__group-control form__group-control--access">
-        </div>
-        <div class="form-group text-item">
-          <label for="phone" class="form-group__label">Teléfono</label>
-          <input type="tel" id="phone" class="form__group-control form__group-control--access"
-            [(ngModel)]="userInfo.phone" name="phone" #phone="ngModel">
-        </div>
-
-        <button type="submit">Guardar datos</button>
-      </form>
-    </div>
-  </div>
-</div>
- -->
-
-
-
-<!-- DEL BLOQUE MATERIAL
-      <div>
-    <mat-form-field class="example-chip-list">
-      <mat-chip-list #chipList aria-label="Fruit selection">
-        <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable" [removable]="removable"
-          (removed)="remove(fruit)">
-          {{fruit.name}}
-          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-        </mat-chip>
-        <input placeholder="New fruit..." [matChipInputFor]="chipList"
-          [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
-          (matChipInputTokenEnd)="add($event)">
-      </mat-chip-list>
-    </mat-form-field>
-  </div> -->

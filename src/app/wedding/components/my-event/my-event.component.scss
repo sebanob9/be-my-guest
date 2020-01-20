@@ -101,11 +101,11 @@ input:read-only {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 10px;
+    margin: 10px 0 20px 0;
     position: relative;
-    & a {
+    /* & a {
       margin: 5px;
-    }
+    } */
   }
   &__title {
     text-align: center;
@@ -114,7 +114,16 @@ input:read-only {
   &__box {
     display: flex;
     flex-direction: column;
-    margin: 0 25px 0 25px;
+    border: 2px solid $main-color;
+    padding: 5px 15px 5px 15px;
+    border-radius: $main-border-radius;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    margin-left: -2px;
+    &:hover {
+      background-color: $gray600;
+    }
     &-items{
       display: flex;
       align-items: center;
@@ -133,7 +142,7 @@ input:read-only {
   padding: rem(10px);
   width: 100%;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 30% 30% 30%;
+  grid-template-rows: 1fr 1fr;
   grid-gap: rem(10px);
 }
 
