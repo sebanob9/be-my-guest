@@ -36,7 +36,11 @@ export class LoginComponent implements OnInit {
           console.log(res);// este res devuelve el token en consola
         },
         //err => console.log(err)
-        err => alert('Usuario y contraseña no coinciden')
+        err => {
+          debugger
+          //alert('Usuario y contraseña no coinciden')
+          console.log('error de login: ' + err.error)
+        }
       )
       console.log('valor:',login.value)
       console.log(login)
