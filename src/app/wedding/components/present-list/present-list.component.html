@@ -4,7 +4,7 @@
       <input type="text" placeholder="Nombre del regalo"
         name="name" #name="ngModel" [(ngModel)]="giftService.selectedGift.name">
     </div>
-    <input hidden type="text" name="userName" #userName="ngModel" [(ngModel)]="giftService.selectedGift.userName">
+    <input hidden type="text" value={{null}} ng-value="data" name="guestName" #guestName="ngModel" [(ngModel)]="giftService.selectedGift.guestName">
     <div class="form__table-item--m">
       <button type="submit" class="button" type="submit">Crear</button>
     </div>
@@ -14,3 +14,69 @@
     </div>
   </form>
 </div> 
+
+
+<div class="table__list">
+  <ul> 
+    <li class="table" *ngFor="let gift of giftService.gifts">
+      <div class="form__table-item--s">{{gift.name}}</div>
+      <div *ngIf="gift.guestName === null else guestGift" class="form__table-item--s">Sin asignar
+        <svg width="25" height="25">
+          <use xlink:href="../assets/svg/sprite.svg#gift-red"></use>
+        </svg>
+      </div>
+      <ng-template #guestGift> 
+        <div class="form__table-item--s">{{gift.guestName}}
+          <svg width="25" height="25">
+            <use xlink:href="../assets/svg/sprite.svg#gift-green"></use>
+          </svg></div>
+      </ng-template>
+      <div class="form__table-item--xs"><span class="guestnumber">Precio {{gift.price}}</span></div>
+    <div class="form__table-item--xs">
+      <!-- <button class="button__edit" (click)="openDialog(table)">Editar</button> -->
+      <button class="button__delete" (click)="deleteGift(gift._id)">Borrar</button> 
+    </div>
+
+    </li>
+  </ul>
+</div>
+<!-- <div>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <th scope="col">Regalo</th>
+      <th scope="col">Asignado</th>
+      <th scope="col">Precio</th>
+    </thead>
+    <tbody>
+      <tr class="table" *ngFor="let gift of giftService.gifts | reverse">
+        <td>{{guest.name}}</td>
+        <td>{{guest.friendFrom}}</td>
+        <td>{{guest.nameCompanion}}</td>
+        <td>{{guest.category}}</td>
+        <td>{{guest.phone}}</td>
+        <td>
+          <ul>
+            <li *ngIf="guest.noAllergies === true">No tiene alergias</li>
+            <li *ngIf="guest.queso === true">Queso</li>
+            <li *ngIf="guest.marisco === true">Marisco</li>
+            <li *ngIf="guest.pescado === true">Pescado</li>
+            <li *ngIf="guest.gluten === true">Gluten</li>
+          </ul>
+        </td>
+
+        <td>
+          <a (click)="editGuest(guest)" data-toggle="modal" data-target="#editData" role="button">
+            <svg class="svg" width="25" height="25">
+              <use xlink:href="../assets/svg/sprite.svg#edit"></use>
+            </svg>
+          </a>
+          <a (click)="deleteGuest(guest._id)">
+            <svg class="svg" width="25" height="25">
+              <use xlink:href="../assets/svg/sprite.svg#delete"></use>
+            </svg>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->

@@ -14,16 +14,33 @@ export class PresentListComponent implements OnInit {
   constructor(public giftService: GiftService) { }
 
   ngOnInit() {
-    
+    this.getGifts();
   }
 
   addGift(form: NgForm) {
-    console.log(form.value)
+    console.log(form.value);
+    console.log('esto busco', form.value.guestName)
     this.giftService.postGift(form.value)    
       .subscribe (res => {
         this.resetForm(form); 
       });
+      this.getGifts();
   }
+
+  getGifts() {
+    this.giftService.getGifts()
+      .subscribe (res => {
+        this.giftService.gifts = res as Gift[];
+        console.log(res);
+      })
+  }
+
+  deleteGift(_id: string) {
+      this.giftService.deleteGift(_id)
+        .subscribe(res => {
+          this.getGifts();
+        });
+    }
 
   resetForm(form?: NgForm) {
     if(form) {
