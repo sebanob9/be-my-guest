@@ -44,7 +44,7 @@ export class GuestsService {
     private http:HttpClient,
     @Inject(LOCAL_STORAGE) private storage: StorageService
   ) {
-    this.selectedGuest=new Guest
+    this.selectedGuest=new Guest();
     
     this.guests$ = new BehaviorSubject<any[]>(this.guests);
     const savedGuest = this.storage.get('guests');
@@ -124,6 +124,7 @@ export class GuestsService {
 
 // ---------------- BASE DE DATOS ---------------- // 
 selectedGuest: Guest;
+
 guests2: Guest[];
 readonly URL_API = 'http://localhost:3000/api/guests';
 

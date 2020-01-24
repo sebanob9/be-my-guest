@@ -1,16 +1,16 @@
 <div>
-  <form class="form__table">
+  <form (ngSubmit)="addGift(giftForm)" #giftForm="ngForm" class="form__table">
     <div class="form__table-item--xl">
-      <input type="text" 
-        name="nombre"
-        placeholder="Nombre del regalo" 
-        [(ngModel)]="model.tableName"
-        id="table-name" 
-        required class="form__table-control">
+      <input type="text" placeholder="Nombre del regalo"
+        name="name" #name="ngModel" [(ngModel)]="giftService.selectedGift.name">
     </div>
-
+    <input hidden type="text" name="userName" #userName="ngModel" [(ngModel)]="giftService.selectedGift.userName">
     <div class="form__table-item--m">
-      <div class="button" (click)="addGift()">Crear</div>
+      <button type="submit" class="button" type="submit">Crear</button>
+    </div>
+    <div class="form__table-item--xl">
+      <input type="number" placeholder="euros"
+        name="price" #price="ngModel" [(ngModel)]="giftService.selectedGift.price">
     </div>
   </form>
-</div>
+</div> 

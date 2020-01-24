@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
         err => {
           debugger
           //alert('Usuario y contraseña no coinciden')
-          console.log('error de login: ' + err.error)
+          console.log('error de login: ' + err.error);
         }
       )
       console.log('valor:',login.value)

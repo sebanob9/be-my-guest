@@ -21,7 +21,7 @@ export interface Fruit {
 export class MyEventComponent implements OnInit{
   constructor(public userservice: UserService,
     public guestsService: GuestsService,
-    private tableService: TablesService) { }
+    public tableService: TablesService) { }
   
 
   visible = true;
