@@ -7,12 +7,17 @@
     <input hidden type="text" value={{null}} ng-value="data" name="guestName" #guestName="ngModel"
       [(ngModel)]="giftService.selectedGift.guestName">
 
+      <div class="form__table-item--s">
+        <input type="text" placeholder="Link" class="form__table-control" name="link" #link="ngModel"
+          [(ngModel)]="giftService.selectedGift.link">
+      </div>
+
     <div class="form__table-item--s">
-      <input type="number" placeholder="€ aprox." class="form__table-control" name="price" #price="ngModel"
+      <input type="number" placeholder="€" class="form__table-control" name="price" #price="ngModel"
         [(ngModel)]="giftService.selectedGift.price">
     </div>
 
-    <div class="form__table-item--m">
+    <div class="form__table-item--s">
       <button type="submit" class="button" type="submit">Crear</button>
     </div>
   </form>
@@ -23,7 +28,7 @@
   <ul class="table__width">
     <li class="table" *ngFor="let gift of giftService.gifts">
       <div class="form__table-item--m">{{gift.name}}</div>
-      <div class="form__table-item--xs">Link</div>
+      <a class="form__table-item--xs link" target="_blank" href="{{gift.link}}">Link Producto</a>
       <div class="form__table-item--s">
         <div *ngIf="gift.guestName === null else guestGift">Sin asignar
           <svg width="25" height="25">

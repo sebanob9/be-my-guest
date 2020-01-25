@@ -17,24 +17,27 @@
     &--l {
       flex: $calc40;
       justify-content: left;
+      margin: 0 5px 0 5px;
     }
 
     &--m {
       flex: $calc30;
+      margin: 0 5px 0 5px;
     }
 
     &--s {
       flex: $calc20;
       display: flex;
       justify-content: center;
-      margin: 0 10px 0 10px;
+      margin: 0 5px 0 5px;
 
     }
 
     &--xs {
       flex: $calc10;
       display: flex;
-      margin: 0 10px 0 10px;
+      justify-content: center;
+      margin: 0 5px 0 5px;
     }
   }
   &-control {
@@ -82,4 +85,12 @@
 .center {
   display: flex;
   justify-content: center;
+}
+
+.link {
+  font-size: $font-xs;
+}
+
+.button__delete {
+  border-radius: 5px;
 }

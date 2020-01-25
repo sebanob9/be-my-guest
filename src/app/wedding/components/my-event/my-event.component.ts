@@ -8,6 +8,7 @@ import { GuestListComponent } from '../guest-list/guest-list.component';
 import { GuestsService } from 'src/app/core/services/guests.service';
 import { Guest } from 'src/app/core/models/guest';
 import { TablesService } from 'src/app/core/services/tables.service';
+import { GiftService } from 'src/app/core/services/gift.service';
 
 export interface Fruit {
   name: string;
@@ -21,8 +22,12 @@ export interface Fruit {
 export class MyEventComponent implements OnInit{
   constructor(public userservice: UserService,
     public guestsService: GuestsService,
-    public tableService: TablesService) { }
+    public tableService: TablesService,
+    public giftService: GiftService) { }
   
+public ukelele; 
+public giftsfiltered;
+
 
   visible = true;
   selectable = true;
@@ -43,6 +48,7 @@ export class MyEventComponent implements OnInit{
       this.userInfo = response;
     });
     this.getGuests();
+    this.getGifts();
   }
 
   getGuests() {
@@ -51,6 +57,18 @@ export class MyEventComponent implements OnInit{
         this.guestsService.guests2 = res as Guest[]; // OJO: guest2 al ser el servicio que apunta a la BBDD
         console.log(res);
       });
+  }
+
+  getukelele() {
+    this.giftsfiltered = this.giftService.gifts.filter(gift => gift.guestName !== null).length;
+  }
+  getGifts() {
+    this.giftService.getGifts()
+      .subscribe(res => {
+        this.giftService.gifts = res as Gift[];
+        this.getukelele()
+        console.log(res);
+      })
   }
 
   // --- Material ---
@@ -117,7 +135,6 @@ export class MyEventComponent implements OnInit{
 // copiar enlace del input
   show : boolean = false
   
-    
   
     copyLink(val: string){
       this.show = true;
@@ -147,23 +164,7 @@ export class MyEventComponent implements OnInit{
       console.log('response:', response);
       window.location.reload();
     });
-  
-    
-    /* const newUser = {
-      email: userForm.email,
-      password: userForm.password,
-      phone: userForm.phone,
-      date: userForm.date
-    }
-
-    this.userservice.saveUserById(localStorage.getItem('userId'), newUser).subscribe(); */
     
   }
 
-}
-
-/* this.guestsService.putGuest(form.value)
-        .subscribe(res => {
-          // this.resetForm(form);
-          this.getGuests();
-        }); */
+} 

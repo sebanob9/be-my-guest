@@ -18,46 +18,59 @@ export class GuestPresentsComponent {
 
   protected userInfo: object = new User;
   constructor(public userservice: UserService,
-    public giftService: GiftService) { }
-
+  public giftService: GiftService) { }
   ngOnInit() {
+    
     this.getGifts();
     let userId = localStorage.getItem('userId');
     this.userservice.getUserInfoByUserId(userId).subscribe((response) => {
       this.userInfo = response;
     });
+    this.all();
   }
 
   cheapGift = false;
   middleGift = false;
   expensiveGift = false;
+  public allGifts ;
 
   public guestID = localStorage.getItem('guestName');
 
-
+  
+  all() {
+    this.giftService.gifts = this.allGifts;
+    console.log(this.giftService.gifts);
+  }
 
   cheapGifts() {
-    this.cheapGift = !this.cheapGift
+    this.giftService.gifts = this.allGifts;
+    console.log(this.allGifts);
+     this.giftService.gifts = this.giftService.gifts.filter(gift => gift.price <100);
   }
+
   middleGifts() {
-    this.middleGift = !this.middleGift;
+    this.giftService.gifts = this.allGifts;
+    this.giftService.gifts = this.giftService.gifts.filter(gift => gift.price >100);
   }
+
   expensiveGifts() {
+
     this.expensiveGift = !this.expensiveGift;
   }
 
   getGifts() {
-    this.giftService.getGifts()
+   this.giftService.getGifts()
       .subscribe(res => {
-        this.giftService.gifts = res as Gift[];
-        console.log(res);
+    this.allGifts = res as Gift[];
+        return Gift;
       })
+      
   }
 
   editGift(gift: Gift) {
     this.giftService.selectedGift = gift;
   }
-  ukelele: string;
+  
   addGift(form?: NgForm) {
         //this.giftService.selectedGift.guestName = this.guestName;
 
