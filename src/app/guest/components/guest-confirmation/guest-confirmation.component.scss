@@ -1,4 +1,6 @@
 @import "../../../../styles/partials/variables";
+@import "../../../../styles/partials/modals";
+
 .table-image {
 line-height: 1.4;
 background: url('../../../../assets/img/sitting.jpg') fixed;
@@ -160,3 +162,15 @@ background-size: cover;
     color: $danger;
   }
 
+
+  .button__success, .button__delete {
+    width: 50%;
+    border-radius: 0px ;
+    border: none;
+    min-height: 60px;
+    font-size: $font-l;
+    &:hover {
+      box-shadow:none;
+      transform: none;
+    }
+  }

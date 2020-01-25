@@ -45,11 +45,11 @@ export class GuestConfirmationComponent implements OnInit {
 
   addGuest(form: NgForm) {
     console.log(form.value);
+    localStorage.setItem('guestName', this.guestsService.selectedGuest.name);
     this.guestsService.postGuest(form.value)
       .subscribe( res => {
-        this.resetForm(form); 
-      });
-      this.router.navigate(['/guest/gratitude']);
+        this.resetForm(form);
+        });
   }
 // hacemos subscribe para escuchar el retorno de la respuesta del servidor
 
@@ -58,6 +58,14 @@ export class GuestConfirmationComponent implements OnInit {
       form.reset();
       this.guestsService.selectedGuest = new Guest();
     }
+  }
+
+  // NAVIGATE
+  navigateGratitude() {
+    this.router.navigate(['/guest/gratitude'])
+  }
+  navigateGifts() {
+    this.router.navigate(['/guest/presents'])
   }
 
  init() {

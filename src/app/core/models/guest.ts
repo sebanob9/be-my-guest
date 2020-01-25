@@ -1,6 +1,6 @@
 export class Guest {
     constructor(_id='', friendFrom='', name="", withCompanion=false,
-    nameCompanion='', category='', phone=0, allergies='', noAllergies=false, table=null) {
+    nameCompanion='', category='', phone=null, allergies='', noAllergies=false, table=null) {
         this._id= _id;
         this.friendFrom = friendFrom;
         this.name = name;

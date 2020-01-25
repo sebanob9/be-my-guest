@@ -7,12 +7,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: rem(50px);
+    min-height: rem(50px);
     border-radius: rem(5px) rem(5px) 0 0;
     background-color: $main-color;
     color: $white;
     text-transform: uppercase;
     font-size: $font-l;
+    padding: 10px;
+    text-align: center;
   }
   &__close {
     position: absolute;
@@ -25,15 +27,9 @@
       color: $danger;
     }
   }
+  
 }
 
-
-
-// Modal background
-/* .modal-backdrop {
-  background-color: red;
-
-  // Fade for backdrop
-  &.fade { opacity: 0; }
-  &.show { opacity: 0.5; }
-} */
+.modal-backdrop.show {
+  opacity: 0.7 !important;
+}

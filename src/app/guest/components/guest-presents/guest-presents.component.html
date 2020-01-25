@@ -1,135 +1,64 @@
-<div class="gallery">
-    <main>
-      <div class="grid__title">Datos usuario</div>
-      <form (ngSubmit)="saveUserData(userForm)" #userForm="ngForm" *ngIf="userInfo" class="form-lg"
-        [ngClass]="status ? 'enabled' : 'disabled'">
-        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userInfo._id">
-        <div class="form-group text-item">
-          <label for="groom" class="form-group__label">El Novio</label>
-          <input type="text" id="groom" [readonly]="isReadOnly" class="form__group-control form__group-control--access"
-            [(ngModel)]="userInfo.groom" name="groom" #groom="ngModel">
-        </div>
-  
-        <div class="form-group text-item">
-          <label for="groom" class="form-group__label">La Novia</label>
-          <input type="text" id="groom" [readonly]="isReadOnly" class="form__group-control form__group-control--access"
-            [(ngModel)]="userInfo.bride" name="bride" #bride="ngModel">
-        </div>
-  
-        <div class="form-group text-item">
-          <label for="event-place" class="form-group__label">¿Dónde se celebra?</label>
-          <input type="text" id="event-place" required [readonly]="isReadOnly"
-            class="form__group-control form__group-control--access" [(ngModel)]="userInfo.eventPlace" name="eventPlace"
-            #eventPlace="ngModel">
-        </div>
-        <div class="form-group text-item">
-          <label for="date" class="form-group__label">Fecha</label>
-          <input type="date" id="date" required class="form__group-control form__group-control--access"
-            [readonly]="isReadOnly" [(ngModel)]="userInfo.date" name="date" #date="ngModel">
-        </div>
-        <div class="form-group text-item">
-          <label for="email" class="form-group__label">Email</label>
-          <input type="email" id="email" [(ngModel)]="userInfo.email" name="email" #email="ngModel" required
-            [readonly]="isReadOnly" class="form__group-control form__group-control--access">
-        </div>
-        <div class="form-group text-item">
-          <label for="phone" class="form-group__label">Teléfono</label>
-          <input type="tel" id="phone" class="form__group-control form__group-control--access" [readonly]="isReadOnly"
-            [(ngModel)]="userInfo.phone" name="phone" #phone="ngModel">
-        </div>
-  
-        <div class="form-group text-item">
-          <label for="password" class="form-group__label">Nueva contraseña</label>
-          <input [type]="passwordType" required id="password" class="form__group-control form__group-control--access"
-            [readonly]="isReadOnly" [(ngModel)]="password" name="password" #Password="ngModel" minlength="6">
-          <div *ngIf="!Password?.valid && Password?.dirty">
-            <p class="error">La contraseña no es válida</p>
-          </div>
-        </div>
-  
-  
-        <div class="form-group text-item">
-          <label for="password" class="form-group__label">Confirmar contraseña</label>
-          <div class="input__group">
-            <input [type]="passwordType" id="confirmPassword" required
-              class="form__group-control form__group-control--access probando" name="confirmPassword"
-              [(ngModel)]="confirmPassword" #confirmpassword="ngModel" [readonly]="isReadOnly">
-            <svg *ngIf="Password?.valid && !confirmpassword?.pristine" (click)="showPassword()" class="input__svg"
-              width="25" height="25">
-              <use xlink:href="../assets/svg/sprite.svg#padlock"></use>
-            </svg>
-          </div>
-          <div *ngIf="confirmpassword?.touched && !samePassword()">
-            <p class="error error--right">Las contraseñas no coinciden</p>
-          </div>
-        </div>
-  
-        <button class="button" [disabled]="!isReadOnly" (click)="isDisabled()">Editar</button>
-        <button type="submit" [disabled]="isReadOnly" class="button">Guardar</button>
-      </form>
-    </main>
-  
-    <!-- -----ASIDES----- -->
-    <aside>
-      <div class="grid__title">Datos boda</div>
-  
-      <div class="grid__content">
-  
-        <div class="grid__box">
-          <div class="grid__box-items">
-            <svg width="35" height="35">
-              <use xlink:href="../assets/svg/sprite.svg#suit"></use>
-            </svg>
-            <p class="grid__box-title">{{guestsService.guests2.length}}</p>
-          </div>
-          <p class="grid__box-text">Confirmados</p>
-        </div>
-  
-        <div class="grid__box">
-          <div class="grid__box-items">
-            <svg width="35" height="35">
-              <use xlink:href="../assets/svg/sprite.svg#table"></use>
-            </svg>
-            <p class="grid__box-title">{{tableService.tables.length}}</p>
-          </div>
-          <p class="grid__box-text">Mesas</p>
-        </div>
-      </div>
-    </aside>
-  
-    <aside class="grid">
-      <div class="grid__title">Enlace evento</div>
-      <div class="grid__content">
-        <a href="https://wa.me/?text=http://localhost:4200/guest" target="_blank" class="button">Enviar
-          <svg class="right" width="25" height="25">
-            <use xlink:href="../assets/svg/sprite.svg#whatsapp"></use>
-          </svg>
-        </a>
-  
-        <a (click)="copyLink('http://localhost:4200/guest')" value="copiar!"
-          class="button button--empty">Copiar</a>
-        <div *ngIf="show" class="button__copied">¡Enlace copiado!</div>
-      </div>
-    </aside>
-  
-   <!--  <aside>
-      <div class="grid__title">Categorías</div>
-      <div class="myevent-nav">
-        <div class="myevent-nav__title">Crear/editar categorias</div> 
-        <div class="myevent-nav__content">
-          <mat-form-field class="example-chip-list">
-            <mat-chip-list #chipList aria-label="Fruit selection">
-              <mat-chip *ngFor="let fruit of fruits" [removable]="removable" (removed)="remove(fruit)">
-                {{fruit.name}}
-                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-              </mat-chip>
-              <input [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
-            </mat-chip-list>
-          </mat-form-field>
-        </div>
-      </div>
-    </aside> -->
+<body class="background-image">
+  <div class="banner banner--img">
+    <h1 class="banner__title">{{userInfo.bride}} & {{userInfo.groom}}</h1>
+    <p class="banner__data">{{userInfo.date}}<p>
+        <p class="banner__data">{{userInfo.eventPlace}}<p>
   </div>
-  
-  
+
+  <div class="main__center">
+    <div *ngFor="let gift of giftService.gifts">
+      <a (click)="editGift(gift)" data-toggle="modal" data-target="#editGift" role="button">{{gift.name}}</a>
+      <div class="modal fade" id="editGift" tabindex="-1" role="dialog" aria-labelledby="editDataLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal__header">
+              <p>{{giftService.selectedGift.name}}</p>
+            </div>
+            <form #giftForm="ngForm" (ngSubmit)="addGift(giftForm)" class="form">
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="giftService.selectedGift._id">
+              <input type="hidden" name="name" #name="ngModel" [(ngModel)]="giftService.selectedGift.name">
+              <input type="hidden" name="price" #price="ngModel" [(ngModel)]="giftService.selectedGift.price">
+              <input type="hidden" name="guestName" #guestName="ngModel" [(ngModel)]="guestID"> 
+              <button type="submit">Seleccionar este regalo</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+
+
+<!-- <button (click)="cheapGifts()">Regalos < 100€</button>
+    <div *ngIf="cheapGift">
+      <div *ngFor="let gift of giftService.gifts">
+        <div class="form__table-item--s">{{gift.name}}</div>
+      </div>
+    </div>
+
+    <button (click)="middleGifts()">Regalos entre 100€ y 300€</button>
+    <div *ngIf="middleGift">medios!</div>
+    <button (click)="expensiveGifts()">Regalos >300€</button>
+    <div *ngIf="expensiveGift">caros</div>
+ -->
+
+<!--  <div class="main__center">
+  <form #gift="ngForm" (ngSubmit)="editGift(gift)"class="form">
+    <div *ngFor="let gift of giftService.gifts">
+      <label class="radio radio__btn">
+        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="giftService.selectedGift._id">
+        <input type="radio" class="radio__control"
+        name="{{gift.name}}" #{{gift.name}}="ngModel" value="{{gift.name}}" [(ngModel)]="giftService.selectedGift.guestName">
+        <span class="radio__custom">
+          {{gift.name}}
+        </span>
+      </label>
+    </div> 
+ <button type="submit" 
+ data-toggle="modal" data-target="#giftModal" data-backdrop="static"
+ class="button button--lg">Voy a la boda!</button>
+  </form>
+</div> -->

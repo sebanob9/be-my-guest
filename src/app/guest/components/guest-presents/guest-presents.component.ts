@@ -1,14 +1,10 @@
-import { Component,  ViewEncapsulation} from '@angular/core';
-import { User} from 'src/app/core/models/user';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { User } from 'src/app/core/models/user';
 import { UserService } from 'src/app/core/services/user.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import {
-  MatSnackBar,
-  MatSnackBarConfig,
-  MatSnackBarHorizontalPosition,
-  MatSnackBarVerticalPosition,
-} from '@angular/material';
+import { GiftService } from 'src/app/core/services/gift.service';
+import { Gift } from 'src/app/core/models/gift';
 
 
 
@@ -19,29 +15,62 @@ import {
   encapsulation: ViewEncapsulation.None,
 })
 export class GuestPresentsComponent {
-  
-  
-  message: string = 'Invitado eliminado';
-  name = 'Angular 4';
-  actionButtonLabel: string = 'Retry';
-  action: boolean = true;
-  addExtraClass: boolean = false;
-  setAutoHide: boolean = true;
-  autoHide: number = 50000;
-  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
-  
 
-  constructor(public userservice: UserService, public snackBar: MatSnackBar) { }
-  
-  open() {
-    let config = new MatSnackBarConfig();
-    config.verticalPosition = this.verticalPosition;
-    config.horizontalPosition = this.horizontalPosition;
-    config.duration = this.setAutoHide ? this.autoHide : 0;
-    //config.extraClasses = this.addExtraClass ? ['test'] : undefined;
-    this.snackBar.open(this.message, this.action ? this.actionButtonLabel : undefined, config);
+  protected userInfo: object = new User;
+  constructor(public userservice: UserService,
+    public giftService: GiftService) { }
+
+  ngOnInit() {
+    this.getGifts();
+    let userId = localStorage.getItem('userId');
+    this.userservice.getUserInfoByUserId(userId).subscribe((response) => {
+      this.userInfo = response;
+    });
   }
 
+  cheapGift = false;
+  middleGift = false;
+  expensiveGift = false;
+
+  public guestID = localStorage.getItem('guestName');
+
+
+
+  cheapGifts() {
+    this.cheapGift = !this.cheapGift
+  }
+  middleGifts() {
+    this.middleGift = !this.middleGift;
+  }
+  expensiveGifts() {
+    this.expensiveGift = !this.expensiveGift;
+  }
+
+  getGifts() {
+    this.giftService.getGifts()
+      .subscribe(res => {
+        this.giftService.gifts = res as Gift[];
+        console.log(res);
+      })
+  }
+
+  editGift(gift: Gift) {
+    this.giftService.selectedGift = gift;
+  }
+  ukelele: string;
+  addGift(form?: NgForm) {
+        //this.giftService.selectedGift.guestName = this.guestName;
+
+    this.giftService.putGift(form.value)
+      .subscribe(res => {
+        this.getGifts();
+      });
+    this.giftService.selectedGift.guestName = this.guestID;
+    
+      
+  }
   
+  /* giveName() {
+    console.log(this.guestName);
+  } */
 }

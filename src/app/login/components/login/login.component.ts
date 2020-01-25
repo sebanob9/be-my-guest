@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/wedding/my-wedding'])
           console.log(res);// este res devuelve el token en consola
         },
-        //err => console.log(err)
         err => {
           debugger
           //alert('Usuario y contraseña no coinciden')

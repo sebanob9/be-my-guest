@@ -2,8 +2,8 @@
   <main>
     <div class="banner banner--img">
       <h1 class="banner__title">{{userInfo.bride}} & {{userInfo.groom}}</h1>
-      <p class="banner__data">25 Noviembre 2020<p>
-          <p class="banner__data">Finca Prados Moros<p>
+      <p class="banner__data">{{userInfo.date}}<p>
+          <p class="banner__data">{{userInfo.eventPlace}}<p>
     </div>
     
 
@@ -195,8 +195,27 @@
           </div>
         </div>
         <div class="form__group--center">
-          <button type="submit" (click)="resetForm()" [disabled]="guestForm.form.invalid" class="button button--lg">Voy a la boda!</button>
+          <button type="submit" (click)="resetForm()" [disabled]="guestForm.form.invalid"
+          data-toggle="modal" data-target="#giftModal" data-backdrop="static"
+          class="button button--lg">Voy a la boda!</button>
         </div>
       </form>
     </div>
   </main>
+
+  <div class="modal fade" id="giftModal" tabindex="-1" role="dialog" aria-labelledby="giftModalLabel"
+  aria-hidden="true">
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal__header modal__header--xxl">
+        <h2 class="form__title">¿Quieres elegir un regalo de boda?</h2>
+      </div>
+      <div>
+        <button data-dismiss="modal" class="button button__success" (click)="navigateGifts()">Si</button>
+        <button data-dismiss="modal" class="button button__delete" (click)="navigateGratitude()" >No</button>
+      </div>
+    </div>
+  </div>
+</div>
+

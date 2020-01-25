@@ -10,7 +10,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 export class AppComponent implements OnInit {
 
   showHeader = false;
-  title = 'wedding-sit';
+  title = 'Be My Guest';
 
   constructor(private router: Router) {
     

@@ -1,5 +1,5 @@
 export class Gift {
-    constructor(_id="", name="", guestName=null, price=0) {
+    constructor(_id="", name="", guestName=null, price=null) {
         this._id= _id;
         this.name = name;
         this.guestName =guestName;
