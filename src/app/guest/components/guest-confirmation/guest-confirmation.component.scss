@@ -23,8 +23,6 @@ background-size: cover;
     &__control {
         position: absolute;
         display: none;
-        // top: -999rem;
-        // opacity: 0;
         &:checked~.radio__custom {
             background-color: $dark-pink;
             color: #fff;

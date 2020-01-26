@@ -18,7 +18,8 @@ export class GuestPresentsComponent {
 
   protected userInfo: object = new User;
   constructor(public userservice: UserService,
-  public giftService: GiftService) { }
+  public giftService: GiftService,
+  private router: Router) { }
   ngOnInit() {
     
     this.getGifts();
@@ -74,18 +75,14 @@ export class GuestPresentsComponent {
   }
   
   addGift(form?: NgForm) {
-        //this.giftService.selectedGift.guestName = this.guestName;
-
     this.giftService.putGift(form.value)
       .subscribe(res => {
         this.getGifts();
       });
     this.giftService.selectedGift.guestName = this.guestID;
-    
-      
   }
   
-  /* giveName() {
-    console.log(this.guestName);
-  } */
+  navigateGratitude() {
+    this.router.navigate(['/guest/gratitude'])
+  }
 }

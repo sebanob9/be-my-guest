@@ -14,16 +14,41 @@
   
 }
 .presents {
+  border-radius: $main-border-radius;
   max-width: 800px;
   margin: 50px auto 0 auto;
-  padding:15px; 
+  padding: 15px; 
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   background-color: rgba(255, 255, 255, 0.9);
   &__item{
     flex: 0 0 33%;
     display: flex;
     justify-content: center;
-    
+    border-radius: $main-border-radius;
+    border: 2px solid transparent;
+    padding: 10px 0 10px 0;
+    &:hover {
+      border: 2px solid $main-color;
+      background-color: $gray500;
+    }
   }
+}
+
+
+.button__success, .button__delete {
+  width: 50%;
+  border-radius: 0px ;
+  border: none;
+  min-height: 60px;
+  font-size: $font-l;
+  &:hover {
+    box-shadow:none;
+    transform: none;
+  }
+}
+
+.form {
+  padding: 0;
 }

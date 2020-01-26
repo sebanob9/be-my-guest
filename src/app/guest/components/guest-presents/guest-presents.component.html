@@ -5,32 +5,29 @@
         <p class="banner__data">{{userInfo.eventPlace}}<p>
   </div>
 
-  <div class="jumbotron__centred">
-    <a class="button" (click)="all()">
-      <p class="jumbotron__box-text">Todos los regalos</p>
-    </a>
-    <a class="button" (click)="cheapGifts()">
-      <p class="jumbotron__box-text">Hasta 100€</p>
-    </a>
-    <a class="button" (click)="middleGifts()">
-      <p class="jumbotron__box-text">100€ a 300€</p>
-    </a>
-    <a class="button" (click)="expensiveGifts()">
-      <p class="jumbotron__box-text">Más de 300€</p>
-    </a>
-  </div>
+ 
 
   <div class="presents">
+    <div class="jumbotron__centred">
+      <a class="button" (click)="all()">
+        <p class="jumbotron__box-text">Todos los regalos</p>
+      </a>
+      <a class="button" (click)="cheapGifts()">
+        <p class="jumbotron__box-text">Hasta 100€</p>
+      </a>
+      <a class="button" (click)="middleGifts()">
+        <p class="jumbotron__box-text">100€ a 300€</p>
+      </a>
+      <a class="button" (click)="expensiveGifts()">
+        <p class="jumbotron__box-text">Más de 300€</p>
+      </a>
+    </div>
 
-    <div *ngFor="let gift of giftService.gifts" class="presents__item">
+    <a *ngFor="let gift of giftService.gifts" class="presents__item">
       <div *ngIf="gift.guestName === null">
-
         <div>
-          <a (click)="editGift(gift)" data-toggle="modal" data-target="#editGift" role="button">{{gift.name}}</a>
+          <a class="presents__item-link"(click)="editGift(gift)" data-toggle="modal" data-target="#editGift" role="button">{{gift.name}}</a>
         </div>
-
-
-
         <div class="modal fade" id="editGift" tabindex="-1" role="dialog" aria-labelledby="editDataLabel"
           aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -38,23 +35,27 @@
               <div class="modal__header">
                 <p>{{giftService.selectedGift.name}}</p>
               </div>
-              <div>
-                <p>{{giftService.selectedGift.link}}</p>
+
+              <div class="jumbotron__centred jumbotron__centred--around">
+                <a href="{{giftService.selectedGift.link}}" target="_blank">Encuentra el artículo en este link</a>
+                <p>{{giftService.selectedGift.price |currency:'EUR':'symbol':'1.0-0'}}</p>
               </div>
+
               <form #giftForm="ngForm" (ngSubmit)="addGift(giftForm)" class="form">
                 <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="giftService.selectedGift._id">
                 <input type="hidden" name="link" #link="ngModel" [(ngModel)]="giftService.selectedGift.link">
                 <input type="hidden" name="name" #name="ngModel" [(ngModel)]="giftService.selectedGift.name">
                 <input type="hidden" name="price" #price="ngModel" [(ngModel)]="giftService.selectedGift.price">
                 <input type="hidden" name="guestName" #guestName="ngModel" [(ngModel)]="guestID">
-                <button type="submit">Seleccionar este regalo</button>
+                <button data-dismiss="modal" class="button button__success" type="submit" >Seleccionar este regalo</button>
+                <button data-dismiss="modal" class="button button__delete">Ver más regalos</button>
               </form>
             </div>
           </div>
         </div>
 
       </div>
-    </div>
+    </a>
   </div>
 
 </body>
