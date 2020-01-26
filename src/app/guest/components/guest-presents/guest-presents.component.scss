@@ -29,6 +29,9 @@
     border-radius: $main-border-radius;
     border: 2px solid transparent;
     padding: 10px 0 10px 0;
+    &-link {
+      padding: 10px 0 10px 0;
+    }
     &:hover {
       border: 2px solid $main-color;
       background-color: $gray500;
@@ -51,4 +54,18 @@
 
 .form {
   padding: 0;
+}
+
+.giftGiven {
+  color: $danger;
+  cursor: default;
+}
+
+.price {
+  font-size: $font-m;
+  font-weight: bold;
+}
+
+span {
+  font-weight: bold;
 }

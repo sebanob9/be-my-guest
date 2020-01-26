@@ -1,4 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import localeEs from '@angular/common/locales/es';
+
 import { SharedModule } from '../shared/shared.module';
 
 import { GuestLandingComponent } from './components/guest-landing/guest-landing.component';
@@ -7,7 +9,8 @@ import { GuestPresentsComponent } from './components/guest-presents/guest-presen
 
 import { GuestRoutingModule } from './guest-routing.module';
 
-import { CommonModule } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
+registerLocaleData(localeEs);
 import { FormsModule } from '@angular/forms';
 import {MatSnackBarModule, MatFormFieldModule, MatSelectModule, MatCheckboxModule, MatInputModule, } from '@angular/material';
 import { GuestGratitudeComponent } from './components/guest-gratitude/guest-gratitude.component';
@@ -22,6 +25,7 @@ import { GuestGratitudeComponent } from './components/guest-gratitude/guest-grat
     CommonModule,
     MatSnackBarModule, 
   MatFormFieldModule, MatSelectModule, MatCheckboxModule, MatInputModule
-  ]
+  ],
+  providers: [ { provide: LOCALE_ID, useValue: 'es' } ]
 })
 export class GuestModule { }

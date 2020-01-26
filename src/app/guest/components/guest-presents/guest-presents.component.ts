@@ -80,9 +80,12 @@ export class GuestPresentsComponent {
         this.getGifts();
       });
     this.giftService.selectedGift.guestName = this.guestID;
+    this.navigateGratitude()
   }
   
   navigateGratitude() {
     this.router.navigate(['/guest/gratitude'])
   }
+
+ 
 }

@@ -36,6 +36,7 @@ export class PresentListComponent implements OnInit {
   }
 
   deleteGift(_id: string) {
+    if(confirm('¿Estas seguro de querer eliminar este regalo?'))
       this.giftService.deleteGift(_id)
         .subscribe(res => {
           this.getGifts();
