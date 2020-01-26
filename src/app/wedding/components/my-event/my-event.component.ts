@@ -9,6 +9,7 @@ import { GuestsService } from 'src/app/core/services/guests.service';
 import { Guest } from 'src/app/core/models/guest';
 import { TablesService } from 'src/app/core/services/tables.service';
 import { GiftService } from 'src/app/core/services/gift.service';
+import { Gift } from 'src/app/core/models/gift';
 
 export interface Fruit {
   name: string;
@@ -62,6 +63,7 @@ public giftsfiltered;
   getukelele() {
     this.giftsfiltered = this.giftService.gifts.filter(gift => gift.guestName !== null).length;
   }
+  
   getGifts() {
     this.giftService.getGifts()
       .subscribe(res => {

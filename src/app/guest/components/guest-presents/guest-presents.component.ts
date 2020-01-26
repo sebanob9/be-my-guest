@@ -37,6 +37,7 @@ export class GuestPresentsComponent {
   public guestID = localStorage.getItem('guestName');
 
   
+  
   all() {
     this.giftService.gifts = this.allGifts;
     console.log(this.giftService.gifts);
@@ -50,12 +51,13 @@ export class GuestPresentsComponent {
 
   middleGifts() {
     this.giftService.gifts = this.allGifts;
-    this.giftService.gifts = this.giftService.gifts.filter(gift => gift.price >100);
+    this.giftService.gifts = this.giftService.gifts.filter(gift => gift.price >=100 && gift.price <300 );
   }
 
   expensiveGifts() {
+    this.giftService.gifts = this.allGifts;
+    this.giftService.gifts = this.giftService.gifts.filter(gift => gift.price >300);
 
-    this.expensiveGift = !this.expensiveGift;
   }
 
   getGifts() {

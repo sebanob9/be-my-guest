@@ -27,7 +27,6 @@
   &--empty {
     background-color: transparent;
     color: $main-color;
-    //font-weight: $bold;
     border: $pink-border;
     box-shadow: 0 0 3px $main-color;
     margin-right: 10px;
@@ -120,45 +119,6 @@
   }
 }
 
-
-/* // TRANSICION BOTON NUEVO USUARIO
-.moved-hvr {
-  display: block;
-  overflow: hidden;
-  position: relative;
-  color: $main-color;
-  background-color: $white;
-  transition: color 1s;
-
-  & span {
-    position: relative;
-    z-index: 1;
-  }
-
-  &:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 700px;
-    width: 700px;
-    background: $main-color;
-    transition: all .5s ease-in-out;
-    transform: translateX(-98%) translateY(-25%) rotate(45deg);
-  }
-
-  &:hover {
-    color: $white;
-
-    &:after {
-      transform: translateX(-9%) translateY(-25%) rotate(45deg);
-    }
-  }
-}
-
-// -- fin moved hvr -- */
-
-
 // ------ RADIO BUTTON ------------ //
 .radio {
   position: relative;
@@ -235,10 +195,10 @@
       display: none;
     }
   }
-}
+} // ---final radio button ---
 
-// ---final radio button ---
 
+/* --- RADIO FORM --- */
 .radio__form {
   margin-top: rem(15px);
   margin-bottom: rem(15px);
