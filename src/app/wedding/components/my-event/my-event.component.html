@@ -52,42 +52,47 @@
     <div class="jumbotron__centred">
       <form (ngSubmit)="saveUserData(userForm)" #userForm="ngForm" *ngIf="userInfo" class="form-lg"
         [ngClass]="status ? 'enabled' : 'disabled'">
+
         <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userInfo._id">
-        <div class="form-group text-item">
+
+        <div class="form-group form-basis">
           <label for="groom" class="form-group__label">El Novio</label>
           <input type="text" id="groom" [readonly]="isReadOnly" class="form__group-control form__group-control--access"
             [(ngModel)]="userInfo.groom" name="groom" #groom="ngModel">
         </div>
 
-        <div class="form-group text-item">
+        <div class="form-group form-basis">
           <label for="groom" class="form-group__label">La Novia</label>
           <input type="text" id="groom" [readonly]="isReadOnly" class="form__group-control form__group-control--access"
             [(ngModel)]="userInfo.bride" name="bride" #bride="ngModel">
         </div>
 
-        <div class="form-group text-item">
+        <div class="form-group form-basis">
           <label for="event-place" class="form-group__label">¿Dónde se celebra?</label>
           <input type="text" id="event-place" required [readonly]="isReadOnly"
             class="form__group-control form__group-control--access" [(ngModel)]="userInfo.eventPlace" name="eventPlace"
             #eventPlace="ngModel">
         </div>
-        <div class="form-group text-item">
+
+        <div class="form-group form-basis">
           <label for="date" class="form-group__label">Fecha</label>
           <input type="date" id="date" required class="form__group-control form__group-control--access"
             [readonly]="isReadOnly" [(ngModel)]="userInfo.date" name="date" #date="ngModel">
         </div>
-        <div class="form-group text-item">
+
+        <div class="form-group form-basis">
           <label for="email" class="form-group__label">Email</label>
           <input type="email" id="email" [(ngModel)]="userInfo.email" name="email" #email="ngModel" required
             [readonly]="isReadOnly" class="form__group-control form__group-control--access">
         </div>
-        <div class="form-group text-item">
+        
+        <div class="form-group form-basis">
           <label for="phone" class="form-group__label">Teléfono</label>
           <input type="tel" id="phone" class="form__group-control form__group-control--access" [readonly]="isReadOnly"
             [(ngModel)]="userInfo.phone" name="phone" #phone="ngModel">
         </div>
 
-        <div class="form-group text-item">
+        <div class="form-group form-basis">
           <label for="password" class="form-group__label">Nueva contraseña</label>
           <input [type]="passwordType" required id="password" class="form__group-control form__group-control--access"
             [readonly]="isReadOnly" [(ngModel)]="password" name="password" #Password="ngModel" minlength="6">
@@ -97,7 +102,7 @@
         </div>
 
 
-        <div class="form-group text-item">
+        <div class="form-group form-basis">
           <label for="password" class="form-group__label">Confirmar contraseña</label>
           <div class="input__group">
             <input [type]="passwordType" id="confirmPassword" required

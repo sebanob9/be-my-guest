@@ -1,62 +1,5 @@
 @import "../../../../styles/partials/variables";
 
-.form__table {
-  display: flex;
-  width: rem(600px);
-  margin: 0 auto;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 30px;
-  margin-top: 40px;
-
-  &-item {
-    &--xl {
-      flex: $calc50;
-    }
-
-    &--l {
-      flex: $calc40;
-      justify-content: left;
-      margin: 0 5px 0 5px;
-    }
-
-    &--m {
-      flex: $calc30;
-      margin: 0 5px 0 5px;
-    }
-
-    &--s {
-      flex: $calc20;
-      display: flex;
-      justify-content: center;
-      margin: 0 5px 0 5px;
-
-    }
-
-    &--xs {
-      flex: $calc10;
-      display: flex;
-      justify-content: center;
-      margin: 0 5px 0 5px;
-    }
-  }
-  &-control {
-    width: 100%;
-    height: 2.5rem;
-    background: none;
-    border: 0px;
-    border: $pink-border;
-    border-radius: $main-border-radius;
-    &--access {
-      height: 2rem;
-    }
-    &:focus {
-      outline: none;
-    }
-  }
- 
-}
-
 .table {
   display: flex;
   align-items: center;
@@ -85,11 +28,6 @@
     }
   }
 } 
-
-.center {
-  display: flex;
-  justify-content: center;
-}
 
 .link {
   font-size: $font-xs;

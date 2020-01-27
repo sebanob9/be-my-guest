@@ -38,6 +38,7 @@ $font-xxl: rem(48px);
 
 
 // --- FLEX CALC ---
+$calc100: 0 1 calc(100% - 10px);
 $calc50: 0 1 calc(50% - 16px);
 $calc40: 0 1 calc(40% - 5px);
 $calc30: 0 1 calc(30% - 5px);

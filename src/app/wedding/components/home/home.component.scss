@@ -44,6 +44,9 @@
       display: block;
       &.active {
         border-top: 2px solid $main-color;
+        background-color: $dark-pink-op;
+        color: $white;
+        font-weight: inherit;
        &::before {
          display: none;
        }

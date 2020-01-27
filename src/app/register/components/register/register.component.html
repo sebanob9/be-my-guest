@@ -1,12 +1,12 @@
 <main class="table-image">
   <div class="main main__center">
     <form (ngSubmit)="signUp(userForm)" #userForm="ngForm" class="form-lg ">
-      <div class="form__group--center text-item--lg">
+      <div class="form__group--center form-basis--lg">
         <h1 class="form__title">Registra tu evento</h1>
       </div>
 
 
-      <div class="radio__form--centred text-item--lg">
+      <div class="radio__form--centred form-basis--lg">
         <label class="form-group__label">Tipo de evento</label>
       </div>
       <div class="radio__form--centred">
@@ -59,14 +59,14 @@
 
 
       <!-- --- El --- -->
-      <div *ngIf="BoyBoy" class="form__group text-item">
+      <div *ngIf="BoyBoy" class="form__group form-basis">
         <label for="groom" class="form-group__label">El Novio</label>
         <input type="text" id="groom" placeholder="El nombre de él"
           class="form__group-control form__group-control--access" [(ngModel)]="userservice.selectedUser.groom"
           name="groom" #groom="ngModel">
       </div>
 
-      <div *ngIf="BoyBoy || BoyGirl" class="form__group text-item">
+      <div *ngIf="BoyBoy || BoyGirl" class="form__group form-basis">
         <label for="groom" class="form-group__label">El Novio</label>
         <input type="text" id="groom" placeholder="El nombre de él"
           class="form__group-control form__group-control--access" [(ngModel)]="userservice.selectedUser.groom"
@@ -76,14 +76,14 @@
 
 
       <!----- Ella ----->
-      <div *ngIf="BoyGirl || GirlGirl" class="form__group text-item">
+      <div *ngIf="BoyGirl || GirlGirl" class="form__group form-basis">
         <label for="groom" class="form-group__label">La Novia</label>
         <input type="text" id="bride" placeholder="El nombre de ella"
           class="form__group-control form__group-control--access" [(ngModel)]="userservice.selectedUser.bride"
           name="bride" #bride="ngModel">
       </div>
 
-      <div *ngIf="GirlGirl" class="form__group text-item">
+      <div *ngIf="GirlGirl" class="form__group form-basis">
         <label for="groom" class="form-group__label">La Novia</label>
         <input type="text" id="bride" placeholder="El nombre de ella"
           class="form__group-control form__group-control--access" [(ngModel)]="userservice.selectedUser.bride"
@@ -92,28 +92,28 @@
 
 
       <!----- Otro ----->
-      <div *ngIf="otherEvent" class="form-group text-item--lg">
+      <div *ngIf="otherEvent" class="form-group form-basis--lg">
         <label for="message-text" class="form-group__label">Nombre del evento</label>
         <input type="text" id="comments" class="form__group-control form__group-control--access"
           [(ngModel)]="userservice.selectedUser.otherEvent" name="otherEvent" #otherEvent="ngModel">
       </div>
 
       <!--  Continuacion formulario -->
-      <div class="form-group text-item">
+      <div class="form-group form-basis">
         <label for="eventPlace" class="form-group__label">¿Dónde se celebra?</label>
         <input type="text" id="eventPlace" placeholder="El nombre de la finca / salón "
           class="form__group-control form__group-control--access" [(ngModel)]="userservice.selectedUser.eventPlace"
           name="eventPlace" #eventplace="ngModel">
       </div>
 
-      <div class="form-group text-item">
+      <div class="form-group form-basis">
         <label for="date" class="form-group__label">Fecha</label>
         <input type="date" id="date" class="form__group-control form__group-control--access"
           [(ngModel)]="userservice.selectedUser.date" name="date" #date="ngModel">
       </div>
 
 
-      <div class="form-group text-item">
+      <div class="form-group form-basis">
         <label for="email" class="form-group__label">Email</label>
         <input type="email" id="email" required class="form__group-control form__group-control--access"
           [(ngModel)]="userservice.selectedUser.email" name="email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
@@ -122,7 +122,7 @@
           </div>
       </div>
 
-      <div class="form-group text-item">
+      <div class="form-group form-basis">
         <label for="phone" class="form-group__label">Teléfono</label>
         <input type="tel" id="phone" required class="form__group-control form__group-control--access"
           [(ngModel)]="userservice.selectedUser.phone" name="phone" #phone="ngModel" pattern="^[9|8|7|6]\d{8}$" maxlength="9">
@@ -133,7 +133,7 @@
       
 
 
-      <div class="form-group text-item">
+      <div class="form-group form-basis">
         <label for="password" class="form-group__label">Contraseña <span>(mín. 6 caracteres)</span></label>
         <input [type]="passwordType" required id="password" class="form__group-control form__group-control--access"
           [(ngModel)]="password" name="password" #Password="ngModel" minlength="6">
@@ -143,7 +143,7 @@
       </div>
 
 
-      <div class="form-group text-item">
+      <div class="form-group form-basis">
         <label for="password" class="form-group__label">Confirmar contraseña</label>
         <div class="input__group">
         <input [type]="passwordType" id="confirmPassword" required class="form__group-control form__group-control--access probando" 

@@ -4,13 +4,14 @@
       <input type="text" placeholder="Nombre del regalo" class="form__table-control" name="name" #name="ngModel"
         [(ngModel)]="giftService.selectedGift.name">
     </div>
+
     <input hidden type="text" value={{null}} ng-value="data" name="guestName" #guestName="ngModel"
       [(ngModel)]="giftService.selectedGift.guestName">
 
-      <div class="form__table-item--s">
-        <input type="text" placeholder="Link" class="form__table-control" name="link" #link="ngModel"
-          [(ngModel)]="giftService.selectedGift.link">
-      </div>
+    <div class="form__table-item--s">
+      <input type="text" placeholder="Link" class="form__table-control" name="link" #link="ngModel"
+        [(ngModel)]="giftService.selectedGift.link">
+    </div>
 
     <div class="form__table-item--s">
       <input type="number" placeholder="€" class="form__table-control" name="price" #price="ngModel"
@@ -24,7 +25,7 @@
 </div>
 
 
-<div class="center">
+<div class="jumbotron__centred">
   <ul class="table__width">
     <li class="table" *ngFor="let gift of giftService.gifts">
       <div class="form__table-item--m">{{gift.name}}</div>
@@ -49,9 +50,9 @@
 
       <div class="form__table-item--s">
         <button class="button__delete" (click)="deleteGift(gift._id)" data-toggle="modal"
-        data-target="#deleteGift">Borrar</button>
+          data-target="#deleteGift">Borrar</button>
       </div>
-      
+
 
     </li>
   </ul>

@@ -72,13 +72,12 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 30px 0 30px 0;
+    margin: 0 0 30px 0;
     position: relative;
 
     & a {
       margin: 0 5px 0 5px;
     }
-
     &--nomargin {
       margin: 20px 0 60px 0;
 
@@ -86,18 +85,15 @@ a {
         margin: 0 0px 0 -2px;
       }
     }
-
     &--around {
       justify-content: space-around;
     }
   }
-
   &__title {
     text-align: center;
     font-size: $font-l;
     margin-right: 50px;
   }
-
   &__box {
     margin: 30px 0 50px 0;
     display: flex;
@@ -157,7 +153,7 @@ a {
   .jumbotron {
     &__centred {
       display: flex;
-      margin-top: 10px;
+      margin-bottom: 20px;
 
       &--column {
         flex-direction: column;
@@ -180,15 +176,12 @@ a {
       &-title {
         font-size: $font-l;
       }
-
       &-items {
         flex-direction: column;
       }
-
       &-text {
         text-align: center;
       }
-
       &-title {
         padding: 0;
       }
