@@ -23,6 +23,17 @@
     }
     &__data {
         font-size: $font-l;
+    }  
+}
+
+@media screen and (max-width: 767px) {
+    .banner { 
+        height: rem(100px);
+        &__title {
+            font-size: $font-xl;
+        }
+        &__data {
+            font-size: $font-m;
+        }  
     }
-   
 }

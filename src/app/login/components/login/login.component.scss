@@ -18,9 +18,18 @@ background-size: cover;
 .error {
   font-size: $font-xs;
   color: $danger;
+  &--backend {
+    font-size: $font-s;
+  }
 }
 
 span {
   color: $gray200;
   font-size: $font-s;
+}
+
+@media screen and (max-width: 767px) {
+  span {
+    font-size: $font-xs;
+  }
 }

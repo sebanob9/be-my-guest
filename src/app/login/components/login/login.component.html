@@ -13,26 +13,25 @@
         <div *ngIf="!email?.valid && email?.touched">
           <p class="error">Email no válido</p>
         </div>
-        
+
         <div class="form__group">
           <label for="password" class="form-group__label">Contraseña</label>
-          <input type="password" required class="form__group-control" minlength="6"
-            [(ngModel)]="user.password" name="password" #password="ngModel">
-            <div *ngIf="!password?.valid && password?.touched">
-              <p class="error">La contraseña debe tener al menos 6 dígitos</p>
-            </div>
+          <input type="password" required class="form__group-control" minlength="6" [(ngModel)]="user.password"
+            name="password" #password="ngModel">
+          <div *ngIf="!password?.valid && password?.touched">
+            <p class="error">La contraseña debe tener al menos 6 dígitos</p>
+          </div>
         </div>
         
-        <div class="form__group form__group--right">
+        <div class="form__group form__group--spaceBetween">
+          <p class="error error--backend  ">{{backendError}}</p>
           <a data-toggle="modal" data-target="#rememberPassword"><span>Recordar contraseña</span></a>
         </div>
         <div class="form__group--center">
           <button type="submit" [disabled]="login.form.invalid" class="button">Acceder</button>
         </div>
       </form>
-      <div>
-        <p>{{ukelele}} sss</p>
-      </div>
+
       <!------------------ MODAL --------------------------->
 
       <div class="modal fade" id="rememberPassword" tabindex="-1" role="dialog" aria-labelledby="rememberPasswordLabel"

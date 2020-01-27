@@ -10,7 +10,6 @@
    display: flex;
    justify-content: space-around;
    margin-bottom: 25px;
-
    &__link {
      flex: $calc20;
      padding: 10px 0;
@@ -18,7 +17,6 @@
      text-align: center;
      position: relative;
      &.active {
-        //background: linear-gradient(0deg, rgba(112,22,88,1) 0%, rgba(145,28,114,1) 100%);
         background-color: $white;
         font-weight: 700;
         border-bottom: 2px solid $main-color;
@@ -36,4 +34,21 @@
      }
    }
 
+ }
+
+ @media screen and (max-width: 767px) {
+  .home-menu {
+    display: block;
+    margin-bottom: 5px;
+    &__link {
+      display: block;
+      &.active {
+        border-top: 2px solid $main-color;
+       &::before {
+         display: none;
+       }
+     }
+    }
+  }
+  
  }

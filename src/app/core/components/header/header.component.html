@@ -1,22 +1,23 @@
-<div class="maincontainer header__flexbox" id="navbar">
-  <img routerLink='/wedding/my-wedding' class="logo" src="../../../../assets/img/logo1a.png" height='80'
-    alt="mesa de bodas" id="logo">
-  <nav class="navbar">
-    <a routerLink='/wedding/my-wedding' class="navbar__item" *ngIf="userservice.loggedIn()">Home</a>
-    <a routerLink='/blog' class="navbar__item">Blog</a>
-    <!-- <a routerLink='/about' class="navbar__item">¿Te casas?</a> -->
-    <a routerLink='/contact' class="navbar__item">Contacto</a>
+<div class="maincontainer">
+  <div class="header">
+    <img routerLink='/wedding/my-wedding' class="logo" src="../../../../assets/img/logo1a.png" alt="logo Be My Guest" id="logo">
 
-  </nav>
-  <nav class="navbar">
-  <button routerLink='/register' role="button" class="button button--empty" *ngIf="!userservice.loggedIn()">Nuevo
-    ususario</button>
-  <a routerLink='/login' role="button" class="button" *ngIf="!userservice.loggedIn()">Acceder</a>
-  <a routerLink='/login' *ngIf="userservice.loggedIn()" (click)="userservice.logOut()" class="button__logout">
-    Cerrar sesión 
-    <svg class="logout" width="20" height="20">
-      <use xlink:href="../assets/svg/sprite.svg#window-close"></use>
-    </svg></a>
-  </nav>
+    <nav class="header__nav">
+      <a class="header__nav-home" routerLink='/wedding/my-wedding' *ngIf="userservice.loggedIn()">Home</a>
+      <a routerLink='/blog'>Blog</a>
+      <a routerLink='/contact'>Contacto</a>
+    </nav>
+
+    <nav class="header__buttons">
+      <button routerLink='/register' role="button"class="button button--empty"
+       *ngIf="!userservice.loggedIn()">Nuevo ususario</button>
+      <button routerLink='/login' role="button" class="button" *ngIf="!userservice.loggedIn()">Acceder</button>
+      <a routerLink='/login' *ngIf="userservice.loggedIn()" (click)="userservice.logOut()" class="header__logout">
+        Cerrar sesión
+        <svg class="header__logout--icon" width="20" height="20">
+          <use xlink:href="../assets/svg/sprite.svg#window-close"></use>
+        </svg></a>
+    </nav>
+
+  </div>
 </div>
-
