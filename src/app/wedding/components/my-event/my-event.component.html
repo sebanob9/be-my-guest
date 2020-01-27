@@ -1,138 +1,141 @@
-<main class="jumbotron">
-  <div class="jumbotron__centred jumbotron__centred--nomargin">
-    <a routerLink='/wedding/guest-list' class="jumbotron__box">
-      <div class="jumbotron__box-items">
-        <svg width="35" height="35">
-          <use xlink:href="../assets/svg/sprite.svg#suit"></use>
-        </svg>
-        <p class="jumbotron__box-title">{{guestsService.guests2.length}}</p>
-      </div>
-      <p class="jumbotron__box-text">Confirmados</p>
-    </a>
+  <main class="jumbotron">
+    <div class="jumbotron__centred jumbotron__centred--nomargin">
 
-    <a routerLink='/wedding/guest-sort' class="jumbotron__box">
-      <div class="jumbotron__box-items">
-        <svg width="35" height="35">
-          <use xlink:href="../assets/svg/sprite.svg#table"></use>
-        </svg>
-        <p class="jumbotron__box-title">{{tableService.tables.length}}</p>
-      </div>
-      <p class="jumbotron__box-text">Mesas creadas</p>
-    </a>
-
-    <a routerLink='/wedding/present-list' class="jumbotron__box">
-      <div class="jumbotron__box-items">
-        <svg width="35" height="35">
-          <use xlink:href="../assets/svg/sprite.svg#gift"></use>
-        </svg>
-        <p class="jumbotron__box-title">{{giftsfiltered}}/{{giftService.gifts.length}}</p>
-      </div>
-      <p class="jumbotron__box-text">Regalos asignados</p>
-    </a>
-  </div>
-</main>
-
-<section class="jumbotron">
-  <div class="jumbotron__centred">
-    <div class="jumbotron__title">Enlace evento</div>
-    <a href="https://wa.me/?text=http://localhost:4200/guest" target="_blank" class="button">Enviar
-      <svg class="right" width="25" height="25">
-        <use xlink:href="../assets/svg/sprite.svg#whatsapp"></use>
-      </svg>
-    </a>
-    <a (click)="copyLink('http://localhost:4200/guest')" value="copiar!" class="button button--empty">Copiar</a>
-    <div *ngIf="show" class="button__copied">¡Enlace copiado!</div>
-  </div>
-</section>
-
-<section class="jumbotron">
-  <div class="jumbotron__title">Datos usuario</div>
-  <div class="jumbotron__centred">
-    <form (ngSubmit)="saveUserData(userForm)" #userForm="ngForm" *ngIf="userInfo" class="form-lg"
-      [ngClass]="status ? 'enabled' : 'disabled'">
-      <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userInfo._id">
-      <div class="form-group text-item">
-        <label for="groom" class="form-group__label">El Novio</label>
-        <input type="text" id="groom" [readonly]="isReadOnly" class="form__group-control form__group-control--access"
-          [(ngModel)]="userInfo.groom" name="groom" #groom="ngModel">
-      </div>
-
-      <div class="form-group text-item">
-        <label for="groom" class="form-group__label">La Novia</label>
-        <input type="text" id="groom" [readonly]="isReadOnly" class="form__group-control form__group-control--access"
-          [(ngModel)]="userInfo.bride" name="bride" #bride="ngModel">
-      </div>
-
-      <div class="form-group text-item">
-        <label for="event-place" class="form-group__label">¿Dónde se celebra?</label>
-        <input type="text" id="event-place" required [readonly]="isReadOnly"
-          class="form__group-control form__group-control--access" [(ngModel)]="userInfo.eventPlace" name="eventPlace"
-          #eventPlace="ngModel">
-      </div>
-      <div class="form-group text-item">
-        <label for="date" class="form-group__label">Fecha</label>
-        <input type="date" id="date" required class="form__group-control form__group-control--access"
-          [readonly]="isReadOnly" [(ngModel)]="userInfo.date" name="date" #date="ngModel">
-      </div>
-      <div class="form-group text-item">
-        <label for="email" class="form-group__label">Email</label>
-        <input type="email" id="email" [(ngModel)]="userInfo.email" name="email" #email="ngModel" required
-          [readonly]="isReadOnly" class="form__group-control form__group-control--access">
-      </div>
-      <div class="form-group text-item">
-        <label for="phone" class="form-group__label">Teléfono</label>
-        <input type="tel" id="phone" class="form__group-control form__group-control--access" [readonly]="isReadOnly"
-          [(ngModel)]="userInfo.phone" name="phone" #phone="ngModel">
-      </div>
-
-      <div class="form-group text-item">
-        <label for="password" class="form-group__label">Nueva contraseña</label>
-        <input [type]="passwordType" required id="password" class="form__group-control form__group-control--access"
-          [readonly]="isReadOnly" [(ngModel)]="password" name="password" #Password="ngModel" minlength="6">
-        <div *ngIf="!Password?.valid && Password?.dirty">
-          <p class="error">La contraseña no es válida</p>
-        </div>
-      </div>
-
-
-      <div class="form-group text-item">
-        <label for="password" class="form-group__label">Confirmar contraseña</label>
-        <div class="input__group">
-          <input [type]="passwordType" id="confirmPassword" required
-            class="form__group-control form__group-control--access probando" name="confirmPassword"
-            [(ngModel)]="confirmPassword" #confirmpassword="ngModel" [readonly]="isReadOnly">
-          <svg *ngIf="Password?.valid && !confirmpassword?.pristine" (click)="showPassword()" class="input__svg"
-            width="25" height="25">
-            <use xlink:href="../assets/svg/sprite.svg#padlock"></use>
+      <a routerLink='/wedding/present-list' class="jumbotron__box">
+        <div class="jumbotron__box-items">
+          <svg width="35" height="35">
+            <use xlink:href="../assets/svg/sprite.svg#gift"></use>
           </svg>
+          <p class="jumbotron__box-title">{{giftsfiltered}}/{{giftService.gifts.length}}</p>
         </div>
-        <div *ngIf="confirmpassword?.touched && !samePassword()">
-          <p class="error error--right">Las contraseñas no coinciden</p>
+        <p class="jumbotron__box-text">Regalos asignados</p>
+      </a>
+
+      <a routerLink='/wedding/guest-list' class="jumbotron__box">
+        <div class="jumbotron__box-items">
+          <svg width="35" height="35">
+            <use xlink:href="../assets/svg/sprite.svg#suit"></use>
+          </svg>
+          <p class="jumbotron__box-title">{{guestsService.guests2.length}}</p>
         </div>
-      </div>
+        <p class="jumbotron__box-text">Invitados confirmados</p>
+      </a>
 
-      <button class="button" [disabled]="!isReadOnly" (click)="isDisabled()">Editar</button>
-      <button type="submit" [disabled]="isReadOnly" class="button">Guardar</button>
-    </form>
-  </div>
-</section>
+      <a routerLink='/wedding/guest-sort' class="jumbotron__box">
+        <div class="jumbotron__box-items">
+          <svg width="35" height="35">
+            <use xlink:href="../assets/svg/sprite.svg#table"></use>
+          </svg>
+          <p class="jumbotron__box-title">{{tableService.tables.length}}</p>
+        </div>
+        <p class="jumbotron__box-text">Mesas creadas</p>
+      </a>
 
 
-<!--  <aside>
-    <div class="jumbotron__title">Categorías</div>
-    <div class="myevent-nav">
-      <div class="myevent-nav__title">Crear/editar categorias</div> 
-      <div class="myevent-nav__content">
-        <mat-form-field class="example-chip-list">
-          <mat-chip-list #chipList aria-label="Fruit selection">
-            <mat-chip *ngFor="let fruit of fruits" [removable]="removable" (removed)="remove(fruit)">
-              {{fruit.name}}
-              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-            </mat-chip>
-            <input [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-              [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
-          </mat-chip-list>
-        </mat-form-field>
-      </div>
     </div>
-  </aside> -->
+  </main>
+
+  <section class="jumbotron">
+    <div class="jumbotron__centred">
+      <div class="jumbotron__title">Enlace evento</div>
+      <a href="https://wa.me/?text=http://localhost:4200/guest" target="_blank" class="button">Enviar
+        <svg class="right" width="25" height="25">
+          <use xlink:href="../assets/svg/sprite.svg#whatsapp"></use>
+        </svg>
+      </a>
+      <a (click)="copyLink('http://localhost:4200/guest')" value="copiar!" class="button button--empty">Copiar</a>
+      <div *ngIf="showCopied" class="button__copied">¡Enlace copiado!</div>
+    </div>
+  </section>
+
+  <section class="jumbotron">
+    <div class="jumbotron__title">Datos usuario</div>
+    <div class="jumbotron__centred">
+      <form (ngSubmit)="saveUserData(userForm)" #userForm="ngForm" *ngIf="userInfo" class="form-lg"
+        [ngClass]="status ? 'enabled' : 'disabled'">
+        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userInfo._id">
+        <div class="form-group text-item">
+          <label for="groom" class="form-group__label">El Novio</label>
+          <input type="text" id="groom" [readonly]="isReadOnly" class="form__group-control form__group-control--access"
+            [(ngModel)]="userInfo.groom" name="groom" #groom="ngModel">
+        </div>
+
+        <div class="form-group text-item">
+          <label for="groom" class="form-group__label">La Novia</label>
+          <input type="text" id="groom" [readonly]="isReadOnly" class="form__group-control form__group-control--access"
+            [(ngModel)]="userInfo.bride" name="bride" #bride="ngModel">
+        </div>
+
+        <div class="form-group text-item">
+          <label for="event-place" class="form-group__label">¿Dónde se celebra?</label>
+          <input type="text" id="event-place" required [readonly]="isReadOnly"
+            class="form__group-control form__group-control--access" [(ngModel)]="userInfo.eventPlace" name="eventPlace"
+            #eventPlace="ngModel">
+        </div>
+        <div class="form-group text-item">
+          <label for="date" class="form-group__label">Fecha</label>
+          <input type="date" id="date" required class="form__group-control form__group-control--access"
+            [readonly]="isReadOnly" [(ngModel)]="userInfo.date" name="date" #date="ngModel">
+        </div>
+        <div class="form-group text-item">
+          <label for="email" class="form-group__label">Email</label>
+          <input type="email" id="email" [(ngModel)]="userInfo.email" name="email" #email="ngModel" required
+            [readonly]="isReadOnly" class="form__group-control form__group-control--access">
+        </div>
+        <div class="form-group text-item">
+          <label for="phone" class="form-group__label">Teléfono</label>
+          <input type="tel" id="phone" class="form__group-control form__group-control--access" [readonly]="isReadOnly"
+            [(ngModel)]="userInfo.phone" name="phone" #phone="ngModel">
+        </div>
+
+        <div class="form-group text-item">
+          <label for="password" class="form-group__label">Nueva contraseña</label>
+          <input [type]="passwordType" required id="password" class="form__group-control form__group-control--access"
+            [readonly]="isReadOnly" [(ngModel)]="password" name="password" #Password="ngModel" minlength="6">
+          <div *ngIf="!Password?.valid && Password?.dirty">
+            <p class="error">La contraseña no es válida</p>
+          </div>
+        </div>
+
+
+        <div class="form-group text-item">
+          <label for="password" class="form-group__label">Confirmar contraseña</label>
+          <div class="input__group">
+            <input [type]="passwordType" id="confirmPassword" required
+              class="form__group-control form__group-control--access probando" name="confirmPassword"
+              [(ngModel)]="confirmPassword" #confirmpassword="ngModel" [readonly]="isReadOnly">
+            <svg *ngIf="Password?.valid && !confirmpassword?.pristine" (click)="showPassword()" class="input__svg"
+              width="25" height="25">
+              <use xlink:href="../assets/svg/sprite.svg#padlock"></use>
+            </svg>
+          </div>
+          <div *ngIf="confirmpassword?.touched && !samePassword()">
+            <p class="error error--right">Las contraseñas no coinciden</p>
+          </div>
+        </div>
+
+        <button class="button" [disabled]="!isReadOnly" (click)="isDisabled()">Editar</button>
+        <button type="submit" [disabled]="isReadOnly" class="button">Guardar</button>
+      </form>
+    </div>
+  </section>
+
+
+  <!--  <aside>
+      <div class="jumbotron__title">Categorías</div>
+      <div class="myevent-nav">
+        <div class="myevent-nav__title">Crear/editar categorias</div> 
+        <div class="myevent-nav__content">
+          <mat-form-field class="example-chip-list">
+            <mat-chip-list #chipList aria-label="Fruit selection">
+              <mat-chip *ngFor="let fruit of fruits" [removable]="removable" (removed)="remove(fruit)">
+                {{fruit.name}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+              <input [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+          </mat-form-field>
+        </div>
+      </div>
+    </aside> -->

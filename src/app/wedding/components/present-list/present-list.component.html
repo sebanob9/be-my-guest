@@ -29,7 +29,7 @@
     <li class="table" *ngFor="let gift of giftService.gifts">
       <div class="form__table-item--m">{{gift.name}}</div>
       <a class="form__table-item--xs link" target="_blank" href="{{gift.link}}">Link Producto</a>
-      <div class="form__table-item--s">
+      <div class="form__table-item--s table__info-content">
         <div *ngIf="gift.guestName === null else guestGift">Sin asignar
           <svg width="25" height="25">
             <use xlink:href="../assets/svg/sprite.svg#gift-red"></use>

@@ -98,7 +98,7 @@ a {
     border: 2px solid $main-color;
     padding: 5px 15px 5px 15px;
     border-radius: $main-border-radius;
-    width: 200px;
+    min-width: 200px;
     min-height: 50px;
     justify-content: center;
     align-items: center;

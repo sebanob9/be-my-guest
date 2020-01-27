@@ -25,8 +25,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+public ukelele: string;
+
   signIn(login:NgForm) {
-    
     this.userservice.signIn(this.user)
       .subscribe(
         res => {
@@ -36,9 +37,11 @@ export class LoginComponent implements OnInit {
           console.log(res);// este res devuelve el token en consola
         },
         err => {
-          debugger
           //alert('Usuario y contraseña no coinciden')
-          console.log('error de login: ' + err.error);
+          //console.log('error de login: ' + err.error);
+          this.ukelele = err.error;
+          console.log('ukelele:', this.ukelele);
+          alert(err.error);
         }
       )
       console.log('valor:',login.value)

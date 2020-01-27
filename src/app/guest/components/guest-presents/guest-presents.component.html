@@ -42,7 +42,7 @@
 
             <div class="jumbotron__centred jumbotron__centred--around">
               <a href="{{giftService.selectedGift.link}}" target="_blank">Detalles del producto en este <span>Link</span></a>
-              <p class="price">{{gift.price |currency:'EUR':'symbol':'1.0-0'}}</p>
+              <p class="price">{{giftService.selectedGift.price |currency:'EUR':'symbol':'1.0-0'}}</p>
             </div>
 
             <form #giftForm="ngForm" (ngSubmit)="addGift(giftForm)" class="form">

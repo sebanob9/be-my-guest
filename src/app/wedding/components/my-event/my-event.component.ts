@@ -135,12 +135,12 @@ public giftsfiltered;
   }  
 
 // copiar enlace del input
-  show : boolean = false
+  showCopied : boolean = false
   
   
     copyLink(val: string){
-      this.show = true;
-    setTimeout(function(){this.show = !this.show}.bind(this), 3000);
+      this.showCopied = true;
+    setTimeout(function(){this.showCopied = !this.showCopied}.bind(this), 300000);
       let selBox = document.createElement('textarea');
         selBox.style.position = 'fixed';
         selBox.style.left = '0';
