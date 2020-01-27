@@ -29,3 +29,4 @@ import { GuestGratitudeComponent } from './components/guest-gratitude/guest-grat
   providers: [ { provide: LOCALE_ID, useValue: 'es' } ]
 })
 export class GuestModule { }
+

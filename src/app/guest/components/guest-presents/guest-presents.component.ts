@@ -5,7 +5,12 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GiftService } from 'src/app/core/services/gift.service';
 import { Gift } from 'src/app/core/models/gift';
-
+import {
+  StripeService,
+  Elements,
+  Element as StripeElement,
+  ElementsOptions
+} from 'ngx-stripe';
 
 
 @Component({
@@ -20,14 +25,20 @@ export class GuestPresentsComponent {
   constructor(public userservice: UserService,
   public giftService: GiftService,
   private router: Router) { }
+  
+  handler:any = null;
+  elementsOptions: ElementsOptions = {
+    locale: 'es'
+  };
+
   ngOnInit() {
-    
     this.getGifts();
     let userId = localStorage.getItem('userId');
     this.userservice.getUserInfoByUserId(userId).subscribe((response) => {
       this.userInfo = response;
     });
     this.all();
+    this.loadStripe()
   }
 
   cheapGift = false;
@@ -87,5 +98,34 @@ export class GuestPresentsComponent {
     this.router.navigate(['/guest/gratitude'])
   }
 
+   // ---------- STRIPE -----------//
+  //------------------------------//
+  loadStripe() {
+    if(!window.document.getElementById('stripe-script')) {
+      let s = window.document.createElement("script");
+      s.id = "stripe-script";
+      s.type = "text/javascript";
+      s.src = "https://checkout.stripe.com/checkout.js";
+      window.document.body.appendChild(s);
+    }
+}
+
+pay(amount) {    
+  let handler = (<any>window).StripeCheckout.configure({
+    key: 'pk_test_aeUUjYYcx4XNfKVW60pmHTtI',
+    locale: 'ES',
+    token: function (token: any) {
+      // You can access the token ID with `token.id`.
+      // Get the token ID to your server-side code for use.
+      console.log(token)
+      alert('Token Created!!');
+    }
+  });
+  handler.open({
+    name: 'Regalo boda',
+    //description: '2 widgets',
+    amount: amount * 100
+  });
+}
  
 }

@@ -21,6 +21,9 @@
       <a class="button" (click)="expensiveGifts()">
         <p class="jumbotron__box-text">Más de 300€</p>
       </a>
+      <a class="button button--empty">
+        <p (click)="pay(150)" class="btn btn-primary btn-block">Enviar 150€</p>
+      </a>
     </div>
 
     <a *ngFor="let gift of giftService.gifts" class="presents__item">
@@ -60,7 +63,6 @@
 
     </a>
   </div>
-
 
 </body>
 
