@@ -102,7 +102,7 @@
   }
   &--lg {
     font-size: $font-l;
-    height: rem(50px);
+    min-height: rem(50px);
     width: rem(300px);
     margin-top: rem(20px);
   }
@@ -254,4 +254,24 @@ button[disabled] {
     padding: 0 10px;
     width: 100%;
   }
+  .radio {
+    &__form {
+      display: flex;
+      justify-content: center;
+      &--expanded {
+        justify-content: center;
+      }
+    }
+    &__custom {
+      font-size: $font-s;
+    }
+    &__btn {
+      flex: 0 1 calc(33% - 5px);
+    }
+  }
 }
+
+/* radio__btn {
+  flex: 0 1 calc(25% - 5px);
+  margin-top: 0.3125rem;
+  margin-bottom: 0.3125rem */

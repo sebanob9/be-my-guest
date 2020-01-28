@@ -1,4 +1,4 @@
-<div>
+<div class="table-responsive">
   <table class="table table-striped">
     <thead class="thead-dark">
       <th scope="col">Nombre</th>
@@ -28,12 +28,12 @@
 
         <td>
           <a (click)="editGuest(guest)" data-toggle="modal" data-target="#editData" role="button">
-            <svg class="svg" width="25" height="25">
+            <svg class="table__svg">
               <use xlink:href="../assets/svg/sprite.svg#edit"></use>
             </svg>
           </a>
           <a (click)="deleteGuest(guest._id)">
-            <svg class="svg" width="25" height="25">
+            <svg class="table__svg">
               <use xlink:href="../assets/svg/sprite.svg#delete"></use>
             </svg>
           </a>
@@ -61,12 +61,6 @@
             class="form__group-control form__group-control--access" name="name" #name="ngModel"
             [(ngModel)]="guestsService.selectedGuest.name">
         </div>
-
-        <!-- <div class="form__group form-group--access">
-        <label for="couple-name" class="form-group__label">Nombre pareja</label>
-          <input type="text" id="couple-name" required placeholder="Nombre de su pareja" class="form__group-control form__group-control--access"
-          name="nameCompanion" #nameCompanion="ngModel" [(ngModel)]="guestsService.selectedGuest.nameCompanion">
-        </div> -->
 
         <div class="form__group form-group--access">
           <label for="phone" class="form-group__label">Teléfono</label>

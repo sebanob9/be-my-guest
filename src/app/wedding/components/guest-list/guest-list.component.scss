@@ -12,14 +12,15 @@ th {
 .table th, .table td {
   padding: 0.4rem;
   text-align: left;
-  /* font-size: 0.8rem; */
 }
 .table tr{
   &:hover {
     background-color: rgba(#701658,0.1);
   }
 }
-.svg {
+.table__svg {
+  width: 25px;
+  height: 25px;
   margin-left: 15px;
   margin-top: 4px;
 }
@@ -33,15 +34,40 @@ th {
 .form {
   padding-top: 0;
 }
-
 .radio {
   &__custom {
     margin-right: 5px;
   }
 }
-
-
 .mat-snack-bar-container {
   background-color: $success;
   color: $white;
+}
+
+@media screen and (max-width: 767px)  {
+  thead > th:nth-child(2),
+  thead > th:nth-child(3),
+  thead > th:nth-child(4),
+  thead > th:nth-child(6) {
+    display: none;
+  }
+  tr > td:nth-child(2),
+  tr > td:nth-child(3),
+  tr > td:nth-child(4),
+  tr > td:nth-child(6)
+  {
+    display: none;
+  }
+
+  .table th, .table td {
+    padding: 10px;
+    text-align: left;
+  }
+
+  .table__svg {
+    width: 25px;
+    height: 25px;
+    margin-left: 15px;
+    margin-top: 4px;
+  }
 }
