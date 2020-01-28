@@ -1,9 +1,6 @@
 <div>
   <div>
     <form class="form__table">
-      <!-- <mat-form-field class="example-full-width">
-        <input matInput placeholder="Favorite food" value="Sushi">
-      </mat-form-field> -->
       <div class="form__table-item--xl">
         <input type="text" 
           name="nombre"
@@ -34,12 +31,12 @@
   <div class="table__list">
     <ul> 
       <li class="table" *ngFor="let table of tableList$ | async">
-        <div class="form__table-item--s">{{table.name}}</div>
-        <div class="form__table-item--xs"><span class="guestnumber">Nº invitados: {{table.maxGuestCount}}</span></div>
-        <div class="form__table-item--xl">
-        <span class="list__title">Listado de invitados: </span>
-        <ul class="list__names">
-          <li class="list__guestname" *ngFor="let guest of guestsService.getGuestByTable(table)| async">
+        <div class="form__table-item--s table__name">{{table.name}}</div>
+        <div class="form__table-item--xs table__maxGuests">Nº invitados: {{table.maxGuestCount}}</div>
+        <div class="form__table-item--xl table__guestList">
+        <span class="table__guestList-title">Listado de invitados: </span>
+        <ul class="table__guestList-names">
+          <li class="table__guestList-guestname" *ngFor="let guest of guestsService.getGuestByTable(table)| async">
             <span class="guestname">{{ guest.name }},&nbsp; </span>
           </li>
         </ul>

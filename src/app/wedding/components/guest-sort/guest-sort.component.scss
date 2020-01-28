@@ -1,6 +1,6 @@
 @import "../../../../styles/partials/variables";
 
-.form__table {
+/* .form__table {
   display: flex;
   width: rem(600px);
   margin: 0 auto;
@@ -43,6 +43,7 @@
     }
   }
 }
+ */
 .table {
   display: flex;
   align-items: center;
@@ -58,22 +59,47 @@
   &__list {
     margin-bottom: 50px;
   }
+  &__maxGuests {
+    font-size: $font-s;
+    margin-right: 20px;
+  }
 }
 
-
-.list {
-  &__title {
-   width: 200px;
-  }
-  &__names {
+.table__guestList {
+  &-title {
+    width: 200px;
+   }
+  &-names {
     display: inline-flex;
     width: 100%;
   }
+  &-guestname {
+    font-size: $font-xs;
+  }
 }
 
-.guestname {
-  font-size: $font-xs;
+@media screen and (max-width: 767px) {
+  .form__table-item--m {
+    flex: 1 0 calc(80% - 10px);
+  }
+  .form__table-item--s {
+    flex: 1 0 calc(40% - 10px);
+  }
+  .form__table-item--xs {
+    flex: 1 0 calc(20% - 10px);
+  }
+
+  .table {
+    &__maxGuests {
+      display: none;
+    }
+    &__guestList {
+      display: none;
+    }
 }
-.guestnumber {
-  font-size: $font-s;
+button {
+  width: auto;
+    min-width: inherit;
+    font-size: 0.75rem;
+}
 }

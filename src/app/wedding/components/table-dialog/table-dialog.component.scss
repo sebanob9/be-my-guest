@@ -13,11 +13,34 @@
 }
 
 .table th, .table td {
-    padding: 0.4rem;
+    padding: 10px;
     text-align: left;
     /* font-size: 0.8rem; */
   }
 
-  /* ::ng-deep .mat-checkbox-checked .mat-checkbox-background {
-    background-color: $main-color !important;
-  } */
+@media screen and (max-width: 767px) {
+  .title {
+    font-size: $font-m;
+  }
+  .mat-dialog {
+    &-content {
+    padding: 5px;
+    }
+    &-title {
+    margin-bottom: 10px;
+    }
+  }
+  tr > th:nth-child(3),
+  tr > th:nth-child(4) {
+    display: none;
+  }
+  tr > td:nth-child(3),
+  tr > td:nth-child(4) {
+    display: none;
+  }
+  .table th, .table td {
+    padding: 5px;
+    font-size: $font-s;
+  }
+  
+}
