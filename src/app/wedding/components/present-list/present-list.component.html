@@ -28,24 +28,26 @@
 <div class="jumbotron__centred">
   <ul class="table__width">
     <li class="table" *ngFor="let gift of giftService.gifts">
-      <div class="form__table-item--m">{{gift.name}}</div>
-      <a class="form__table-item--xs link" target="_blank" href="{{gift.link}}">Link Producto</a>
-      <div class="form__table-item--s table__info-content">
-        <div *ngIf="gift.guestName === null else guestGift">Sin asignar
-          <svg width="25" height="25">
+      <div class="form__table-item--m table__name">{{gift.name}}</div>
+      <a class="form__table-item--xs table__link" target="_blank" href="{{gift.link}}">Link Producto</a>
+      <div class="form__table-item--s table__info">
+        <div *ngIf="gift.guestName === null else guestGift" class="table__info-gift">
+          <p class="table__guestname">Sin asignar</p>
+          <svg class="table__info-svg">
             <use xlink:href="../assets/svg/sprite.svg#gift-red"></use>
           </svg>
         </div>
-        <ng-template #guestGift>
-          <div>{{gift.guestName}}
-            <svg width="25" height="25">
-              <use xlink:href="../assets/svg/sprite.svg#gift-green"></use>
-            </svg></div>
+
+        <ng-template #guestGift class="table__info-gift">
+          <p class="table__guestname" >{{gift.guestName}}</p>
+          <svg class="table__info-svg">
+            <use xlink:href="../assets/svg/sprite.svg#gift-green"></use>
+          </svg>
         </ng-template>
       </div>
 
-      <div class="form__table-item--xs"><span class="table__info-number">
-          {{gift.price |currency:'EUR':'symbol':'1.0-0'}}</span>
+      <div class="form__table-item--xs table__price">
+        {{gift.price |currency:'EUR':'symbol':'1.0-0'}}
       </div>
 
       <div class="form__table-item--s">

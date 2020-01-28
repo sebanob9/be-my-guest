@@ -7,32 +7,87 @@
   padding: 10px;
   margin-bottom: 0px;
   border-bottom: 1px dashed $dark-pink;
-    &__width {
-      min-width: 900px;
-    }
+
+  &__link {
+    font-size: $font-xs;
+  }
+
+  &__width {
+    min-width: 900px;
+  }
+
   &:hover {
     background-color: rgba(#701658, 0.1);
     border-radius: $main-border-radius;
   }
+
   &__info {
-    &-number {
-      font-size: $font-m;
-      text-align: left;
-    }
-    &-title {
-      font-size: $font-xs;
-    }
-    &-content {
+    display: flex;
+    align-items: center;
+
+    &-gift {
       display: flex;
       align-items: center;
+      justify-content: space-between;
+    }
+    &-svg {
+      width: 25px;
+      height: 25px;
+      margin-left: 5px;
     }
   }
-} 
 
-.link {
-  font-size: $font-xs;
+  &__price {
+    font-size: $font-m;
+    text-align: left;
+  }
 }
+
+// queda title en el aire
+
 
 .button__delete {
   border-radius: 5px;
 }
+
+
+@media screen and (max-width: 767px) {
+  .table {
+    &__width {
+      width: 100%;
+      min-width: inherit;
+    }
+
+    &__link {
+      display: none;
+    }
+    &__name {
+      font-size: $font-xs;
+    }
+    &__price {
+      font-size: $font-s;
+    }
+    &__info {
+       
+      &-gift {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+    &__guestname {
+      display: none;
+    }
+  }
+  .form__table-item--xs {
+    flex: 1 0 20%;
+  }
+  
+  .button__delete {
+    width: auto;
+    min-width: inherit;
+    font-size: $font-xs;
+  }
+}
+
+

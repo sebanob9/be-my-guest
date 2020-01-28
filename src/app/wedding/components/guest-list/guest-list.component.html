@@ -4,7 +4,6 @@
       <th scope="col">Nombre</th>
       <th scope="col">Amigo de</th>
       <th scope="col">Acompañante</th>
-      <!-- <th scope="col">Nombre</th> -->
       <th scope="col">Categoria</th>
       <th scope="col">Teléfono</th>
       <th scope="col">Alergias</th>
@@ -14,8 +13,6 @@
       <tr class="table" *ngFor="let guest of guestsService.guests2 | reverse">
         <td>{{guest.name}}</td>
         <td>{{guest.friendFrom}}</td>
-        <!--  <td *ngIf="guest.withCompanion === true;else No">Si</td> 
-      <ng-template #No>No</ng-template>-->
         <td>{{guest.nameCompanion}}</td>
         <td>{{guest.category}}</td>
         <td>{{guest.phone}}</td>
