@@ -12,8 +12,7 @@ export class TablesService {
   public tables = [
     { id: 1, weddingId: 1, name: "Familia de la novia", guestList: [3], maxGuestCount: 10, type: "square" },
     { id: 2, weddingId: 1, name: "Amigos del Cole", guestList: [1], maxGuestCount: 12, type: "square" },
-    { id: 3, weddingId: 1, name: "Familia de él", guestList: [], maxGuestCount: 8, type: "round" },
-    { id: 5, weddingId: 1, name: "Gente que cae regular", guestList: [], maxGuestCount: 10, type: "round" },
+    { id: 3, weddingId: 1, name: "Familia de él", guestList: [], maxGuestCount: 8, type: "round" }
   ];
 
   tables$: BehaviorSubject<any[]>;
