@@ -10,6 +10,7 @@ import { AboutComponent } from './core/components/header/components/about/about.
 import { ContactComponent } from './core/components/header/components/contact/contact.component';
 
 import { UserGuard } from './core/guards/user.guard';
+import { GratitudeComponent } from './register/components/gratitude/gratitude.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'guest', loadChildren: () => import('./guest/guest.module').then(mod => mod.GuestModule)},
   {path: 'landing', component: LandingComponent},
   {path: 'login', component: LoginComponent},  
-  {path: 'register', component: RegisterComponent}, 
+  {path: 'register', component: RegisterComponent},
+  {path: 'gratitude', component: GratitudeComponent},  
   {path: 'blog', component: BlogComponent},
   {path: 'about', component: AboutComponent}, 
   {path: 'contact', component: ContactComponent}, 

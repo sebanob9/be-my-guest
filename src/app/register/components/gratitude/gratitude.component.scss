@@ -1,0 +1,14 @@
+@import "../../../../styles/partials/variables";
+@import "../../../../styles/partials/rem";
+
+.table-image {
+  line-height: 1.4;
+  background-image: url('../../../../assets/img/gallery (27).jpg');
+  background-size: cover;
+}
+body {
+    height: calc(100vh - 120px);
+    display:flex;
+        justify-content: center;
+        align-items: center;
+}

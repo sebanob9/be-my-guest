@@ -27,7 +27,7 @@
 
 <div class="jumbotron__centred">
   <ul class="table__width">
-    <li class="table" *ngFor="let gift of giftService.gifts">
+    <li class="table" *ngFor="let gift of giftService.gifts | reverse">
       <div class="form__table-item--m table__name">{{gift.name}}</div>
       <a class="form__table-item--xs table__link" target="_blank" href="{{gift.link}}">Link Producto</a>
       <div class="form__table-item--s table__info">

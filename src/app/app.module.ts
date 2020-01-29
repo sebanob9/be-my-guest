@@ -14,6 +14,7 @@ import { MatIconModule} from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import { GratitudeComponent } from './register/components/gratitude/gratitude.component';
 
 
 
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    GratitudeComponent
   ],
   
   imports: [

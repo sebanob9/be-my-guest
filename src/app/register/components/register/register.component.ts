@@ -77,8 +77,9 @@ export class RegisterComponent implements OnInit {
         res => {
           console.log(res);
           console.log(this.password);
-          localStorage.setItem('token', res['token']); // lo guardamos en la app para enviarlo siempre que sea necesario
-          this.router.navigate(['/wedding/my-wedding'])
+          //localStorage.setItem('token', res['token']); // lo guardamos en la app para enviarlo siempre que sea necesario
+          //this.router.navigate(['/wedding/my-wedding'])
+          this.router.navigate(['/gratitude'])
         },
         err => 
           console.log(err)

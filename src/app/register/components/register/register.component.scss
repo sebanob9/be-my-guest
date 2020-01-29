@@ -1,10 +1,15 @@
 @import "../../../../styles/partials/variables";
 @import "../../../../styles/partials/rem";
 
-.table-image {
+.background-image {
   line-height: 1.4;
   background-image: url('../../../../assets/img/sunset.jpg');
   background-size: cover;
+  height: calc(100vh - 120px);
+}
+
+.jumbotron__centred {
+  margin-bottom: 0;
 }
 
 .radio {
@@ -95,8 +100,6 @@
   }
 }
 
-
-
 .has-error {
   background-color: $success;
 }
@@ -124,4 +127,38 @@ span {
     right: 10px;
     bottom: 10px;
   }
+}
+
+
+@media screen and (max-width: 767px) {
+  .form {
+    &-lg {
+      display: block;
+      padding: 5px;
+      border-radius: 0;
+      background-color: $gray600;
+    }
+  }
+  .background-image {
+    //height: 100vh;
+    background-image: none;
+  }
+
+  .radio__custom {
+    width: 140px;
+    margin: 5px;
+  }
+  .outOfMobile {
+    display: none;
+  }
+
+  .jumbotron__centred {
+    display: block;
+  }
+
+  .radio__form--centred {
+    label+label {
+    margin-left: 0;
+  }
+}
 }

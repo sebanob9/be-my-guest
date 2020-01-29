@@ -18,7 +18,6 @@ import { UserGuard } from './guards/user.guard';
 
 import {TokenInterceptorService} from './services/token-interceptor.service'
 import { SharedModule } from '../shared/shared.module';
-//import { ReversePipe } from './pipes/reverse.pipe';
 
 
 const COMPONENTS = [

@@ -1,16 +1,15 @@
-<main class="table-image">
-  <div class="main main__center">
+<body class="background-image jumbotron__centred">
     <form (ngSubmit)="signUp(userForm)" #userForm="ngForm" class="form-lg ">
-      <div class="form__group--center form-basis--lg">
+
+      <div class="form__group--center form-basis--lg outOfMobile">
         <h1 class="form__title">Registra tu evento</h1>
       </div>
 
-
       <div class="radio__form--centred form-basis--lg">
-        <label class="form-group__label">Tipo de evento</label>
+        <label class="form-group__label aaa">Tipo de evento</label>
       </div>
-      <div class="radio__form--centred">
 
+      <div class="radio__form--centred">
         <label>
           <input type="radio" name="couple" id="BoyGirl" class="radio__control">
           <span (click)="toggleBoyGirl(true)" class="radio__custom">
@@ -116,21 +115,23 @@
       <div class="form-group form-basis">
         <label for="email" class="form-group__label">Email</label>
         <input type="email" id="email" required class="form__group-control form__group-control--access"
-          [(ngModel)]="userservice.selectedUser.email" name="email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
-          <div *ngIf="!email?.valid && email?.touched">
-            <p class="error">Email no válido</p>
-          </div>
+          [(ngModel)]="userservice.selectedUser.email" name="email" #email="ngModel"
+          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+        <div *ngIf="!email?.valid && email?.touched">
+          <p class="error">Email no válido</p>
+        </div>
       </div>
 
       <div class="form-group form-basis">
         <label for="phone" class="form-group__label">Teléfono</label>
         <input type="tel" id="phone" required class="form__group-control form__group-control--access"
-          [(ngModel)]="userservice.selectedUser.phone" name="phone" #phone="ngModel" pattern="^[9|8|7|6]\d{8}$" maxlength="9">
-          <div *ngIf="!phone?.valid && phone?.touched">
-            <p class="error">Debes introducir una teléfono válido</p>
-          </div>
+          [(ngModel)]="userservice.selectedUser.phone" name="phone" #phone="ngModel" pattern="^[9|8|7|6]\d{8}$"
+          maxlength="9">
+        <div *ngIf="!phone?.valid && phone?.touched">
+          <p class="error">Debes introducir una teléfono válido</p>
+        </div>
       </div>
-      
+
 
 
       <div class="form-group form-basis">
@@ -146,10 +147,11 @@
       <div class="form-group form-basis">
         <label for="password" class="form-group__label">Confirmar contraseña</label>
         <div class="input__group">
-        <input [type]="passwordType" id="confirmPassword" required class="form__group-control form__group-control--access probando" 
-          name="confirmPassword" [(ngModel)]="confirmPassword" #confirmpassword="ngModel" 
-          >
-          <svg *ngIf="Password?.valid && !confirmpassword?.pristine" (click)="showPassword()" class="input__svg" width="25" height="25">
+          <input [type]="passwordType" id="confirmPassword" required
+            class="form__group-control form__group-control--access probando" name="confirmPassword"
+            [(ngModel)]="confirmPassword" #confirmpassword="ngModel">
+          <svg *ngIf="Password?.valid && !confirmpassword?.pristine" (click)="showPassword()" class="input__svg"
+            width="25" height="25">
             <use xlink:href="../assets/svg/sprite.svg#padlock"></use>
           </svg>
         </div>
@@ -162,6 +164,4 @@
         <button type="submit" [disabled]="userForm.form.invalid || !samePassword()" class="button">Si quiero!</button>
       </div>
     </form>
-  </div>
-
-</main>
+</body>
