@@ -61,10 +61,6 @@ export class GuestsService {
 
   getGuestById(id) {
     const list = this.getAllGuests();
-    /* return list.subscribe((guestList) => {
-      guestList.filter(guest => guest.id === id);
-    } */
-
     return list;
   }
 
@@ -94,7 +90,7 @@ export class GuestsService {
 
   setNewGuest(list){
     this.storage.set('guests', list);
-  }
+  } // lo estoy usando para devolver al invitado a la lista de usuarios, posteriormente al borrar una mesa
 
   setTable(table, guest) {
     const newGuest = this.guests.find(g => g.id === guest.id);
@@ -107,17 +103,6 @@ export class GuestsService {
     this.guests.splice(guestIndex, 1, newGuest);
     this.storage.set('guests', this.guests);
     this.guests$.next(this.guests);
-  /*  const newGuest = this.guests.filter(g => {
-      if (g.id === guest.id && guest.table !== table.id) {
-        return Object.assign({}, guest, { table: table.id });
-      } else {
-        return Object.assign({}, guest, { table: null });
-      }
-      return g;
-    });
-    this.guests = newArray;
-    this.storage.set('guests', this.guests);
-    this.guests$.next(this.guests); */
   }
 
 

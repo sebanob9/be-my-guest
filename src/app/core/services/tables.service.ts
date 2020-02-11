@@ -10,17 +10,17 @@ import { GuestsService } from './guests.service';
 export class TablesService {
 
   public tables = [
-    { id: 1, weddingId: 1, name: "Familia de la novia", guestList: [3], maxGuestCount: 10, type: "square" },
-    { id: 2, weddingId: 1, name: "Amigos del Cole", guestList: [1], maxGuestCount: 12, type: "square" },
-    { id: 3, weddingId: 1, name: "Familia de él", guestList: [], maxGuestCount: 8, type: "round" }
+    { id: 1, weddingId: 1, name: "Familia de la novia", guestList: [3], maxGuestCount: 10},
+    { id: 2, weddingId: 1, name: "Amigos del Cole", guestList: [1], maxGuestCount: 12},
+    { id: 3, weddingId: 1, name: "Familia de él", guestList: [], maxGuestCount: 8}
   ];
 
   tables$: BehaviorSubject<any[]>;
 
   constructor(
     @Inject(LOCAL_STORAGE) private storage: StorageService,
-    private guestService: GuestsService
-  ) {
+    private guestService: GuestsService ) 
+  {
     const savedTables = this.storage.get('tables');
     if (!savedTables) {
       this.storage.set('tables', this.tables);
@@ -62,21 +62,4 @@ export class TablesService {
     this.storage.set('tables', this.tables);
     this.tables$.next(this.tables);
   }
-
-  /*
-  getTableList() {
-    return [
-      { weddingId: 1, id: 1, name: "Familia de la novia", guestList: [3], maxGuestCount: 1, type: "square" },
-      { weddingId: 1, id: 2, name: "Amigos del Cole", guestList: [], maxGuestCount: 1, type: "square" },
-      { weddingId: 1, id: 3, name: "Familia de él", guestList: [], maxGuestCount: 1, type: "round" },
-      { weddingId: 1, id: 4, name: "Familia de ella", guestList: [], maxGuestCount: 1, type: "round" },
-      { weddingId: 1, id: 5, name: "Gente que cae regular", guestList: [], maxGuestCount: 1, type: "round" },
-
-      { weddingId: 2, id: 1, name: "Familia de la novia", guestList: [3], maxGuestCount: 1, type: "square" },
-      { weddingId: 2, id: 2, name: "Amigos del Cole", guestList: [], maxGuestCount: 1, type: "square" },
-      { weddingId: 2, id: 3, name: "Familia de él", guestList: [], maxGuestCount: 1, type: "round" },
-      { weddingId: 2, id: 4, name: "Familia de ella", guestList: [], maxGuestCount: 1, type: "round" },
-      { weddingId: 2, id: 5, name: "Gente que cae regular", guestList: [], maxGuestCount: 1, type: "round" }
-    ];
-  }*/
 }

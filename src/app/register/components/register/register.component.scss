@@ -2,10 +2,10 @@
 @import "../../../../styles/partials/rem";
 
 .background-image {
-  line-height: 1.4;
+  height: calc(100vh - 120px);
   background-image: url('../../../../assets/img/sunset.jpg');
   background-size: cover;
-  height: calc(100vh - 120px);
+  
 }
 
 .jumbotron__centred {

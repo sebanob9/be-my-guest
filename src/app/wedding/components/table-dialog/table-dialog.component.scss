@@ -18,6 +18,14 @@
     /* font-size: 0.8rem; */
   }
 
+  ::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+    background-color: $main-color !important;
+  }
+
+  ::ng-deep .mat-checkbox-disabled .mat-checkbox-background {
+    background-color: $gray300 !important;
+  }
+
 @media screen and (max-width: 767px) {
   .title {
     font-size: $font-m;

@@ -23,37 +23,20 @@ export class TableDialogComponent implements OnInit {
     const tables = this.tableService.tables$.subscribe((tables) => {
       this.tableList = tables
     })
-    console.log("que tiene table!?", this.data)
+    console.log("qué mesa se abre?", this.data)
     this.guestService.getGuestByWedding(this.data.table.weddingId).subscribe(guestList => {
       this.guestList = guestList;
     });
   }
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
   setTable(guest) {
     this.guestService.setTable(this.data.table, guest);
-    /*if (guest.table) {
-      guest.table = null;
-      const index = this.data.table.guestList.indexOf(guest.id);
-      if (index > -1) {
-        this.data.table.guestList.splice(index, 1);
-      }
-    } else {
-      console.log("test");
-      this.data.table.guestList.push(guest.id);
-      guest.table = this.data.table.id;
-    }
-
-    console.log("Hila premo", this.data.table.guestList);*/
   }
 
-  checkUserTableById(id: number) {
+  /* checkUserTableById(id: number) {
     const response = this.data.table.guestList.find((element) => element === id);
     return response !== undefined;
-  }
+  } */
 
   checkUserInTable(guest) {
     return guest.table && guest.table === this.data.table.id;
@@ -64,7 +47,7 @@ export class TableDialogComponent implements OnInit {
   }
 
   checkTableName(idTable) {
-    return idTable ? this.tableList.find(table => table.id === idTable).name : "";
+    return idTable ? this.tableList.find(table => table.id === idTable).name : "-";
   }
 
 }

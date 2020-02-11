@@ -33,39 +33,25 @@ export class GuestSortComponent implements OnInit {
 
   openDialog(table): void {
     const dialogRef = this.dialog.open(TableDialogComponent, {
-      width: '80%',
+      width: '50%',
       data: { table }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    /* dialogRef.afterClosed().subscribe(result => {
       console.log("Guardado de los datos", result);
-    });
+    }); */
 
   }
 
   createTable() {
     this.tableService.addTable({
-      id:  Math.random().toString(36).substr(2, 9),
+      id:  Math.random().toString(36).substr(2, 24),
       weddingId: 1,
       name: this.model.tableName,
       guestList: [],
       maxGuestCount: this.model.guestNumber
     });
   }
-
- /*  deleteTable(id){
-     const index = this.tableList.map((table) => {return table.id}).indexOf(id);
-     if (index > -1) {
-       const deletedTable = this.tableList.splice(index, 1);
-       const firstElement = deletedTable[0];
-       firstElement.guestList.forEach((element) => {
-         const guestIndex = this.guestList.indexOf(element);
-         if (guestIndex > -1) {
-           this.guestList[guestIndex].table = null;
-         }
-       })
-     }
-   }  */
 
   getGuestNameById(id) {
     const guest = this.guestsService.getGuestById(id);
